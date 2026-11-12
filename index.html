@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta name="description" content="手機與 iPad 都能看的多益文法講義。查介系詞、看 to 的句型、做題目複習。">
+  <meta name="apple-mobile-web-app-title" content="TOEIC 筆記">
+  <title>TOEIC 筆記本｜多益文法複習</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f7f3;
+      --white: #fff;
+      --ink: #232039;
+      --muted: #625e72;
+      --line: #e7e3eb;
+      --purple: #49309d;
+      --lavender: #e9e1ff;
+      --violet: #d9c9ff;
+      --green: #e1f4e9;
+      --yellow: #ffe48c;
+      --radius: 24px;
+      font-family: "DM Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+      font-synthesis: none;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-padding-top: 1.2rem; }
+    body { margin: 0; line-height: 1.65; }
+    p, h1, h2, h3 { margin: 0; }
+    p + p { margin-top: .55rem; }
+    a { color: var(--purple); }
+    a:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
+      outline: 3px solid #6950c7;
+      outline-offset: 4px;
+    }
+    input, select { font: inherit; color: inherit; }
+    code {
+      font: 600 .95em/1.5 "IBM Plex Mono", ui-monospace, monospace;
+      color: #412a88;
+      background: #f1ebff;
+      padding: .08em .32em;
+      border-radius: .3em;
+      overflow-wrap: anywhere;
+    }
+    .wrap { width: min(100% - 64px, 1120px); margin-inline: auto; }
+    .skip { position: absolute; left: 1rem; top: -5rem; z-index: 2; padding: .6rem; background: white; }
+    .skip:focus { top: 1rem; }
+    .site-header { background: var(--paper); border-bottom: 1px solid #e8e4df; }
+    .header-inner { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { display: inline-flex; gap: 11px; align-items: center; font-weight: 850; letter-spacing: -.035em; font-size: 1.15rem; text-decoration: none; color: var(--ink); }
+    .brand-icon { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 12px; background: var(--purple); color: white; }
+    .book { width: 19px; height: 16px; position: relative; display: inline-block; }
+    .book::before, .book::after { content: ""; position: absolute; top: 1px; width: 9px; height: 13px; border: 1.5px solid currentColor; }
+    .book::before { left: 1px; border-radius: 2px 3px 0 2px; transform: skewY(10deg); }
+    .book::after { right: 1px; border-radius: 3px 2px 2px 0; transform: skewY(-10deg); }
+    .header-link { padding: 8px 12px; font-size: .9rem; font-weight: 750; color: var(--purple); text-decoration: none; border-radius: 10px; }
+    .header-link:hover, .header-link[aria-current="page"] { background: #ece5fa; }
+    main.wrap { padding-block: 36px 54px; }
+    .hero {
+      min-height: 330px;
+      padding: clamp(25px, 5vw, 60px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 32px;
+      border-radius: 30px;
+      background: var(--lavender);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--purple); font-weight: 820; font-size: .9rem; }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #7755cf; }
+    .hero h1 { margin-top: .42rem; font-size: clamp(2.45rem, 6.2vw, 4.7rem); line-height: 1.1; letter-spacing: -.07em; font-weight: 880; }
+    .hero h1 span { display: block; }
+    .hero h1 .accent { color: var(--purple); }
+    .hero p { color: #504363; margin-top: 1rem; font-size: 1rem; }
+    .study-stack { width: min(100%, 380px); min-height: 225px; justify-self: center; position: relative; display: grid; align-content: center; gap: 15px; }
+    .study-stack::before { content: ""; position: absolute; inset: -35px -46px; z-index: -1; background: radial-gradient(#aa95dd 1.1px, transparent 1.3px) 0 0 / 16px 16px; opacity: .5; mask-image: radial-gradient(ellipse, #000 25%, transparent 72%); }
+    .study-slip { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 18px; min-height: 74px; font-weight: 800; border: 1px solid #d9ccef; border-radius: 17px; box-shadow: 0 8px 20px #3d266015; }
+    .study-slip:first-child { background: #fffdf9; transform: rotate(-6deg); margin-right: 22px; }
+    .study-slip:last-child { background: var(--yellow); transform: rotate(5deg); margin-left: 22px; border-color: #ebce6f; }
+    .study-slip strong { font-size: clamp(1.2rem, 3vw, 1.7rem); letter-spacing: -.06em; white-space: nowrap; }
+    .study-slip small { font-size: .78rem; white-space: nowrap; }
+    .catalog { margin-top: 36px; }
+    .catalog-heading { display: flex; gap: 16px; justify-content: space-between; align-items: end; margin-bottom: 16px; }
+    .catalog-heading h2, .lesson h2 { font-size: clamp(1.38rem, 3.4vw, 1.85rem); letter-spacing: -.04em; line-height: 1.3; }
+    .count { color: var(--muted); font-size: .87rem; margin-top: .24rem; }
+    .search { display: flex; align-items: center; gap: 11px; min-height: 49px; background: white; border: 1px solid var(--line); border-radius: 13px; padding: 0 14px; }
+    .search-icon { width: 14px; height: 14px; flex: none; border: 1.7px solid #665b7c; border-radius: 50%; position: relative; }
+    .search-icon::after { content: ""; position: absolute; width: 6px; height: 1.7px; right: -4px; bottom: -2px; background: #665b7c; transform: rotate(45deg); border-radius: 2px; }
+    .search input { width: 100%; min-width: 0; padding: .7rem 0; background: none; border: 0; font-size: 1rem; outline: none; }
+    .search:focus-within { outline: 2px solid #7755cf; outline-offset: 2px; }
+    .catalog-heading .search { width: min(100%, 340px); }
+    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .lesson-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 242px;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--ink);
+      text-decoration: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .lesson-card:hover { border-color: #ac96e9; box-shadow: 0 6px 20px #35265b0d; }
+    .card-top, .card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 9px; }
+    .card-bottom { margin-top: auto; }
+    .card-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 15px; color: #412984; background: var(--lavender); font-size: 1.25rem; font-weight: 900; }
+    .card-icon.green { background: var(--green); color: #215943; }
+    .topic { color: var(--muted); font-size: .82rem; font-weight: 750; }
+    .lesson-card h3 { font-size: clamp(1.18rem, 2.75vw, 1.54rem); line-height: 1.3; letter-spacing: -.04em; }
+    .lesson-card p { color: var(--muted); font-size: .93rem; margin-top: .3rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: #f2eff8; padding: 3px 8px; border-radius: 7px; color: #514567; font-weight: 700; font-size: .76rem; }
+    .arrow { width: 37px; height: 37px; flex: none; display: grid; place-items: center; background: #f2eff8; border-radius: 50%; color: var(--purple); font-size: 1.1rem; }
+    .quick { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1rem; margin-top: 18px; padding: 13px 18px; border: 1px solid #e8e1f2; border-radius: 15px; background: #f0ebfa; }
+    .quick strong { font-size: .86rem; }
+    .quick a { display: inline-block; padding-block: .4rem; font-weight: 760; font-size: .9rem; text-underline-offset: 3px; }
+    .empty { color: var(--muted); padding: 18px; background: white; border: 1px dashed #cec5db; border-radius: 13px; }
+    .lesson { max-width: 880px; margin-inline: auto; }
+    .back { display: inline-flex; align-items: center; min-height: 44px; gap: .5rem; font-size: .93rem; font-weight: 770; text-decoration: none; margin-bottom: .6rem; }
+    .lesson-hero { padding: clamp(20px, 4vw, 38px); border-radius: var(--radius); background: var(--lavender); }
+    .lesson-hero.green { background: var(--green); }
+    .lesson-hero h1 { margin: .35rem 0 .55rem; font-size: clamp(1.85rem, 5vw, 3.15rem); line-height: 1.2; letter-spacing: -.055em; }
+    .lesson-hero p { font-size: 1rem; color: #494257; }
+    .toc { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0; }
+    .toc a { text-decoration: none; border: 1px solid var(--line); background: white; padding: .52rem .75rem; border-radius: 10px; font-size: .86rem; font-weight: 740; }
+    .toc a:hover { background: var(--lavender); }
+    .panel { margin-top: 16px; background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(18px, 3.5vw, 30px); overflow-wrap: anywhere; }
+    .panel h2 { margin-bottom: .7rem; }
+    .panel h3 { margin: 1.25rem 0 .4rem; line-height: 1.4; font-size: 1.05rem; }
+    .panel p, .panel li { color: #494257; }
+    .panel ul, .panel ol { padding-left: 1.35rem; margin: .6rem 0 0; }
+    .panel li + li { margin-top: .45rem; }
+    .rule-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin-top: .9rem; }
+    .rule-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .rule { padding: 13px; border-radius: 12px; background: #f3effb; }
+    .rule:nth-child(2) { background: #fff6d8; }
+    .rule:nth-child(3) { background: #e8f5ec; }
+    .rule strong { display: block; margin-bottom: .35rem; font-size: 1.1rem; }
+    .rule p { font-size: .9rem; }
+    .note { margin: .95rem 0 0; padding: .75rem .95rem; background: #fff7db; border-left: 3px solid #d9a82a; border-radius: 0 10px 10px 0; }
+    .examples { margin: .55rem 0 0; padding: 0; }
+    .examples div { display: grid; grid-template-columns: minmax(130px, .9fr) minmax(0, 2fr); gap: 10px; padding: .62rem 0; border-bottom: 1px solid var(--line); }
+    .examples dt { font-weight: 780; }
+    .examples dd { margin: 0; color: #494257; }
+    details { border-top: 1px solid var(--line); }
+    details:first-of-type { margin-top: .75rem; }
+    summary { padding: .72rem 0; font-weight: 720; cursor: pointer; color: var(--ink); }
+    details p { padding-bottom: .7rem; }
+    .lookup-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; margin-top: .8rem; }
+    .lookup-controls select { min-height: 49px; border: 1px solid var(--line); border-radius: 13px; background: white; padding-inline: 10px; }
+    .dictionary-count { margin: .55rem 0; font-size: .86rem; }
+    .word-list { margin: 0; }
+    .word-list > div { display: grid; grid-template-columns: minmax(110px, 1fr) minmax(0, 2.9fr); gap: 9px; padding: .64rem 0; border-top: 1px solid var(--line); }
+    .word-list dt { color: #452d91; font-weight: 800; }
+    .word-list dd { margin: 0; color: #494257; }
+    .word-list span { display: block; font-size: .88rem; margin-top: .15rem; color: #5c536e; }
+    .lesson-next { display: inline-flex; margin-top: 1rem; padding: .6rem .8rem; font-weight: 750; text-underline-offset: 4px; }
+    .site-footer { border-top: 1px solid #e8e4df; }
+    .site-footer .wrap { min-height: 68px; display: flex; align-items: center; color: var(--muted); font-size: .83rem; }
+    .js-only { display: none; }
+    .has-js .js-only { display: revert; }
+    .has-js .search.js-only { display: flex; }
+    .has-js .lookup-controls.js-only { display: grid; }
+    @media (max-width: 810px) {
+      .wrap { width: calc(100% - 40px); }
+      .hero { min-height: 290px; padding: 35px; gap: 20px; }
+      .study-slip { padding: 10px 12px; min-height: 62px; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: calc(100% - 28px); }
+      .header-inner { min-height: 62px; }
+      .brand-icon { width: 34px; height: 34px; border-radius: 10px; }
+      main.wrap { padding-block: 18px 34px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 24px 20px 22px; gap: 18px; border-radius: 22px; }
+      .hero h1 { font-size: clamp(2.3rem, 10vw, 3.3rem); }
+      .hero h1 span { display: inline; }
+      .hero p { margin-top: .6rem; font-size: .91rem; }
+      .study-stack { width: min(100%, 360px); min-height: 0; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+      .study-slip:first-child, .study-slip:last-child { margin: 0; transform: none; }
+      .study-slip { display: block; min-height: auto; padding: 7px 9px; border-radius: 11px; }
+      .study-slip small { display: block; }
+      .catalog { margin-top: 24px; }
+      .catalog-heading { align-items: stretch; flex-direction: column; gap: 9px; }
+      .catalog-heading .search { width: 100%; }
+      .card-grid { grid-template-columns: 1fr; gap: 11px; }
+      .lesson-card { min-height: 200px; padding: 17px; gap: 9px; border-radius: 19px; }
+      .card-icon { width: 43px; height: 43px; border-radius: 12px; }
+      .rule-grid, .rule-grid.two { grid-template-columns: 1fr; }
+      .examples div { grid-template-columns: 1fr; gap: 2px; }
+      .word-list > div { grid-template-columns: minmax(82px, 1fr) minmax(0, 2fr); }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home"><span class="brand-icon" aria-hidden="true"><span class="book"></span></span>TOEIC 筆記本</a>
+      <nav aria-label="主選單"><a class="header-link" href="#home">講義總覽</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="main">
+    <div id="home" data-page>
+      <section class="hero" aria-labelledby="home-title">
+        <div>
+          <span class="eyebrow">多益文法複習</span>
+          <h1 id="home-title" tabindex="-1"><span>我的多益</span> <span class="accent">文法筆記</span></h1>
+          <p>查用法、看例句、做幾題，複習每次問過的文法。</p>
+        </div>
+        <div class="study-stack">
+          <div class="study-slip"><strong lang="en">at · on · in</strong><small>點 · 面 · 範圍</small></div>
+          <div class="study-slip"><strong lang="en">to V / to V-ing</strong><small>看 to 的功能</small></div>
+        </div>
+      </section>
+
+      <section class="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-heading">
+          <div>
+            <h2 id="catalog-title">講義目錄</h2>
+            <p class="count js-only" id="lesson-count" role="status"></p>
+          </div>
+          <label class="search js-only"><span class="search-icon" aria-hidden="true"></span><input id="lesson-search" type="search" aria-label="搜尋講義" placeholder="搜尋講義，例如：月份、used to"></label>
+        </div>
+        <div class="card-grid" id="lesson-cards">
+          <a class="lesson-card" href="#prepositions" data-keywords="介係詞 時間 地點 方向 月份 日期 星期 年份 交通 場所">
+            <div class="card-top"><span class="card-icon" aria-hidden="true">in</span><span class="topic">介系詞</span></div>
+            <div><h3>介系詞要怎麼記？</h3><p>月份、日期和地點前面要用哪一個？從 at、on、in 開始，再查常見用法和搭配。</p></div>
+            <div class="card-bottom"><div class="tags"><span class="tag">時間與地點</span><span class="tag">介系詞查表</span></div><span class="arrow" aria-hidden="true">→</span></div>
+          </a>
+          <a class="lesson-card" href="#to-forms" data-keywords="原V Ving V-ing 動名詞 不定詞 動詞原形 look forward to used to">
+            <div class="card-top"><span class="card-icon green" aria-hidden="true">to</span><span class="topic">動詞句型</span></div>
+            <div><h3>to 後面加原形還是 V-ing？</h3><p>找出 to 的功能，分清 want to、used to 和 look forward to。</p></div>
+            <div class="card-bottom"><div class="tags"><span class="tag">不定詞</span><span class="tag">固定搭配</span></div><span class="arrow" aria-hidden="true">→</span></div>
+          </a>
+        </div>
+        <p class="empty" id="lesson-empty" hidden>找不到講義，試試「月份」、「地點」或「used to」。</p>
+      </section>
+      <nav class="quick" aria-label="快速複習">
+        <strong>快速複習</strong><a href="#time">時間用法</a><a href="#place">地點用法</a><a href="#dictionary">介系詞查表</a><a href="#to-quiz">to 小測驗</a>
+      </nav>
+    </div>
+
+    <article class="lesson" id="prepositions" data-page>
+      <a class="back" href="#home">← 講義總覽</a>
+      <header class="lesson-hero">
+        <span class="eyebrow">介系詞</span>
+        <h1 tabindex="-1">介系詞要怎麼記？</h1>
+        <p>月份用 <code>in May</code>，日期用 <code>on May 12</code>，時刻用 <code>at 9 a.m.</code>。遇到地點，先想你在描述哪種關係。</p>
+      </header>
+      <nav class="toc" aria-label="介系詞講義目錄">
+        <a href="#time">時間</a><a href="#place">地點</a><a href="#movement">方向</a><a href="#differences">易混用法</a><a href="#collocations">多益搭配</a><a href="#dictionary">介系詞查表</a><a href="#prep-quiz">小測驗</a>
+      </nav>
+
+      <section class="panel" id="time" tabindex="-1">
+        <h2>時間｜時刻 at、哪天 on、大範圍 in</h2>
+        <div class="rule-grid">
+          <div class="rule"><strong lang="en">at 9 a.m.</strong><p>鐘上的一點。也記 <code>at noon</code>、<code>at midnight</code>、<code>at night</code>。</p></div>
+          <div class="rule"><strong lang="en">on May 12</strong><p>日曆上一格。星期、日期或特定某天的時段，如 <code>on Monday morning</code>。</p></div>
+          <div class="rule"><strong lang="en">in May</strong><p>一段範圍。月份、年份、季節、一般早午晚，如 <code>in 2026</code>、<code>in the morning</code>。</p></div>
+        </div>
+        <div class="note"><p><strong>月份怎麼考？</strong> 只有月份用 <code>in May</code>，月份加日期就變成 <code>on May 12</code>。三個都出現可寫 <code>at 9 a.m. on May 12</code>。</p></div>
+        <h3>直接記成整組</h3>
+        <ul>
+          <li><code>at night</code>（晚上）、<code>in the evening</code>（傍晚或晚上）、<code>on Friday night</code>（星期五晚上）。</li>
+          <li><code>on the weekend</code> 常見於美式英文，<code>at the weekend</code> 常見於英式英文。</li>
+          <li><code>next Monday</code>、<code>last May</code>、<code>this morning</code>、<code>every Friday</code>、<code>tomorrow</code> 在這些時間片語前直接使用。</li>
+          <li><code>in two days</code> 可以是「兩天後」（<span lang="en">The shipment will arrive in two days.</span>），也可表示完成動作用了兩天。<code>within two days</code> 強調「兩天之內」。</li>
+        </ul>
+      </section>
+
+      <section class="panel" id="place" tabindex="-1">
+        <h2>地點｜把地方看成點、面或範圍</h2>
+        <div class="rule-grid">
+          <div class="rule"><strong lang="en">at the entrance</strong><p>定位點、集合處、活動地點。記 <code>at the station</code>、<code>at work</code>、<code>at 25 King Street</code>。</p></div>
+          <div class="rule"><strong lang="en">on the desk</strong><p>表面、樓層、沿線。記 <code>on the wall</code>、<code>on the second floor</code>、<code>on Main Street</code>（常見於美式）。</p></div>
+          <div class="rule"><strong lang="en">in the office</strong><p>在空間或區域裡。記 <code>in the lobby</code>、<code>in Taipei</code>、<code>in Taiwan</code>。</p></div>
+        </div>
+        <dl class="examples">
+          <div><dt><code>at the hotel</code></dt><dd>把飯店當成會面或活動地點。<span lang="en">I'll meet you at the hotel.</span></dd></div>
+          <div><dt><code>in the hotel</code></dt><dd>特別強調人在建築物內。<span lang="en">The café is in the hotel.</span></dd></div>
+          <div><dt>交通工具</dt><dd>位置記 <code>on the bus / train / plane</code>、<code>in a car / taxi</code>。問交通方式則用 <code>by bus / train / car</code> 或 <code>on foot</code>。</dd></div>
+          <div><dt>活動與場地</dt><dd><code>at a conference</code> 在會議活動現場，<code>in the conference room</code> 在會議室內。</dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" id="movement" tabindex="-1">
+        <h2>方向｜在那裡，還是移動過去？</h2>
+        <dl class="examples">
+          <div><dt><code>to / toward(s) / from</code></dt><dd><code>walk to the station</code> 以車站為目的地，<code>walk toward the station</code> 朝車站走，<code>walk from the station</code> 從車站出發。</dd></div>
+          <div><dt><code>in / into / out of</code></dt><dd><code>wait in the lobby</code> 在裡面等，<code>walk into the lobby</code> 從外走進去，<code>walk out of the lobby</code> 從裡走出來。</dd></div>
+          <div><dt><code>on / onto / off</code></dt><dd><code>stand on the platform</code> 在月台上，<code>step onto the platform</code> 踏上月台，<code>step off the platform</code> 離開月台表面。</dd></div>
+          <div><dt><code>across / through / along / past</code></dt><dd><code>across the street</code> 橫越馬路，<code>through the tunnel</code> 穿過隧道內部，<code>along the river</code> 沿河，<code>past the bank</code> 經過銀行。</dd></div>
+        </dl>
+        <p class="note"><strong>抵達與回家</strong>：把 <code>arrive at the station</code>、<code>arrive in Taipei</code>、<code>go home</code>、<code>get home</code> 當整組記。<code>reach</code> 可直接接地點，如 <code>reach the station</code>。</p>
+      </section>
+
+      <section class="panel" id="differences" tabindex="-1">
+        <h2>易混用法｜看句子要表達什麼</h2>
+        <dl class="examples">
+          <div><dt><code>by / until / before</code></dt><dd><code>Submit the form by Friday.</code> 最遲週五交。<code>Stay here until Friday.</code> 一直待到週五。<code>Call before Friday.</code> 週五以前打電話。</dd></div>
+          <div><dt><code>since / for / during</code></dt><dd><code>since May</code> 從五月起，<code>for three months</code> 持續三個月，<code>during the meeting</code> 會議期間。接完整子句可用 <code>while we were meeting</code>。</dd></div>
+          <div><dt><code>on time / in time</code></dt><dd><code>start on time</code> 按表定時間開始，<code>arrive in time to catch the train</code> 及時趕上火車。</dd></div>
+          <div><dt><code>at the end of / in the end</code></dt><dd><code>at the end of the month</code> 在月底，<code>in the end, we agreed</code> 最後我們達成共識。</dd></div>
+          <div><dt><code>between / among</code></dt><dd><code>between the three companies</code> 把三家公司視為可區分的對象，<code>among the employees</code> 指在員工群體之中。</dd></div>
+          <div><dt><code>above / over / below / under</code></dt><dd><code>above average</code> 高於平均、<code>over the bridge</code> 越過橋、<code>below zero</code> 低於零、<code>under the table</code> 在桌子下方。部分空間語境可以互換。</dd></div>
+          <div><dt><code>by / with / via</code></dt><dd><code>written by Mia</code> 由 Mia 寫，<code>signed with a pen</code> 用筆簽，<code>sent via email</code> 透過電子郵件寄出。</dd></div>
+          <div><dt><code>to / for</code></dt><dd><code>send the file to Amy</code> Amy 是接收者，<code>print a copy for Amy</code> Amy 是受益者。<code>for</code> 也可表用途，如 <code>a tool for checking invoices</code>。</dd></div>
+          <div><dt><code>from / of</code></dt><dd><code>a message from the manager</code> 來源是經理，<code>a copy of the report</code> 副本所對應的是報告。</dd></div>
+          <div><dt><code>because of / despite</code></dt><dd><code>because of the rain</code> 因為下雨，<code>despite the rain</code> 儘管下雨。接完整子句可用 <code>because it rained</code> 或 <code>although it rained</code>。</dd></div>
+          <div><dt><code>like / as</code></dt><dd><code>work like a manager</code> 做事像經理，<code>work as a manager</code> 以經理身分工作。</dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" id="collocations" tabindex="-1">
+        <h2>多益搭配｜單字和介系詞一起背</h2>
+        <dl class="examples">
+          <div><dt>動詞</dt><dd><code>apply for a job</code> 申請工作、<code>apply to a company</code> 向公司申請、<code>depend on the results</code> 取決於結果、<code>participate in a workshop</code> 參加工作坊、<code>comply with the rules</code> 遵守規則。</dd></div>
+          <div><dt>形容詞</dt><dd><code>responsible for the budget</code> 負責預算、<code>interested in the position</code> 對職缺有興趣、<code>familiar with the system</code> 熟悉系統、<code>eligible for a refund</code> 符合退款資格、<code>satisfied with the service</code> 對服務滿意。</dd></div>
+          <div><dt>名詞</dt><dd><code>access to the portal</code> 使用入口網站的權限、<code>an increase in sales</code> 銷售成長、<code>a solution to the problem</code> 問題的解法、<code>a reason for the delay</code> 延誤的原因。</dd></div>
+          <div><dt>商務片語</dt><dd><code>in charge of</code> 負責、<code>in accordance with</code> 依照、<code>on behalf of</code> 代表、<code>prior to</code> 在……以前、<code>with regard to</code> 關於。</dd></div>
+        </dl>
+        <p class="note">每天挑三組，用自己的工作或生活寫一句。做選擇題時，把空格前面的單字和後面的名詞一起看。</p>
+      </section>
+
+      <section class="panel" id="dictionary" tabindex="-1">
+        <h2>介系詞查表</h2>
+        <p>英文的介系詞也包含許多多字片語，收錄範圍會隨文法分類而變。先用這份索引查常見詞和商務搭配。每一列都有記法與例子，同一個詞可能有多種用法。</p>
+        <div class="lookup-controls js-only">
+          <label class="search"><span class="search-icon" aria-hidden="true"></span><input id="word-search" type="search" aria-label="搜尋介系詞" placeholder="例如：by、期限、穿過"></label>
+          <select id="word-category" aria-label="介系詞類別"><option value="">所有類別</option><option value="time">時間</option><option value="place">地點</option><option value="movement">方向</option><option value="relationship">其他關係</option><option value="phrase">多字片語</option></select>
+        </div>
+        <p id="word-count" class="dictionary-count js-only" role="status"></p>
+        <p class="empty" id="word-empty" hidden>沒有符合的詞條。可以清除關鍵字或換個類別。</p>
+        <dl class="word-list">
+          <div data-group="place movement"><dt lang="en">aboard</dt><dd>在船、飛機或其他交通工具上，想成已登車或登船<span lang="en">aboard the ferry</span></dd></div>
+          <div data-group="relationship"><dt lang="en">about</dt><dd>談主題時是「關於」，放在數字前也可表大約<span lang="en">a question about the invoice</span></dd></div>
+          <div data-group="place relationship"><dt lang="en">above</dt><dd>位置或數值高於一條線<span lang="en">above the entrance / above average</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">according to</dt><dd>根據某人、文件或資料來源<span lang="en">according to the report</span></dd></div>
+          <div data-group="place movement"><dt lang="en">across</dt><dd>從一邊到另一邊，也可指在對面<span lang="en">walk across the street</span></dd></div>
+          <div data-group="time place"><dt lang="en">after</dt><dd>排在時間或順序的後面<span lang="en">after lunch</span></dd></div>
+          <div data-group="place relationship"><dt lang="en">against</dt><dd>靠著表面，或站在反對的一方<span lang="en">against the wall / against the proposal</span></dd></div>
+          <div data-group="time place movement phrase"><dt lang="en">ahead of</dt><dd>在前面，也可指早於預定時間<span lang="en">ahead of schedule</span></dd></div>
+          <div data-group="place movement"><dt lang="en">along</dt><dd>跟著一條線或路徑<span lang="en">along the coast</span></dd></div>
+          <div data-group="place relationship"><dt lang="en">alongside</dt><dd>在旁邊，或和某人一起工作<span lang="en">work alongside the design team</span></dd></div>
+          <div data-group="place relationship"><dt lang="en">amid / amidst</dt><dd>置身於環境或一連串情況中<span lang="en">amid rising costs</span></dd></div>
+          <div data-group="place relationship"><dt lang="en">among / amongst</dt><dd>把對象想成一群，在其中或分配給群體<span lang="en">among the participants</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">apart from</dt><dd>可表示「除了……之外另有」或「扣除……」，依上下文判斷<span lang="en">apart from a small fee</span></dd></div>
+          <div data-group="time place movement"><dt lang="en">around / round</dt><dd>繞著、在附近，也可指大約時間<span lang="en">around the building / around noon</span></dd></div>
+          <div data-group="relationship"><dt lang="en">as</dt><dd>以某種身分或用途來看<span lang="en">work as a translator</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">as for</dt><dd>把話題轉到某件事上<span lang="en">as for the schedule</span></dd></div>
+          <div data-group="time phrase"><dt lang="en">as of</dt><dd>指定某個生效或統計的時間點<span lang="en">as of June 1</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">as per</dt><dd>依照某項要求或指示，常見於正式書面語<span lang="en">as per your request</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">as to</dt><dd>指出所談論的問題，常見於正式書面語<span lang="en">uncertainty as to the cause</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">as well as</dt><dd>在已有的一項之外再加一項<span lang="en">training as well as equipment</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">aside from</dt><dd>除某事之外，可依語境表排除或補充<span lang="en">aside from the setup fee</span></dd></div>
+          <div data-group="time place relationship"><dt lang="en">at</dt><dd>對準一個點，也可表目標或價格<span lang="en">at noon / at the entrance / at $50</span></dd></div>
+          <div data-group="place movement phrase"><dt lang="en">away from</dt><dd>與某處拉開距離<span lang="en">move away from the door</span></dd></div>
+          <div data-group="relationship"><dt lang="en">barring</dt><dd>除非出現所說的例外<span lang="en">barring delays</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">because of</dt><dd>把後面的名詞當成原因<span lang="en">because of heavy traffic</span></dd></div>
+          <div data-group="time place"><dt lang="en">before</dt><dd>在某時間點之前，也可指在某人面前<span lang="en">before noon / appear before the board</span></dd></div>
+          <div data-group="place relationship"><dt lang="en">behind</dt><dd>在後方，或進度落後<span lang="en">behind the building / behind schedule</span></dd></div>
+          <div data-group="place relationship"><dt lang="en">below</dt><dd>位置或數值低於一條線<span lang="en">below the window / below zero</span></dd></div>
+          <div data-group="place"><dt lang="en">beneath</dt><dd>在下方，語氣常較正式<span lang="en">beneath the floorboards</span></dd></div>
+          <div data-group="place"><dt lang="en">beside</dt><dd>就在旁邊<span lang="en">beside the window</span></dd></div>
+          <div data-group="relationship"><dt lang="en">besides</dt><dd>在已有的一項之外再加<span lang="en">besides the monthly fee</span></dd></div>
+          <div data-group="time place relationship"><dt lang="en">between</dt><dd>在可分辨的對象或界線之間<span lang="en">between the two terminals</span></dd></div>
+          <div data-group="time place relationship"><dt lang="en">beyond</dt><dd>超出某個範圍或界線<span lang="en">beyond our budget</span></dd></div>
+          <div data-group="relationship"><dt lang="en">but</dt><dd>在 everyone、nothing 等後可表示「除了」<span lang="en">everyone but Alex</span></dd></div>
+          <div data-group="time place relationship"><dt lang="en">by</dt><dd>緊靠、由誰執行、用哪種方式，或最遲時間<span lang="en">by the door / by train / by Friday</span></dd></div>
+          <div data-group="time"><dt lang="en">circa</dt><dd>用於大約年代，常見於歷史或正式書寫<span lang="en">circa 1900</span></dd></div>
+          <div data-group="relationship"><dt lang="en">concerning</dt><dd>把後面的名詞當作討論主題<span lang="en">a notice concerning the merger</span></dd></div>
+          <div data-group="relationship"><dt lang="en">considering</dt><dd>把某項因素納入判斷<span lang="en">considering the cost</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">contrary to</dt><dd>與某個說法或預期相反<span lang="en">contrary to expectations</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">depending on</dt><dd>結果跟著條件改變<span lang="en">depending on availability</span></dd></div>
+          <div data-group="relationship"><dt lang="en">despite</dt><dd>即使有某種阻礙，事情仍然發生<span lang="en">despite the delay</span></dd></div>
+          <div data-group="place movement"><dt lang="en">down</dt><dd>朝低處走，也可指沿著街道走<span lang="en">down the stairs / down the street</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">due to</dt><dd>把後面的名詞當成原因<span lang="en">a delay due to snow</span></dd></div>
+          <div data-group="time"><dt lang="en">during</dt><dd>指出事件發生的那段期間<span lang="en">during the conference</span></dd></div>
+          <div data-group="relationship"><dt lang="en">except</dt><dd>把某人或某物從範圍中排除<span lang="en">every day except Sunday</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">except for</dt><dd>整體描述成立，特別指出例外<span lang="en">empty except for one desk</span></dd></div>
+          <div data-group="relationship"><dt lang="en">excluding</dt><dd>計算或清單中排除某項<span lang="en">$80 excluding tax</span></dd></div>
+          <div data-group="time"><dt lang="en">following</dt><dd>接在某事件之後，常見於正式書面語<span lang="en">following the interview</span></dd></div>
+          <div data-group="time relationship"><dt lang="en">for</dt><dd>記成「持續多久」、「給誰」或「為了什麼」<span lang="en">for two weeks / for the client</span></dd></div>
+          <div data-group="time place movement relationship"><dt lang="en">from</dt><dd>記成來源或起點<span lang="en">from Taipei / from Monday to Friday</span></dd></div>
+          <div data-group="relationship"><dt lang="en">given</dt><dd>把事實或條件當成考量<span lang="en">given the current budget</span></dd></div>
+          <div data-group="time place relationship"><dt lang="en">in</dt><dd>放進時間、空間或狀態的範圍<span lang="en">in May / in the office / in stock</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in accordance with</dt><dd>按照規定或正式指示<span lang="en">in accordance with company policy</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in addition to</dt><dd>在原有項目上再加<span lang="en">in addition to shipping costs</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in case of</dt><dd>如果發生某種情況<span lang="en">in case of emergency</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in charge of</dt><dd>負責某事或管理某人<span lang="en">in charge of hiring</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in exchange for</dt><dd>用一項東西換另一項<span lang="en">in exchange for a discount</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in favor of</dt><dd>站在支持的一方<span lang="en">in favor of the proposal</span></dd></div>
+          <div data-group="place phrase"><dt lang="en">in front of</dt><dd>在某物的前方<span lang="en">in front of the hotel</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in light of</dt><dd>考量新資料或情況之後<span lang="en">in light of recent changes</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in lieu of</dt><dd>正式用語，表示拿一項代替另一項<span lang="en">in lieu of payment</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in place of</dt><dd>頂替某人或某物的位置<span lang="en">in place of the original speaker</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in response to</dt><dd>為了回應某項請求或事件<span lang="en">in response to your inquiry</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in spite of</dt><dd>即使有某種阻礙，事情仍然發生<span lang="en">in spite of the rain</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">in terms of</dt><dd>從某個面向來說<span lang="en">in terms of cost</span></dd></div>
+          <div data-group="relationship"><dt lang="en">including</dt><dd>把某項算進範圍<span lang="en">including delivery</span></dd></div>
+          <div data-group="place"><dt lang="en">inside / inside of</dt><dd>在邊界裡面，inside of 也可用於部分口語語境<span lang="en">inside the warehouse</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">instead of</dt><dd>選另一項來替代原來那項<span lang="en">instead of printing the report</span></dd></div>
+          <div data-group="place movement relationship"><dt lang="en">into</dt><dd>從外到內，也可表變成另一種狀態<span lang="en">walk into the room / turn into ice</span></dd></div>
+          <div data-group="relationship"><dt lang="en">like</dt><dd>和某人或某物相像<span lang="en">work like a professional</span></dd></div>
+          <div data-group="relationship"><dt lang="en">minus</dt><dd>從總數中減去某一項<span lang="en">the total minus the deposit</span></dd></div>
+          <div data-group="place"><dt lang="en">near / near to</dt><dd>距離近。near 可直接接地點<span lang="en">near the station</span></dd></div>
+          <div data-group="place phrase"><dt lang="en">next to</dt><dd>緊鄰某物<span lang="en">next to the elevator</span></dd></div>
+          <div data-group="relationship"><dt lang="en">notwithstanding</dt><dd>正式用語，表示儘管<span lang="en">notwithstanding the objections</span></dd></div>
+          <div data-group="relationship"><dt lang="en">of</dt><dd>把兩個名詞連起來，可表部分、所屬或內容<span lang="en">a copy of the invoice</span></dd></div>
+          <div data-group="place movement"><dt lang="en">off</dt><dd>離開表面或離開路線<span lang="en">get off the bus</span></dd></div>
+          <div data-group="time place relationship"><dt lang="en">on</dt><dd>日期是日曆的一格，地點常指表面或沿線<span lang="en">on Monday / on the wall / on Main Street</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">on account of</dt><dd>把後面的事情當成原因<span lang="en">on account of bad weather</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">on behalf of</dt><dd>代表某個人或團體<span lang="en">on behalf of our team</span></dd></div>
+          <div data-group="place relationship phrase"><dt lang="en">on top of</dt><dd>放在頂上，或再加一項<span lang="en">on top of the cabinet</span></dd></div>
+          <div data-group="place movement"><dt lang="en">onto</dt><dd>移動到某個表面上<span lang="en">step onto the platform</span></dd></div>
+          <div data-group="place"><dt lang="en">opposite</dt><dd>在正對面<span lang="en">opposite the library</span></dd></div>
+          <div data-group="movement"><dt lang="en">out</dt><dd>少數用法可直接接方向或出口，美式英文也常見 out the door<span lang="en">out the door</span></dd></div>
+          <div data-group="place movement relationship phrase"><dt lang="en">out of</dt><dd>從裡面出來，也可指用完或超出範圍<span lang="en">out of the office / out of stock</span></dd></div>
+          <div data-group="place relationship"><dt lang="en">outside / outside of</dt><dd>在邊界外，也可指範圍之外<span lang="en">outside the station</span></dd></div>
+          <div data-group="time place movement relationship"><dt lang="en">over</dt><dd>在上方、越過、超過數字，或跨一段時間<span lang="en">over the bridge / over $100 / over the weekend</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">owing to</dt><dd>表原因，常見於正式書面語<span lang="en">owing to staffing shortages</span></dd></div>
+          <div data-group="time place movement"><dt lang="en">past</dt><dd>從旁邊經過，或過了某個時刻<span lang="en">walk past the bank / past midnight</span></dd></div>
+          <div data-group="time relationship"><dt lang="en">pending</dt><dd>在等某事決定或完成的期間<span lang="en">pending approval</span></dd></div>
+          <div data-group="relationship"><dt lang="en">per</dt><dd>平均到每一單位，也可表依照<span lang="en">$20 per person</span></dd></div>
+          <div data-group="relationship"><dt lang="en">plus</dt><dd>在原有數量上再加一項<span lang="en">$80 plus tax</span></dd></div>
+          <div data-group="time phrase"><dt lang="en">prior to</dt><dd>在某事件以前，語氣比 before 正式<span lang="en">prior to departure</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">pursuant to</dt><dd>按照法律、合約或規定執行，常見於正式文件<span lang="en">pursuant to the agreement</span></dd></div>
+          <div data-group="relationship"><dt lang="en">regarding</dt><dd>後面就是這段話談的主題<span lang="en">an email regarding your order</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">regardless of</dt><dd>條件怎麼變都適用<span lang="en">regardless of age</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">save for</dt><dd>正式用語，表示把某項排除<span lang="en">empty save for one chair</span></dd></div>
+          <div data-group="time"><dt lang="en">since</dt><dd>從過去的某個起點延續<span lang="en">since May</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">subject to</dt><dd>受某個條件限制，常見於公告<span lang="en">subject to availability</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">such as</dt><dd>在一般類別後面列例子<span lang="en">office supplies such as pens</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">thanks to</dt><dd>指出原因，常有多虧某事的語氣<span lang="en">thanks to your help</span></dd></div>
+          <div data-group="relationship"><dt lang="en">than</dt><dd>放在比較級後面，引出比較的基準<span lang="en">larger than the old office</span></dd></div>
+          <div data-group="time place movement"><dt lang="en">through</dt><dd>穿過內部、藉由某方式。美式時間範圍也可含終點<span lang="en">through the tunnel / Monday through Friday</span></dd></div>
+          <div data-group="time place"><dt lang="en">throughout</dt><dd>遍及整段時間或整個區域<span lang="en">throughout the year</span></dd></div>
+          <div data-group="time"><dt lang="en">till</dt><dd>持續到某個時間點，意思和 until 相同<span lang="en">till noon</span></dd></div>
+          <div data-group="time movement relationship"><dt lang="en">to</dt><dd>朝目的地、交給接收者，也可標示範圍終點<span lang="en">to the airport / to Amy / from nine to five</span></dd></div>
+          <div data-group="place movement relationship"><dt lang="en">toward / towards</dt><dd>朝某方向，或表示對某事的態度<span lang="en">walk toward the exit</span></dd></div>
+          <div data-group="place relationship"><dt lang="en">under</dt><dd>在下方、低於數值、受管轄或處於某狀態<span lang="en">under the table / under $50 / under review</span></dd></div>
+          <div data-group="place"><dt lang="en">underneath</dt><dd>在正下方或被蓋住的下面<span lang="en">underneath the carpet</span></dd></div>
+          <div data-group="relationship"><dt lang="en">unlike</dt><dd>把後面的對象拿來對比差異<span lang="en">unlike the old system</span></dd></div>
+          <div data-group="time"><dt lang="en">until</dt><dd>動作或狀態一路持續到某時<span lang="en">open until 6 p.m.</span></dd></div>
+          <div data-group="place movement"><dt lang="en">up</dt><dd>向上，或沿著某條路前進<span lang="en">up the stairs / up the road</span></dd></div>
+          <div data-group="time movement relationship phrase"><dt lang="en">up to</dt><dd>最多到某上限，或由某人決定<span lang="en">up to ten guests / up to you</span></dd></div>
+          <div data-group="time place relationship"><dt lang="en">upon</dt><dd>較正式的 on；在 upon arrival 中指一抵達<span lang="en">upon arrival</span></dd></div>
+          <div data-group="relationship"><dt lang="en">versus</dt><dd>引出比較或對決的另一方<span lang="en">online sales versus in-store sales</span></dd></div>
+          <div data-group="movement relationship"><dt lang="en">via</dt><dd>透過某管道，或經由某個中途點<span lang="en">via email / via Singapore</span></dd></div>
+          <div data-group="relationship"><dt lang="en">with</dt><dd>一起、有某特徵，或使用某工具<span lang="en">with a colleague / with a pen</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">with a view to</dt><dd>以做某事為目標，接名詞或 V-ing<span lang="en">with a view to expanding</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">with regard to</dt><dd>指出所談論的事項<span lang="en">with regard to the new policy</span></dd></div>
+          <div data-group="relationship phrase"><dt lang="en">with respect to</dt><dd>就某事項而言，常見於正式書面語<span lang="en">with respect to payment</span></dd></div>
+          <div data-group="time place relationship"><dt lang="en">within</dt><dd>在界線、期限或限制內<span lang="en">within two days / within budget</span></dd></div>
+          <div data-group="relationship"><dt lang="en">without</dt><dd>缺少某物，或在沒做某動作的情況下<span lang="en">without a receipt / without signing</span></dd></div>
+          <div data-group="relationship"><dt lang="en">worth</dt><dd>用來指出價值，或表示某事值得做<span lang="en">worth $100 / worth reading</span></dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" id="prep-quiz" tabindex="-1">
+        <h2>小測驗｜選介系詞</h2>
+        <p>先選一個，再展開看答案。</p>
+        <details><summary><span lang="en">The workshop starts ___ June.</span> （at / on / in）</summary><p><strong>in</strong>。只有月份，當成較大的時間範圍。</p></details>
+        <details><summary><span lang="en">The workshop starts ___ June 12.</span> （at / on / in）</summary><p><strong>on</strong>。有明確日期，當成日曆上一格。</p></details>
+        <details><summary><span lang="en">The reception desk is ___ the second floor.</span> （at / on / in）</summary><p><strong>on</strong>。樓層用 <code>on</code>。</p></details>
+        <details><summary><span lang="en">Please meet me ___ the main entrance.</span> （at / onto / in）</summary><p><strong>at</strong>。集合時，把大門當成定位點。</p></details>
+        <details><summary><span lang="en">Please submit the form ___ Friday at the latest.</span> （by / until / since）</summary><p><strong>by</strong>。<code>at the latest</code> 指最遲時間，交件可在期限前或期限當下完成。</p></details>
+        <details><summary><span lang="en">The help desk will remain open ___ 6 p.m.</span> （during / until / since）</summary><p><strong>until</strong>。開放狀態會持續到六點。</p></details>
+        <details><summary><span lang="en">Eva has worked here ___ three years.</span> （since / during / for）</summary><p><strong>for</strong>。三年是時長。若要寫起點，可用 <code>since 2023</code>。</p></details>
+        <details><summary><span lang="en">The delivery truck went ___ the tunnel.</span> （along / through / onto）</summary><p><strong>through</strong>。車子穿過隧道內部。</p></details>
+      </section>
+
+      <section class="panel">
+        <h2>參考資料</h2>
+        <ul>
+          <li><a href="https://dictionary.cambridge.org/us/grammar/british-grammar/prepositions_2">Cambridge English Grammar Today｜介系詞總覽</a></li>
+          <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/at-on-and-in-time">Cambridge｜at、on、in 的時間用法</a></li>
+          <li><a href="https://dictionary.cambridge.org/us/grammar/british-grammar/at-on-and-in-place">Cambridge｜at、on、in 的地點用法</a></li>
+        </ul>
+      </section>
+      <a class="lesson-next" href="#to-forms">下一篇　to 後面加原形還是 V-ing？ →</a>
+    </article>
+
+    <article class="lesson" id="to-forms" data-page>
+      <a class="back" href="#home">← 講義總覽</a>
+      <header class="lesson-hero green">
+        <span class="eyebrow">動詞句型</span>
+        <h1 tabindex="-1">to 後面加原形還是 V-ing？</h1>
+        <p>不定詞的 <code>to</code> 接原形動詞。介系詞的 <code>to</code> 可以接名詞，接動作時用 <code>V-ing</code>。</p>
+      </header>
+      <nav class="toc" aria-label="to 講義目錄">
+        <a href="#to-rule">快速判斷</a><a href="#to-base">to + 原形</a><a href="#to-ing">to + V-ing</a><a href="#to-traps">易錯句型</a><a href="#to-quiz">小測驗</a>
+      </nav>
+
+      <section class="panel" id="to-rule" tabindex="-1">
+        <h2>快速判斷｜先找 to 前面的搭配</h2>
+        <div class="rule-grid two">
+          <div class="rule"><strong lang="en">want to work</strong><p><strong>不定詞 + 原形</strong> 想做、決定做、需要做，或補充「為了做什麼」。</p></div>
+          <div class="rule"><strong lang="en">look forward to working</strong><p><strong>介系詞 + V-ing</strong> 把「做某事」當成一件事，放進原本可接名詞的搭配。</p></div>
+        </div>
+        <p class="note"><strong>用名詞試看看。</strong> <code>look forward to the meeting</code> 成立，所以也能說 <code>look forward to meeting you</code>。試的時候要保留同一個句型和意思。像 <code>I want a break</code> 直接接名詞，<code>I want to take a break</code> 才用不定詞。</p>
+      </section>
+
+      <section class="panel" id="to-base" tabindex="-1">
+        <h2>to + 原形｜不定詞</h2>
+        <dl class="examples">
+          <div><dt>常見動詞</dt><dd><code>want / plan / hope / decide / need / agree / promise / offer / refuse / manage + to V</code>。<span lang="en">We decided <strong>to postpone</strong> the meeting.</span> 我們決定延期。</dd></div>
+          <div><dt>動詞 + 人 + to V</dt><dd><code>ask / tell / remind / allow / encourage / require + 人 + to V</code>。<span lang="en">Please remind Alex <strong>to reply</strong>.</span> 請提醒 Alex 回覆。</dd></div>
+          <div><dt>形容詞 + to V</dt><dd><code>ready to start</code> 準備好開始、<code>likely to increase</code> 可能增加、<code>happy to help</code> 樂意幫忙。</dd></div>
+          <div><dt>目的</dt><dd><span lang="en">I called <strong>to confirm</strong> the reservation.</span> 我打電話是為了確認訂位。可用 <code>in order to confirm</code> 驗證目的用法。</dd></div>
+          <div><dt>名詞 + to V</dt><dd><code>a decision to expand</code> 擴張的決定、<code>a chance to learn</code> 學習的機會。</dd></div>
+        </dl>
+        <p class="note">原形也包括 <code>be</code> 和 <code>have</code>。例如 <code>to be delivered</code>（被送達）、<code>to be working</code>（正在工作）、<code>to have finished</code>（已經完成）。這三組中緊接 <code>to</code> 的都是原形。</p>
+      </section>
+
+      <section class="panel" id="to-ing" tabindex="-1">
+        <h2>to + V-ing｜介系詞搭配</h2>
+        <p>同一個片語可以接名詞。後面要放動作時，把動作寫成 V-ing。</p>
+        <dl class="examples">
+          <div><dt><code>look forward to</code> 期待</dt><dd><code>look forward to the visit</code> ／ <code>look forward to visiting your office</code></dd></div>
+          <div><dt><code>be / get used to</code> 習慣</dt><dd><code>be used to the schedule</code> ／ <code>get used to working remotely</code></dd></div>
+          <div><dt><code>object to / be opposed to</code> 反對</dt><dd><code>object to the change</code> ／ <code>object to changing the schedule</code></dd></div>
+          <div><dt><code>be committed to</code> 致力於</dt><dd><code>be committed to quality</code> ／ <code>be committed to improving quality</code></dd></div>
+          <div><dt><code>contribute to / lead to</code> 促成</dt><dd><code>contribute to the project</code> ／ <code>contribute to reducing costs</code>。<code>lead to higher sales</code> ／ <code>lead to losing customers</code>。</dd></div>
+          <div><dt><code>devote time to</code> 把時間投入</dt><dd><code>devote time to the project</code> ／ <code>devote time to training new staff</code></dd></div>
+          <div><dt><code>in addition to</code> 除了……還</dt><dd><code>in addition to the fee</code> ／ <code>in addition to paying the fee</code></dd></div>
+          <div><dt><code>with a view to</code> 以……為目的</dt><dd><code>with a view to expansion</code> ／ <code>with a view to expanding overseas</code>。這是一個固定片語。</dd></div>
+          <div><dt><code>the key to / an approach to</code></dt><dd><code>the key to success</code> ／ <code>the key to reducing errors</code>。<code>an approach to hiring new staff</code> 指一種徵才方法。</dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" id="to-traps" tabindex="-1">
+        <h2>易錯句型｜三種 used to</h2>
+        <dl class="examples">
+          <div><dt><code>used to + 原形</code></dt><dd><span lang="en">I <strong>used to work</strong> nights.</span> 我以前常上夜班，通常暗示現在情況改變。</dd></div>
+          <div><dt><code>be / get used to + V-ing</code></dt><dd><span lang="en">I'm <strong>used to working</strong> nights.</span> 我習慣上夜班。<span lang="en">I'm <strong>getting used to working</strong> nights.</span> 我正在適應上夜班。</dd></div>
+          <div><dt><code>be used to + 原形</code></dt><dd><span lang="en">This app <strong>is used to track</strong> orders.</span> 這個 app 被用來追蹤訂單。<code>is used</code> 是被動，<code>to track</code> 說明用途。</dd></div>
+        </dl>
+        <h3>再看兩個常考對比</h3>
+        <ul>
+          <li><code>stop to check</code> 停下原本的事，為了查看。<code>stop checking</code> 停止查看這個動作。</li>
+          <li><code>remember to send it</code> 記得要寄。<code>remember sending it</code> 記得自己寄過。</li>
+          <li><code>enjoy reading</code>、<code>avoid making mistakes</code>、<code>consider changing the plan</code> 直接接 V-ing。背動詞時把句型一起背。</li>
+        </ul>
+      </section>
+
+      <section class="panel" id="to-quiz" tabindex="-1">
+        <h2>小測驗｜原形還是 V-ing？</h2>
+        <p>先判斷整個片語的意思，再展開答案。</p>
+        <details><summary><span lang="en">We plan to ___ the order today.</span> （ship / shipping）</summary><p><strong>ship</strong>。<code>plan to + 原形</code> 表示計畫做某事。</p></details>
+        <details><summary><span lang="en">I look forward to ___ from you.</span> （hear / hearing）</summary><p><strong>hearing</strong>。<code>look forward to</code> 可以接名詞，如 <code>your reply</code>。</p></details>
+        <details><summary><span lang="en">I used to ___ the bus to work.</span> （take / taking）</summary><p><strong>take</strong>。<code>used to + 原形</code> 表示過去的習慣。</p></details>
+        <details><summary><span lang="en">I'm getting used to ___ the new software.</span> （use / using）</summary><p><strong>using</strong>。<code>get used to</code> 指漸漸習慣，<code>to</code> 是介系詞。</p></details>
+        <details><summary><span lang="en">This tool is used to ___ invoices.</span> （check / checking）</summary><p><strong>check</strong>。工具「被用來」檢查發票，<code>to check</code> 說明用途。</p></details>
+        <details><summary><span lang="en">We are committed to ___ errors.</span> （reduce / reducing）</summary><p><strong>reducing</strong>。<code>be committed to</code> 表「致力於」，其後可接名詞或 V-ing。</p></details>
+        <details><summary><span lang="en">The manager called to ___ the reservation.</span> （confirm / confirming）</summary><p><strong>confirm</strong>。用不定詞說明打電話的目的。</p></details>
+        <details><summary><span lang="en">Please remember to ___ the file before noon.</span> （send / sending）</summary><p><strong>send</strong>。<code>remember to send</code> 是記得要寄，動作還沒做。</p></details>
+      </section>
+
+      <section class="panel">
+        <h2>參考資料</h2>
+        <ul>
+          <li><a href="https://dictionary.cambridge.org/us/grammar/british-grammar/infinitive-or-verb-ing">Cambridge English Grammar Today｜不定詞與 V-ing 的動詞句型</a></li>
+          <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/look-forward-to">Cambridge｜look forward to</a></li>
+          <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/used-to">Cambridge｜used to</a></li>
+        </ul>
+      </section>
+      <a class="lesson-next" href="#prepositions">← 上一篇　介系詞要怎麼記？</a>
+    </article>
+  </main>
+
+  <footer class="site-footer"><div class="wrap">TOEIC 筆記本</div></footer>
+  <script>
+    const pages = [...document.querySelectorAll("[data-page]")];
+    const catalogLink = document.querySelector(".header-link");
+    const homeTitle = document.title;
+
+    function showPage(focusHeading = false) {
+      const anchor = document.getElementById(location.hash.slice(1));
+      const activePage = anchor?.closest("[data-page]") || pages[0];
+      const heading = activePage.querySelector("h1");
+      for (const page of pages) page.hidden = page !== activePage;
+      if (activePage.id === "home") {
+        catalogLink.setAttribute("aria-current", "page");
+        document.title = homeTitle;
+      } else {
+        catalogLink.removeAttribute("aria-current");
+        document.title = heading.textContent.trim() + "｜TOEIC 筆記本";
+      }
+      if (focusHeading || anchor && activePage.contains(anchor)) {
+        const target = anchor && anchor !== activePage && activePage.contains(anchor) ? anchor : heading;
+        requestAnimationFrame(() => {
+          if (focusHeading && target.hasAttribute("tabindex")) target.focus({ preventScroll: true });
+          if (target === heading) window.scrollTo(0, 0);
+          else target.scrollIntoView();
+        });
+      }
+    }
+
+    function matchesSearch(value, query) {
+      const normalize = text => text.normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
+      return normalize(query).split(" ").every(term => normalize(value).includes(term));
+    }
+
+    const lessonSearch = document.getElementById("lesson-search");
+    const lessonCount = document.getElementById("lesson-count");
+    const lessonEmpty = document.getElementById("lesson-empty");
+    const cards = [...document.querySelectorAll(".lesson-card")].map(card => {
+      const lesson = document.getElementById(card.hash.slice(1));
+      return { card, searchText: [card.textContent, card.dataset.keywords, lesson?.textContent].join(" ") };
+    });
+
+    function filterLessons() {
+      let count = 0;
+      for (const { card, searchText } of cards) {
+        card.hidden = !matchesSearch(searchText, lessonSearch.value);
+        if (!card.hidden) count++;
+      }
+      lessonCount.textContent = count + " 篇講義";
+      lessonEmpty.hidden = count > 0;
+    }
+
+    function initDictionary() {
+      const search = document.getElementById("word-search");
+      const category = document.getElementById("word-category");
+      const countLabel = document.getElementById("word-count");
+      const empty = document.getElementById("word-empty");
+      const entries = [...document.querySelectorAll(".word-list > div")];
+
+      function filterWords() {
+        let count = 0;
+        for (const entry of entries) {
+          const inCategory = !category.value || entry.dataset.group.split(" ").includes(category.value);
+          entry.hidden = !inCategory || !matchesSearch(entry.textContent, search.value);
+          if (!entry.hidden) count++;
+        }
+        countLabel.textContent = count + " 個詞條";
+        empty.hidden = count > 0;
+      }
+
+      search.addEventListener("input", filterWords);
+      category.addEventListener("change", filterWords);
+      filterWords();
+    }
+
+    lessonSearch.addEventListener("input", filterLessons);
+    window.addEventListener("hashchange", () => showPage(true));
+    document.documentElement.classList.add("has-js");
+    filterLessons();
+    initDictionary();
+    showPage();
+  </script>
+</body>
+</html>
