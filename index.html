@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f7f3">
-  <meta name="description" content="手機與 iPad 都能看的多益文法講義。查介系詞、學 to 的句型與及物和不及物動詞、做題目複習。">
+  <meta name="description" content="手機與 iPad 都能看的多益文法講義。查介系詞、學不定詞、及物與不及物動詞、使役動詞，並做題目複習。">
   <meta name="apple-mobile-web-app-title" content="TOEIC 筆記">
   <title>TOEIC 筆記本｜多益文法複習</title>
   <style>
@@ -95,7 +95,7 @@
     .search input { width: 100%; min-width: 0; padding: .7rem 0; background: none; border: 0; font-size: 1rem; outline: none; }
     .search:focus-within { outline: 2px solid #7755cf; outline-offset: 2px; }
     .catalog-heading .search { width: min(100%, 340px); }
-    .card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .card-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
     .lesson-card {
       display: flex;
       flex-direction: column;
@@ -115,6 +115,7 @@
     .card-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 15px; color: #412984; background: var(--lavender); font-size: 1.25rem; font-weight: 900; }
     .card-icon.green { background: var(--green); color: #215943; }
     .card-icon.gold { background: #fff0bd; color: #634708; }
+    .card-icon.blue { background: #dfedff; color: #234c80; }
     .topic { color: var(--muted); font-size: .82rem; font-weight: 750; }
     .lesson-card h3 { font-size: clamp(1.18rem, 2.75vw, 1.54rem); line-height: 1.3; letter-spacing: -.04em; }
     .lesson-card p { color: var(--muted); font-size: .93rem; margin-top: .3rem; }
@@ -130,6 +131,7 @@
     .lesson-hero { padding: clamp(20px, 4vw, 38px); border-radius: var(--radius); background: var(--lavender); }
     .lesson-hero.green { background: var(--green); }
     .lesson-hero.gold { background: #fff2c8; }
+    .lesson-hero.blue { background: #e2eeff; }
     .lesson-hero h1 { margin: .35rem 0 .55rem; font-size: clamp(1.85rem, 5vw, 3.15rem); line-height: 1.2; letter-spacing: -.055em; }
     .lesson-hero p { font-size: 1rem; color: #494257; }
     .toc { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0; }
@@ -153,6 +155,9 @@
     .examples div { display: grid; grid-template-columns: minmax(130px, .9fr) minmax(0, 2fr); gap: 10px; padding: .62rem 0; border-bottom: 1px solid var(--line); }
     .examples dt { font-weight: 780; }
     .examples dd { margin: 0; color: #494257; }
+    .verb-examples dd span { display: block; }
+    .verb-examples dd span[lang="en"] { color: var(--ink); }
+    .verb-examples dd strong { color: var(--purple); }
     details { border-top: 1px solid var(--line); }
     details:first-of-type { margin-top: .75rem; }
     summary { padding: .72rem 0; font-weight: 720; cursor: pointer; color: var(--ink); }
@@ -176,11 +181,13 @@
     .has-js .js-only { display: revert; }
     .has-js .search.js-only { display: flex; }
     .has-js .lookup-controls.js-only { display: grid; }
+    @media (max-width: 1040px) {
+      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     @media (max-width: 810px) {
       .wrap { width: calc(100% - 40px); }
       .hero { min-height: 290px; padding: 35px; gap: 20px; }
       .study-slip { padding: 10px 12px; min-height: 62px; }
-      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 620px) {
       .wrap { width: calc(100% - 28px); }
@@ -252,8 +259,13 @@
           </a>
           <a class="lesson-card" href="#verb-transitivity" data-keywords="及物 不及物 直接受詞 及物動詞 不及物動詞 transitive intransitive vt vi">
             <div class="card-top"><span class="card-icon gold" aria-hidden="true">V</span><span class="topic">動詞句型</span></div>
-            <div><h3>及物與不及物動詞</h3><p>什麼是受詞？用 reach 和 arrive 練習判斷動詞後面能接什麼。</p></div>
+            <div><h3>及物與不及物動詞</h3><p>從直接受詞開始，查 50 個常見動詞和中英例句。</p></div>
             <div class="card-bottom"><div class="tags"><span class="tag">直接受詞</span><span class="tag">多益搭配</span></div><span class="arrow" aria-hidden="true">→</span></div>
+          </a>
+          <a class="lesson-card" href="#causatives" data-keywords="使役動詞 使役 make have let get help 原形 過去分詞 causative">
+            <div class="card-top"><span class="card-icon blue" aria-hidden="true">do</span><span class="topic">動詞句型</span></div>
+            <div><h3>使役動詞</h3><p>比較 make、have、let 和 get，看誰做動作、動詞要用什麼形式。</p></div>
+            <div class="card-bottom"><div class="tags"><span class="tag">原形</span><span class="tag">過去分詞</span></div><span class="arrow" aria-hidden="true">→</span></div>
           </a>
         </div>
         <p class="empty" id="lesson-empty" hidden>找不到講義，試試「月份」、「不定詞」或「及物動詞」。</p>
@@ -1491,20 +1503,88 @@
       <header class="lesson-hero gold">
         <span class="eyebrow">動詞句型</span>
         <h1 tabindex="-1">及物與不及物動詞</h1>
-        <p>先認識「直接受詞」，再看動詞後面要直接接對象，還是用介系詞帶出對象。</p>
+        <p>先搞懂及物和不及物的意思，再用 50 個常見動詞的中英例句練習。</p>
       </header>
       <nav class="toc" aria-label="及物與不及物動詞講義目錄">
-        <a href="#object-definition">什麼是直接受詞？</a><a href="#verb-compare">常見搭配</a><a href="#verb-both">兩種用法</a><a href="#verb-tips">解題方法</a><a href="#verb-quiz">小測驗</a>
+        <a href="#object-definition">及物定義</a><a href="#intransitive-definition">不及物定義</a><a href="#transitive-verbs">及物動詞表</a><a href="#intransitive-verbs">不及物動詞表</a><a href="#verb-compare">常見搭配</a><a href="#verb-both">兩種用法</a><a href="#verb-tips">解題方法</a><a href="#verb-quiz">小測驗</a>
       </nav>
 
       <section class="panel" id="object-definition" tabindex="-1">
-        <h2>什麼是直接受詞？</h2>
-        <p><strong>直接受詞（direct object）是動詞直接接的對象。</strong> 在 <span lang="en">Mia checked <strong>the invoice</strong>.</span> 裡，<code>Mia</code> 是主詞，<code>checked</code> 是動詞。問「Mia 檢查了什麼？」答案 <code>the invoice</code> 就是直接受詞。</p>
-        <div class="rule-grid two">
-          <div class="rule"><strong>及物用法｜動詞 + 直接受詞</strong><p><span lang="en">The driver reached <strong>the airport</strong>.</span> 司機抵達了機場。<code>reach</code> 在這裡直接接地點 <code>the airport</code>。</p></div>
-          <div class="rule"><strong>不及物用法｜動詞本身沒有直接受詞</strong><p><span lang="en">The driver arrived <strong>at</strong> the airport.</span> 司機抵達了機場。<code>at the airport</code> 整組說明抵達的地點，<code>the airport</code> 接在介系詞 <code>at</code> 後面。</p></div>
-        </div>
-        <p class="note">「及物」的「物」可以是人、事或物。例如 <code>contact Mia</code>（聯絡 Mia）裡的受詞就是人。字典常用 <code>[T]</code> 標示及物、<code>[I]</code> 標示不及物。有些動詞會標示兩種。</p>
+        <h2>及物動詞是什麼？</h2>
+        <p><strong>及物動詞（transitive verb）可以直接接受詞。</strong> 「及物」的「物」指動詞接的對象，可以是人、事或物。</p>
+        <p><span lang="en">Mia checked <strong>the invoice</strong>.</span>（Mia 檢查了發票。）問「Mia 檢查了什麼？」答案是 <code>the invoice</code>。這個直接接在 <code>checked</code> 後面的對象，就叫<strong>直接受詞（direct object）</strong>。句型是 <code>主詞 + 及物動詞 + 直接受詞</code>。</p>
+        <p class="note">例如 <code>contact Mia</code>（聯絡 Mia），<code>Mia</code> 是受詞。字典常用 <code>[T]</code> 或 <code>vt.</code> 標示及物用法。</p>
+      </section>
+
+      <section class="panel" id="intransitive-definition" tabindex="-1">
+        <h2>不及物動詞是什麼？</h2>
+        <p><strong>不及物動詞（intransitive verb）本身不直接接受詞。</strong> <span lang="en">The guests <strong>arrived</strong>.</span>（客人到了。）這句只有主詞和動詞，已經能說清楚發生的事。</p>
+        <p>要補充抵達地點，可以說 <span lang="en">The guests arrived <strong>at the hotel</strong>.</span>（客人抵達了飯店。）<code>the hotel</code> 接在介系詞 <code>at</code> 後面，整組 <code>at the hotel</code> 說明抵達的地點。比較 <code>reach the hotel</code>，這裡的 <code>reach</code> 可以直接接地點。</p>
+        <p class="note">字典常用 <code>[I]</code> 或 <code>vi.</code> 標示不及物用法。同一個單字也可能有 <a href="#verb-both">兩種用法</a>，查字典時要看該詞義的例句。</p>
+      </section>
+
+      <section class="panel" id="transitive-verbs" tabindex="-1">
+        <h2>25 個常見及物動詞與例句</h2>
+        <p>粗體是動詞的直接受詞。可以練習問「這個動詞的對象是誰或什麼？」</p>
+        <dl class="examples verb-examples">
+          <div><dt><code>accept</code> 接受</dt><dd><span lang="en">We accepted <strong>the supplier's offer</strong>.</span><span>我們接受了供應商的提議。</span></dd></div>
+          <div><dt><code>answer</code> 回答、回覆</dt><dd><span lang="en">Rita answered <strong>the customer's email</strong> this morning.</span><span>Rita 今天早上回覆了客戶的電子郵件。</span></dd></div>
+          <div><dt><code>approve</code> 核准</dt><dd><span lang="en">The director approved <strong>the travel budget</strong>.</span><span>主管核准了差旅預算。</span></dd></div>
+          <div><dt><code>attend</code> 出席</dt><dd><span lang="en">All new employees must attend <strong>the orientation</strong>.</span><span>所有新進員工都必須參加新人說明會。</span></dd></div>
+          <div><dt><code>check</code> 檢查</dt><dd><span lang="en">Please check <strong>the shipping address</strong> before you pay.</span><span>付款前請確認收件地址。</span></dd></div>
+          <div><dt><code>complete</code> 完成</dt><dd><span lang="en">I completed <strong>the registration form</strong> online.</span><span>我在線上填完了報名表。</span></dd></div>
+          <div><dt><code>contact</code> 聯絡</dt><dd><span lang="en">Please contact <strong>our support team</strong> if you need help.</span><span>需要協助時，請聯絡我們的客服團隊。</span></dd></div>
+          <div><dt><code>deliver</code> 送達、運送</dt><dd><span lang="en">The courier delivered <strong>the package</strong> before noon.</span><span>快遞員在中午前把包裹送到了。</span></dd></div>
+          <div><dt><code>describe</code> 描述</dt><dd><span lang="en">The engineer described <strong>the problem</strong> in detail.</span><span>工程師詳細描述了問題。</span></dd></div>
+          <div><dt><code>discuss</code> 討論</dt><dd><span lang="en">We discussed <strong>the new schedule</strong> at lunch.</span><span>我們午餐時討論了新時程。</span></dd></div>
+          <div><dt><code>enter</code> 進入</dt><dd><span lang="en">The visitors entered <strong>the exhibition hall</strong> at ten.</span><span>參觀者十點進入展覽廳。</span></dd></div>
+          <div><dt><code>explain</code> 解釋</dt><dd><span lang="en">Maya explained <strong>the return policy</strong> to the customer.</span><span>Maya 向客戶說明了退貨規定。</span></dd></div>
+          <div><dt><code>finish</code> 完成</dt><dd><span lang="en">Leo finished <strong>the report</strong> yesterday.</span><span>Leo 昨天完成了報告。</span></dd></div>
+          <div><dt><code>follow</code> 遵循</dt><dd><span lang="en">Please follow <strong>the instructions</strong> on the screen.</span><span>請依照螢幕上的指示操作。</span></dd></div>
+          <div><dt><code>mention</code> 提到</dt><dd><span lang="en">Nina mentioned <strong>the delay</strong> during our call.</span><span>Nina 在通話時提到了延誤。</span></dd></div>
+          <div><dt><code>offer</code> 提供</dt><dd><span lang="en">The hotel offers <strong>free airport transfers</strong> to guests.</span><span>飯店為住客提供免費機場接送。</span></dd></div>
+          <div><dt><code>prepare</code> 準備</dt><dd><span lang="en">We'll prepare <strong>a revised quote</strong> by Friday.</span><span>我們會在星期五以前準備好修訂後的報價單。</span></dd></div>
+          <div><dt><code>raise</code> 提高</dt><dd><span lang="en">The store raised <strong>its prices</strong> in July.</span><span>這家店在七月調高了價格。</span></dd></div>
+          <div><dt><code>reach</code> 抵達</dt><dd><span lang="en">We reached <strong>the airport</strong> before sunrise.</span><span>我們在日出前抵達機場。</span></dd></div>
+          <div><dt><code>receive</code> 收到</dt><dd><span lang="en">I received <strong>the signed contract</strong> this morning.</span><span>我今天早上收到了簽好的合約。</span></dd></div>
+          <div><dt><code>reduce</code> 減少</dt><dd><span lang="en">The new process reduced <strong>delivery costs</strong>.</span><span>新流程降低了運送成本。</span></dd></div>
+          <div><dt><code>replace</code> 更換</dt><dd><span lang="en">The technician replaced <strong>the damaged cable</strong>.</span><span>技術人員換掉了受損的電纜。</span></dd></div>
+          <div><dt><code>request</code> 請求、索取</dt><dd><span lang="en">The buyer requested <strong>a product sample</strong>.</span><span>買方索取了一份產品樣品。</span></dd></div>
+          <div><dt><code>sign</code> 簽署</dt><dd><span lang="en">Both parties signed <strong>the agreement</strong> on Monday.</span><span>雙方在星期一簽署了協議。</span></dd></div>
+          <div><dt><code>submit</code> 提交</dt><dd><span lang="en">Please submit <strong>your application</strong> by noon.</span><span>請在中午以前提交申請。</span></dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" id="intransitive-verbs" tabindex="-1">
+        <h2>25 個常見不及物動詞與例句</h2>
+        <p>粗體是不及物動詞。遇到固定介系詞時，把 <code>listen to</code>、<code>wait for</code> 這樣的搭配一起背。</p>
+        <dl class="examples verb-examples">
+          <div><dt><code>apologize</code> 道歉</dt><dd><span lang="en">The manager <strong>apologized</strong> for the delay.</span><span>經理為延誤致歉。</span></dd></div>
+          <div><dt><code>appear</code> 出現</dt><dd><span lang="en">An error message <strong>appeared</strong> on the screen.</span><span>螢幕上出現了一則錯誤訊息。</span></dd></div>
+          <div><dt><code>arrive</code> 抵達</dt><dd><span lang="en">The guests <strong>arrived</strong> at the hotel early.</span><span>客人提早抵達飯店。</span></dd></div>
+          <div><dt><code>belong</code> 屬於</dt><dd><span lang="en">This laptop <strong>belongs</strong> to the finance department.</span><span>這台筆電是財務部的。</span></dd></div>
+          <div><dt><code>come</code> 來</dt><dd><span lang="en">Our supplier <strong>came</strong> to the office this morning.</span><span>供應商今天早上來了辦公室。</span></dd></div>
+          <div><dt><code>disappear</code> 消失</dt><dd><span lang="en">The warning icon <strong>disappeared</strong> after the update.</span><span>更新後，警告圖示消失了。</span></dd></div>
+          <div><dt><code>expire</code> 到期</dt><dd><span lang="en">The discount code will <strong>expire</strong> at midnight.</span><span>折扣碼將在午夜到期。</span></dd></div>
+          <div><dt><code>fall</code> 下降</dt><dd><span lang="en">Orders <strong>fell</strong> sharply last month.</span><span>上個月的訂單量大幅下滑。</span></dd></div>
+          <div><dt><code>go</code> 去</dt><dd><span lang="en">Mia <strong>went</strong> to the bank after lunch.</span><span>Mia 午餐後去了銀行。</span></dd></div>
+          <div><dt><code>happen</code> 發生</dt><dd><span lang="en">What <strong>happened</strong> during the meeting?</span><span>會議期間發生了什麼事？</span></dd></div>
+          <div><dt><code>last</code> 持續</dt><dd><span lang="en">The workshop <strong>lasted</strong> for two hours.</span><span>工作坊持續了兩個小時。</span></dd></div>
+          <div><dt><code>listen</code> 聽</dt><dd><span lang="en">The team <strong>listened</strong> to the customer's feedback.</span><span>團隊聽了客戶的意見。</span></dd></div>
+          <div><dt><code>live</code> 居住</dt><dd><span lang="en">I <strong>live</strong> near the train station.</span><span>我住在火車站附近。</span></dd></div>
+          <div><dt><code>occur</code> 發生</dt><dd><span lang="en">The error <strong>occurred</strong> during the software update.</span><span>錯誤發生在軟體更新期間。</span></dd></div>
+          <div><dt><code>participate</code> 參與</dt><dd><span lang="en">Six suppliers <strong>participated</strong> in the trade show.</span><span>有六家供應商參與了這場商展。</span></dd></div>
+          <div><dt><code>proceed</code> 繼續進行</dt><dd><span lang="en">We can <strong>proceed</strong> with the order now.</span><span>我們現在可以繼續處理訂單了。</span></dd></div>
+          <div><dt><code>rain</code> 下雨</dt><dd><span lang="en">It <strong>rained</strong> heavily during the outdoor event.</span><span>戶外活動期間下了大雨。</span></dd></div>
+          <div><dt><code>rely</code> 依靠</dt><dd><span lang="en">We <strong>rely</strong> on local suppliers for fresh produce.</span><span>我們仰賴當地供應商提供新鮮蔬果。</span></dd></div>
+          <div><dt><code>reply</code> 回覆</dt><dd><span lang="en">She <strong>replied</strong> to my email this afternoon.</span><span>她今天下午回覆了我的電子郵件。</span></dd></div>
+          <div><dt><code>respond</code> 回應</dt><dd><span lang="en">Our support team <strong>responded</strong> to the complaint within an hour.</span><span>客服團隊在一小時內回應了這起客訴。</span></dd></div>
+          <div><dt><code>rise</code> 上升</dt><dd><span lang="en">Sales <strong>rose</strong> by ten percent in June.</span><span>六月的銷售額上升了百分之十。</span></dd></div>
+          <div><dt><code>sleep</code> 睡覺</dt><dd><span lang="en">I <strong>slept</strong> well on the flight.</span><span>我在飛機上睡得很好。</span></dd></div>
+          <div><dt><code>stay</code> 住宿、停留</dt><dd><span lang="en">We <strong>stayed</strong> at a hotel near the venue.</span><span>我們住在會場附近的一家飯店。</span></dd></div>
+          <div><dt><code>wait</code> 等待</dt><dd><span lang="en">We <strong>waited</strong> for the shuttle outside the hotel.</span><span>我們在飯店外等接駁車。</span></dd></div>
+          <div><dt><code>work</code> 工作</dt><dd><span lang="en">My team <strong>works</strong> from home on Fridays.</span><span>我的團隊星期五在家工作。</span></dd></div>
+        </dl>
       </section>
 
       <section class="panel" id="verb-compare" tabindex="-1">
@@ -1560,6 +1640,83 @@
         </ul>
       </section>
       <a class="lesson-next" href="#to-forms">← 上一篇　to 後面加原形還是 V-ing？</a>
+      <a class="lesson-next" href="#causatives">下一篇　使役動詞 →</a>
+    </article>
+
+    <article class="lesson" id="causatives" data-page>
+      <a class="back" href="#home">← 講義總覽</a>
+      <header class="lesson-hero blue">
+        <span class="eyebrow">動詞句型</span>
+        <h1 tabindex="-1">使役動詞</h1>
+        <p>從「請誰做什麼」開始，分清楚原形、<code>to + 原形</code> 和過去分詞。</p>
+      </header>
+      <nav class="toc" aria-label="使役動詞講義目錄">
+        <a href="#causative-definition">什麼是使役動詞？</a><a href="#causative-patterns">常見句型</a><a href="#causative-done">安排事情被做</a><a href="#causative-passive">被動句</a><a href="#causative-quiz">小測驗</a>
+      </nav>
+
+      <section class="panel" id="causative-definition" tabindex="-1">
+        <h2>什麼是使役動詞？</h2>
+        <p><strong>使役動詞（causative verb）用來表示讓、叫、請或促使別人做某事，也可以用來表示安排某件事被完成。</strong></p>
+        <p><span lang="en">I <strong>had</strong> Nina <strong>book</strong> a meeting room.</span>（我請 Nina 訂一間會議室。）<code>I</code> 是安排的人，<code>Nina</code> 是實際去訂的人，<code>book</code> 是她做的動作。</p>
+        <p class="note">先問「誰做後面那個動作？」再看前面的動詞是 <code>make</code>、<code>have</code>、<code>let</code> 還是 <code>get</code>。</p>
+      </section>
+
+      <section class="panel" id="causative-patterns" tabindex="-1">
+        <h2>常見句型｜讓、請、允許、設法讓</h2>
+        <dl class="examples verb-examples">
+          <div><dt><code>make + 人 + 原形</code><br>使、要求</dt><dd><span lang="en">The supervisor made us <strong>check</strong> every box again.</span><span>主管要求我們再檢查一次每個箱子。也可以描述某事造成反應，例如 <code>The news made us smile.</code>（這個消息讓我們笑了。）</span></dd></div>
+          <div><dt><code>have + 人 + 原形</code><br>請、交代</dt><dd><span lang="en">I'll have our technician <strong>inspect</strong> the printer.</span><span>我會請我們的技術人員檢查印表機。</span></dd></div>
+          <div><dt><code>let + 人 + 原形</code><br>允許</dt><dd><span lang="en">The hotel lets guests <strong>use</strong> the gym for free.</span><span>飯店允許住客免費使用健身房。</span></dd></div>
+          <div><dt><code>get + 人 + to + 原形</code><br>設法讓、說服</dt><dd><span lang="en">We got the supplier <strong>to deliver</strong> the parts early.</span><span>我們設法讓供應商提早送達零件。</span></dd></div>
+          <div><dt><code>help + 人 + (to) + 原形</code><br>協助</dt><dd><span lang="en">Maya helped me <strong>fill out</strong> the form.</span><span>Maya 幫我填表。<code>helped me to fill out</code> 也可以，兩種寫法都表示協助。</span></dd></div>
+        </dl>
+        <p class="note"><code>make / have / let + 人 + 原形</code>，<code>get + 人 + to + 原形</code>。這裡的「原形」是字典裡的基本形式，如 <code>check</code>、<code>use</code>。也可以回看 <a href="#infinitive">有 to 和沒有 to 的不定詞</a>。</p>
+      </section>
+
+      <section class="panel" id="causative-done" tabindex="-1">
+        <h2>安排事情被做｜have 或 get + 物 + 過去分詞</h2>
+        <p><strong>過去分詞</strong>是動詞的一種形式，例如 <code>repair → repaired</code>、<code>send → sent</code>、<code>write → written</code>。在這個句型裡，用來表示前面的東西接受了動作，例如電腦「被修理」。</p>
+        <dl class="examples">
+          <div><dt>請某人做</dt><dd><span lang="en">I had <strong>the technician repair</strong> my laptop.</span> 我請技術人員修筆電。<code>the technician</code> 是做動作的人，後面接原形 <code>repair</code>。</dd></div>
+          <div><dt>安排某物被處理</dt><dd><span lang="en">I had <strong>my laptop repaired</strong> yesterday.</span> 我昨天請人把筆電修好了。<code>my laptop</code> 是被修理的東西，後面接過去分詞 <code>repaired</code>。</dd></div>
+          <div><dt><code>get + 物 + 過去分詞</code></dt><dd><span lang="en">We need to get <strong>the documents signed</strong> by Friday.</span> 我們得在星期五前安排好文件簽署。</dd></div>
+        </dl>
+        <p class="note">這裡的過去分詞表達「被處理」。整句的時間看其他動詞，例如 <code>I'll have the printer repaired tomorrow.</code> 是明天要安排修理。</p>
+      </section>
+
+      <section class="panel" id="causative-passive" tabindex="-1">
+        <h2>被動句｜be made to + 原形</h2>
+        <p>被動句把接受動作或要求的人放在句首。<code>make</code> 變成 <code>be made</code> 時，後面的動詞用 <code>to + 原形</code>。</p>
+        <dl class="examples">
+          <div><dt>主動</dt><dd><span lang="en">The manager made the staff <strong>stay</strong> late.</span> 經理要求員工留下來加班。</dd></div>
+          <div><dt>被動</dt><dd><span lang="en">The staff were made <strong>to stay</strong> late.</span> 員工被要求留下來加班。</dd></div>
+        </dl>
+        <p>要表達「被允許做某事」，常用 <code>be allowed to + 原形</code>。例如 <code>Guests are allowed to use the gym.</code>（住客可以使用健身房。）</p>
+      </section>
+
+      <section class="panel" id="causative-quiz" tabindex="-1">
+        <h2>小測驗｜選擇正確的動詞形式</h2>
+        <p>先分辨誰做動作、誰接受動作，再展開解析。</p>
+        <details><summary><span lang="en">The manager made us ___ the figures again.</span> （check / to check）</summary><p><strong>check</strong>。主動句用 <code>make + 人 + 原形</code>。</p></details>
+        <details><summary><span lang="en">I'll have Nina ___ the conference room.</span> （book / to book）</summary><p><strong>book</strong>。Nina 負責訂會議室，搭配是 <code>have + 人 + 原形</code>。</p></details>
+        <details><summary><span lang="en">The hotel lets guests ___ the rooftop terrace.</span> （use / to use）</summary><p><strong>use</strong>。<code>let + 人 + 原形</code> 表示允許。</p></details>
+        <details><summary><span lang="en">We got the supplier ___ the samples early.</span> （ship / to ship）</summary><p><strong>to ship</strong>。使役句型 <code>get + 人 + to + 原形</code> 表示設法讓某人做某事。</p></details>
+        <details><summary><span lang="en">I had the printer ___ yesterday.</span> （repair / repaired）</summary><p><strong>repaired</strong>。印表機是被修理的東西，所以用過去分詞。</p></details>
+        <details><summary><span lang="en">Can you get these forms ___ before noon?</span> （sign / signed）</summary><p><strong>signed</strong>。這句要安排表格被簽署，搭配是 <code>get + 物 + 過去分詞</code>。</p></details>
+        <details><summary><span lang="en">The staff were made ___ late.</span> （stay / to stay）</summary><p><strong>to stay</strong>。被動句型 <code>be made to + 原形</code>。</p></details>
+        <details><summary><span lang="en">Lena helped me ___ the boxes.</span> （carry / to carry / 兩者皆可）</summary><p><strong>兩者皆可</strong>。<code>help + 人</code> 可接 <code>carry</code> 或 <code>to carry</code>。</p></details>
+      </section>
+
+      <section class="panel">
+        <h2>參考資料</h2>
+        <ul>
+          <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/word-patterns-make-sb-do-sth">Cambridge English Grammar Today｜make 的主動與被動句型</a></li>
+          <li><a href="https://dictionary.cambridge.org/us/grammar/british-grammar/have-something-">Cambridge｜have something done</a></li>
+          <li><a href="https://dictionary.cambridge.org/us/grammar/british-grammar/get">Cambridge｜get 的動詞搭配</a></li>
+          <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/infinitive-or-verb-ing">Cambridge｜let、make 和 help 的動詞搭配</a></li>
+        </ul>
+      </section>
+      <a class="lesson-next" href="#verb-transitivity">← 上一篇　及物與不及物動詞</a>
     </article>
   </main>
 
