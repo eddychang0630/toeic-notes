@@ -33,7 +33,7 @@
     p, h1, h2, h3 { margin: 0; }
     p + p { margin-top: .55rem; }
     a { color: var(--purple); }
-    a:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
       outline: 3px solid #6950c7;
       outline-offset: 4px;
     }
@@ -59,6 +59,20 @@
     .book::after { right: 1px; border-radius: 3px 2px 2px 0; transform: skewY(-10deg); }
     .header-link { padding: 8px 12px; font-size: .9rem; font-weight: 750; color: var(--purple); text-decoration: none; border-radius: 10px; }
     .header-link:hover, .header-link[aria-current="page"] { background: #ece5fa; }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .refresh-button {
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+      color: var(--purple);
+      font: 750 1.55rem/1 system-ui, sans-serif;
+      cursor: pointer;
+    }
+    .refresh-button:hover, .refresh-button:active { background: #ece5fa; }
     main.wrap { padding-block: 36px 54px; }
     .hero {
       min-height: 330px;
@@ -187,6 +201,7 @@
     .site-footer .wrap { min-height: 68px; display: flex; align-items: center; color: var(--muted); font-size: .83rem; }
     .js-only { display: none; }
     .has-js .js-only { display: revert; }
+    .has-js .refresh-button { display: grid; }
     .has-js .search.js-only { display: flex; }
     .has-js .lookup-controls.js-only { display: grid; }
     @media (max-width: 1040px) {
@@ -228,7 +243,10 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#home"><span class="brand-icon" aria-hidden="true"><span class="book"></span></span>TOEIC 筆記本</a>
-      <nav aria-label="主選單"><a class="header-link" href="#home">講義總覽</a></nav>
+      <nav class="header-nav" aria-label="主選單">
+        <a class="header-link" href="#home">講義總覽</a>
+        <button class="refresh-button js-only" id="refresh-page" type="button" aria-label="重新整理頁面" title="重新整理"><span aria-hidden="true">⟳</span></button>
+      </nav>
     </div>
   </header>
 
@@ -2795,6 +2813,7 @@
     }
 
     lessonSearch.addEventListener("input", filterLessons);
+    document.getElementById("refresh-page").addEventListener("click", () => window.location.reload());
     window.addEventListener("hashchange", () => showPage(true));
     document.documentElement.classList.add("has-js");
     filterLessons();
