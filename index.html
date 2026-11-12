@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f7f3">
-  <meta name="description" content="手機與 iPad 都能看的多益文法講義。查介系詞、學不定詞、及物與不及物動詞、使役動詞，並做題目複習。">
+  <meta name="description" content="手機與 iPad 都能看的多益文法講義。查介系詞、學不定詞、及物與不及物動詞、使役動詞和連接詞。">
   <meta name="apple-mobile-web-app-title" content="TOEIC 筆記">
   <title>TOEIC 筆記本｜多益文法複習</title>
   <style>
@@ -95,7 +95,7 @@
     .search input { width: 100%; min-width: 0; padding: .7rem 0; background: none; border: 0; font-size: 1rem; outline: none; }
     .search:focus-within { outline: 2px solid #7755cf; outline-offset: 2px; }
     .catalog-heading .search { width: min(100%, 340px); }
-    .card-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     .lesson-card {
       display: flex;
       flex-direction: column;
@@ -116,6 +116,7 @@
     .card-icon.green { background: var(--green); color: #215943; }
     .card-icon.gold { background: #fff0bd; color: #634708; }
     .card-icon.blue { background: #dfedff; color: #234c80; }
+    .card-icon.rose { background: #f8e1e6; color: #80334f; }
     .topic { color: var(--muted); font-size: .82rem; font-weight: 750; }
     .lesson-card h3 { font-size: clamp(1.18rem, 2.75vw, 1.54rem); line-height: 1.3; letter-spacing: -.04em; }
     .lesson-card p { color: var(--muted); font-size: .93rem; margin-top: .3rem; }
@@ -132,6 +133,7 @@
     .lesson-hero.green { background: var(--green); }
     .lesson-hero.gold { background: #fff2c8; }
     .lesson-hero.blue { background: #e2eeff; }
+    .lesson-hero.rose { background: #f8e4e9; }
     .lesson-hero h1 { margin: .35rem 0 .55rem; font-size: clamp(1.85rem, 5vw, 3.15rem); line-height: 1.2; letter-spacing: -.055em; }
     .lesson-hero p { font-size: 1rem; color: #494257; }
     .toc { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0; }
@@ -158,6 +160,12 @@
     .verb-examples dd span { display: block; }
     .verb-examples dd span[lang="en"] { color: var(--ink); }
     .verb-examples dd strong { color: var(--purple); }
+    .connector-examples dt .tag { display: table; margin-top: .3rem; }
+    .connector-examples dd span { display: block; }
+    .connector-examples dd span[lang="en"] { margin-top: .2rem; color: var(--ink); }
+    .connector-examples dd strong { color: var(--purple); }
+    .connector-examples .meaning { font-weight: 720; }
+    .section-links { margin-bottom: 0; }
     details { border-top: 1px solid var(--line); }
     details:first-of-type { margin-top: .75rem; }
     summary { padding: .72rem 0; font-weight: 720; cursor: pointer; color: var(--ink); }
@@ -266,6 +274,11 @@
             <div class="card-top"><span class="card-icon blue" aria-hidden="true">do</span><span class="topic">動詞句型</span></div>
             <div><h3>使役動詞</h3><p>比較 make、have、let 和 get，看誰做動作、動詞要用什麼形式。</p></div>
             <div class="card-bottom"><div class="tags"><span class="tag">原形</span><span class="tag">過去分詞</span></div><span class="arrow" aria-hidden="true">→</span></div>
+          </a>
+          <a class="lesson-card" href="#linking-words" data-keywords="連接詞 連詞 介係詞 介系詞 連接副詞 轉承語 原因 結果 目的 讓步 轉折 條件 逗號 句號 conjunction">
+            <div class="card-top"><span class="card-icon rose" aria-hidden="true">and</span><span class="topic">句子結構</span></div>
+            <div><h3>連接詞、介系詞和連接副詞</h3><p>先看空格後面接什麼，再按原因、目的、轉折等語意選字。</p></div>
+            <div class="card-bottom"><div class="tags"><span class="tag">語意分類</span><span class="tag">中英例句</span></div><span class="arrow" aria-hidden="true">→</span></div>
           </a>
         </div>
         <p class="empty" id="lesson-empty" hidden>找不到講義，試試「月份」、「不定詞」或「及物動詞」。</p>
@@ -1717,6 +1730,993 @@
         </ul>
       </section>
       <a class="lesson-next" href="#verb-transitivity">← 上一篇　及物與不及物動詞</a>
+      <a class="lesson-next" href="#linking-words">下一篇　連接詞、介系詞和連接副詞 →</a>
+    </article>
+
+    <article class="lesson" id="linking-words" data-page>
+      <a class="back" href="#home">← 講義總覽</a>
+      <header class="lesson-hero rose">
+        <span class="eyebrow">句子結構</span>
+        <h1 tabindex="-1">連接詞、介系詞和連接副詞</h1>
+        <p>同一段話可以用不同句型來表達原因、目的或轉折。先認識三種詞的功能，再按語意查多益與日常例句。</p>
+      </header>
+      <nav class="toc" aria-label="連接詞講義目錄">
+        <a href="#linking-definition">三種詞是什麼？</a><a href="#linking-structure">怎麼選？</a><a href="#linking-index">按語意查例句</a><a href="#linking-quiz">小測驗</a>
+      </nav>
+
+      <section class="panel" id="linking-definition" tabindex="-1">
+        <h2>連接詞、介系詞、連接副詞是什麼？</h2>
+        <p><strong>子句</strong>是句子裡有主詞和動詞的一組字。例如 <code>the road was closed</code> 裡，<code>the road</code> 是主詞，<code>was closed</code> 是動詞部分。能獨立成句的叫<strong>獨立子句</strong>。加上 <code>because</code> 後，<code>because the road was closed</code> 只交代原因，需要搭配主句才完整。</p>
+        <dl class="examples">
+          <div><dt>連接詞<br><span lang="en">conjunction</span></dt><dd>把字、片語或子句接起來。<strong>對等連接詞</strong>像 <code>and</code>、<code>but</code>、<code>or</code>，能接兩個同等的部分。<strong>從屬連接詞</strong>像 <code>because</code>、<code>although</code>、<code>if</code>，引出原因、讓步、條件等子句。成對用法如 <code>either ... or ...</code>。</dd></div>
+          <div><dt>介系詞<br><span lang="en">preposition</span></dt><dd>和後面的名詞、代名詞或動詞 <code>-ing</code> 形式一起用，說明時間、原因、條件等關係。<code>because of the road closure</code> 裡，<code>the road closure</code> 是名詞片語。<a href="#dictionary">查其他介系詞</a></dd></div>
+          <div><dt>連接副詞／轉承語<br><span lang="en">linking adverb</span></dt><dd>提示讀者前後兩個想法的關係，例如 <code>however</code> 提示轉折，<code>therefore</code> 提示結果。也可以是一個片語，如 <code>as a result</code>。常放在新句開頭，也有放句中或句尾的用法。</dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" id="linking-structure" tabindex="-1">
+        <h2>多益怎麼選？先看結構，再看語意</h2>
+        <p>同一件事可以這樣寫。觀察粗體後面接的內容，以及句子之間怎麼斷開。</p>
+        <dl class="examples">
+          <div><dt>從屬連接詞 + 子句</dt><dd><span lang="en">We arrived late <strong>because</strong> the road was closed.</span> 我們遲到了，因為道路封閉。<code>the road was closed</code> 有主詞和動詞。</dd></div>
+          <div><dt>介系詞 + 名詞片語</dt><dd><span lang="en">We arrived late <strong>because of</strong> the road closure.</span> 我們因道路封閉而遲到。<code>the road closure</code> 是名詞片語。</dd></div>
+          <div><dt>連接副詞 + 下一句</dt><dd><span lang="en">The road was closed. <strong>Therefore</strong>, we arrived late.</span> 道路封閉了，因此我們遲到了。<code>therefore</code> 引出結果。</dd></div>
+          <div><dt>對等連接詞接兩句</dt><dd><span lang="en">The road was closed, <strong>so</strong> we arrived late.</span> 道路封閉了，所以我們遲到了。</dd></div>
+        </dl>
+        <h3>標點怎麼放？</h3>
+        <ul>
+          <li>從屬子句放前面時，通常接逗號。<code>Because the road was closed, we arrived late.</code></li>
+          <li>用對等連接詞接兩個獨立子句時，正式寫作通常在連接詞前加逗號。<code>The road was closed, so we arrived late.</code></li>
+          <li>兩個獨立子句用 <code>however</code>、<code>therefore</code> 等轉承時，可以用句號分開，也可以在同一句用分號。<code>The price rose. However, we renewed.</code> 或 <code>The price rose; however, we renewed.</code></li>
+        </ul>
+        <p class="note"><strong>看到「雖然」先比三組。</strong> <code>Although it rained, we went out.</code> 接子句。<code>Despite the rain, we went out.</code> 接名詞。<code>It rained. However, we went out.</code> 用轉承語開新句。標準考試寫法中，同一組讓步用 <code>although</code> 或 <code>but</code> 的句型，同一組因果用 <code>because</code> 或 <code>so</code> 的句型。</p>
+      </section>
+
+      <section class="panel" id="linking-index" tabindex="-1">
+        <h2>按語意查例句</h2>
+        <p>共 15 類、194 筆常見用法。每列都有句型類別、中文意思和完整中英例句。同一個詞有不同功能時，會出現在對應的分類。</p>
+        <nav class="toc" aria-label="依語意找例句">
+          <a href="#linking-reason">原因</a>
+          <a href="#linking-result">結果</a>
+          <a href="#linking-purpose">目的</a>
+          <a href="#linking-contrast">轉折與讓步</a>
+          <a href="#linking-condition">條件與預防</a>
+          <a href="#linking-time">時間</a>
+          <a href="#linking-sequence">順序與同時</a>
+          <a href="#linking-addition">補充與並列</a>
+          <a href="#linking-choice">選擇與替代</a>
+          <a href="#linking-exception">例外與排除</a>
+          <a href="#linking-comparison">比較與方式</a>
+          <a href="#linking-example">舉例、改述與依據</a>
+          <a href="#linking-summary">總結</a>
+          <a href="#linking-conversation">口語轉場</a>
+          <a href="#linking-content">說明內容與間接問句</a>
+        </nav>
+      </section>
+
+      <section class="panel" id="linking-reason" tabindex="-1">
+        <h2>原因</h2>
+        <p>說明「為什麼」。<code>because + 子句</code>，<code>because of + 名詞</code>。<code>since</code> 和 <code>as</code> 在別的句子也能表示時間，要看上下文。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>because</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">因為，最直接的原因說法</span><span lang="en">We changed the venue <strong>because</strong> more people registered than we expected.</span><span>我們換了場地，因為報名的人比預期多。</span></dd>
+          </div>
+          <div>
+            <dt><code>since</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">既然，常把原因當成已知的背景</span><span lang="en"><strong>Since</strong> everyone is here, let's start the meeting.</span><span>既然人都到齊了，我們就開會吧。</span></dd>
+          </div>
+          <div>
+            <dt><code>as</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">因為，常交代背景</span><span lang="en"><strong>As</strong> the office was closed, I left the documents at reception.</span><span>因為辦公室關了，我把文件留在接待處。</span></dd>
+          </div>
+          <div>
+            <dt><code>for</code><span class="tag">對等連接詞</span></dt>
+            <dd><span class="meaning">因為，正式或文學語氣，原因放在後面</span><span lang="en">She kept the original receipt, <strong>for</strong> she might need it later.</span><span>她留著收據正本，因為之後可能用得到。</span></dd>
+          </div>
+          <div>
+            <dt><code>now that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">既然情況已經改變</span><span lang="en"><strong>Now that</strong> the payment has cleared, we can ship the order.</span><span>既然款項已入帳，我們可以出貨了。</span></dd>
+          </div>
+          <div>
+            <dt><code>given that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">考量到，提出已知條件</span><span lang="en"><strong>Given that</strong> the deadline is tomorrow, we'll need everyone's help.</span><span>考量到明天就是期限，我們需要大家幫忙。</span></dd>
+          </div>
+          <div>
+            <dt><code>seeing that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">既然，偏口語</span><span lang="en"><strong>Seeing that</strong> you're already downtown, can you pick up the tickets?</span><span>既然你已經在市中心，可以順便取票嗎？</span></dd>
+          </div>
+          <div>
+            <dt><code>’cause</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">because 的非正式口語或訊息寫法</span><span lang="en">I'm taking a taxi <strong>’cause</strong> I'm running late.</span><span>我要搭計程車，因為我快遲到了。</span></dd>
+          </div>
+          <div>
+            <dt><code>cos</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">because 的非正式拼法，常見於英式口語的轉寫</span><span lang="en">We stayed in <strong>cos</strong> it was freezing outside.</span><span>我們待在室內，因為外面冷得要命。</span></dd>
+          </div>
+          <div>
+            <dt><code>because of</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">因為，後接名詞或名詞片語</span><span lang="en">We canceled the picnic <strong>because of</strong> the rain.</span><span>我們因為下雨而取消了野餐。</span></dd>
+          </div>
+          <div>
+            <dt><code>due to</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">由於，常見於通知</span><span lang="en">The flight was delayed <strong>due to</strong> poor visibility.</span><span>航班因能見度不佳而延誤。</span></dd>
+          </div>
+          <div>
+            <dt><code>owing to</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">由於，較正式</span><span lang="en">The store will close early <strong>owing to</strong> a staff shortage.</span><span>商店因人手不足將提早關門。</span></dd>
+          </div>
+          <div>
+            <dt><code>on account of</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">因為，常見於較正式的敘述</span><span lang="en">The ferry stopped running <strong>on account of</strong> strong winds.</span><span>渡輪因強風而停駛。</span></dd>
+          </div>
+          <div>
+            <dt><code>as a result of</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">由於某事造成的結果</span><span lang="en">Several trains were canceled <strong>as a result of</strong> the strike.</span><span>好幾班火車因罷工而取消。</span></dd>
+          </div>
+          <div>
+            <dt><code>thanks to</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">多虧，常用於正面原因</span><span lang="en">We finished early <strong>thanks to</strong> everyone's help.</span><span>多虧大家幫忙，我們提早完成了。</span></dd>
+          </div>
+          <div>
+            <dt><code>given</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">考量到，後接名詞片語</span><span lang="en"><strong>Given</strong> the tight budget, we'll reuse the old displays.</span><span>考量預算吃緊，我們會沿用舊展示架。</span></dd>
+          </div>
+          <div>
+            <dt><code>considering that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">考量到某個情況</span><span lang="en">The repair was quick <strong>considering that</strong> the part had to be ordered.</span><span>考量到零件還得訂購，這次修得算快。</span></dd>
+          </div>
+          <div>
+            <dt><code>considering</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">考量某個因素，後接名詞</span><span lang="en"><strong>Considering</strong> the distance, the taxi fare was reasonable.</span><span>考量到路程，計程車車資算合理。</span></dd>
+          </div>
+          <div>
+            <dt><code>after all</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">畢竟，補充理由或提醒對方一個事實</span><span lang="en">Let's leave early. <strong>After all</strong>, the roads get busy around five.</span><span>我們早一點出發吧。畢竟五點左右路上會很塞。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-result" tabindex="-1">
+        <h2>結果</h2>
+        <p>說明「後來怎麼樣」。<code>as a result</code> 引出結果，<code>as a result of + 名詞</code> 則引出原因。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>so</code><span class="tag">對等連接詞</span></dt>
+            <dd><span class="meaning">所以，後面說結果</span><span lang="en">The roads were flooded, <strong>so</strong> we postponed the delivery.</span><span>道路淹水，所以我們延後送貨。</span></dd>
+          </div>
+          <div>
+            <dt><code>so ... that</code><span class="tag">其他句型</span></dt>
+            <dd><span class="meaning">如此……以致於，so 後常接形容詞或副詞</span><span lang="en">The queue was <strong>so</strong> long <strong>that</strong> we decided to come back later.</span><span>隊伍太長了，所以我們決定晚點再來。</span></dd>
+          </div>
+          <div>
+            <dt><code>such ... that</code><span class="tag">其他句型</span></dt>
+            <dd><span class="meaning">如此……以致於，such 後接名詞片語</span><span lang="en">It was <strong>such</strong> a useful workshop <strong>that</strong> I recommended it to my team.</span><span>這個工作坊非常有用，我因此推薦給團隊。</span></dd>
+          </div>
+          <div>
+            <dt><code>therefore</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">因此，常見於書面推論或通知</span><span lang="en">The invoice is overdue. <strong>Therefore</strong>, we have paused the shipment.</span><span>發票款項已逾期，因此我們暫停出貨。</span></dd>
+          </div>
+          <div>
+            <dt><code>thus</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">因此，較正式</span><span lang="en">The figures were incomplete. <strong>Thus</strong>, the report could not be finalized.</span><span>數據不完整，因此報告無法定稿。</span></dd>
+          </div>
+          <div>
+            <dt><code>hence</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">因此，較正式</span><span lang="en">The form was unsigned. <strong>Hence</strong>, the request was rejected.</span><span>表格未簽名，因此申請遭到退回。</span></dd>
+          </div>
+          <div>
+            <dt><code>consequently</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">結果是，較正式</span><span lang="en">Several staff members were absent. <strong>Consequently</strong>, the store opened late.</span><span>好幾名員工缺席，結果店家晚開門。</span></dd>
+          </div>
+          <div>
+            <dt><code>as a result</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">結果、因此，後面說發生了什麼</span><span lang="en">The supplier missed the deadline. <strong>As a result</strong>, we had to change our plans.</span><span>供應商沒趕上期限，因此我們只好改變計畫。</span></dd>
+          </div>
+          <div>
+            <dt><code>accordingly</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">因此採取相應行動</span><span lang="en">Demand has fallen. <strong>Accordingly</strong>, we will reduce our next order.</span><span>需求下降了，因此我們會減少下一筆訂單的數量。</span></dd>
+          </div>
+          <div>
+            <dt><code>for this reason</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">基於這個原因</span><span lang="en">The room has no windows. <strong>For this reason</strong>, we'll use it only for storage.</span><span>這個房間沒有窗戶，所以我們只會拿它來儲物。</span></dd>
+          </div>
+          <div>
+            <dt><code>that's why</code><span class="tag">口語轉承語</span></dt>
+            <dd><span class="meaning">這就是為什麼，日常口語</span><span lang="en">The bus broke down. <strong>That's why</strong> I was late.</span><span>公車故障了，所以我才遲到。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-purpose" tabindex="-1">
+        <h2>目的</h2>
+        <p>問「這樣做是為了什麼？」<code>so that</code> 後面可有自己的主詞。<code>to + 原形</code> 常用在前後是同一人做動作時。<code>for + V-ing</code> 的例句用來說明工具用途。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>so that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">為了讓某件事發生，後面可有自己的主詞</span><span lang="en">I sent a map <strong>so that</strong> everyone could find the office.</span><span>我寄了地圖，好讓大家找到辦公室。</span></dd>
+          </div>
+          <div>
+            <dt><code>so</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">口語表目的，可理解為省略了 that</span><span lang="en">I'll turn on the light <strong>so</strong> you can see the labels.</span><span>我會把燈打開，好讓你看清楚標籤。</span></dd>
+          </div>
+          <div>
+            <dt><code>in order that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">為了使，較正式</span><span lang="en">We kept a copy <strong>in order that</strong> the auditors could review it later.</span><span>我們留了一份副本，方便稽核人員之後查閱。</span></dd>
+          </div>
+          <div>
+            <dt><code>to + 原形</code><span class="tag">目的不定詞</span></dt>
+            <dd><span class="meaning">為了做某事，通常由主句主詞執行</span><span lang="en">I called <strong>to</strong> confirm the reservation.</span><span>我打電話是為了確認訂位。</span></dd>
+          </div>
+          <div>
+            <dt><code>in order to</code><span class="tag">目的不定詞</span></dt>
+            <dd><span class="meaning">為了，明示目的</span><span lang="en">We moved the meeting online <strong>in order to</strong> include remote staff.</span><span>我們把會議改成線上舉行，好讓遠端員工也能參加。</span></dd>
+          </div>
+          <div>
+            <dt><code>so as to</code><span class="tag">目的不定詞</span></dt>
+            <dd><span class="meaning">為了，常見於書面表達</span><span lang="en">We stored the boxes off the floor <strong>so as to</strong> protect them from water damage.</span><span>我們把箱子墊高存放，以免受潮損壞。</span></dd>
+          </div>
+          <div>
+            <dt><code>so as not to</code><span class="tag">目的不定詞</span></dt>
+            <dd><span class="meaning">為了避免某件事</span><span lang="en">We spoke quietly <strong>so as not to</strong> disturb the guests.</span><span>我們小聲說話，以免打擾客人。</span></dd>
+          </div>
+          <div>
+            <dt><code>in order for ... to</code><span class="tag">目的不定詞</span></dt>
+            <dd><span class="meaning">為了讓特定的人或事物做某事</span><span lang="en">We opened a second counter <strong>in order for</strong> customers <strong>to</strong> check in faster.</span><span>我們加開了一個櫃台，讓顧客可以更快報到。</span></dd>
+          </div>
+          <div>
+            <dt><code>for</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">給某用途，常接名詞或 V-ing</span><span lang="en">This scanner is <strong>for</strong> digitizing receipts.</span><span>這台掃描器是用來把收據數位化的。</span></dd>
+          </div>
+          <div>
+            <dt><code>for the purpose of</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">為了某個用途，正式</span><span lang="en">We collected these figures <strong>for the purpose of</strong> estimating next year's costs.</span><span>我們蒐集這些數據，是為了估算明年的成本。</span></dd>
+          </div>
+          <div>
+            <dt><code>with a view to</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">以……為目標，正式，to 後可接 V-ing</span><span lang="en">The company opened a branch <strong>with a view to</strong> expanding overseas.</span><span>這家公司開了一間分店，以拓展海外業務。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-contrast" tabindex="-1">
+        <h2>轉折與讓步</h2>
+        <p>轉折是兩件事形成對比。讓步是承認一個情況，但主句說的事仍然發生。<code>although</code> 接子句，<code>despite</code> 接名詞或 <code>V-ing</code>，<code>however</code> 可開新句。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>but</code><span class="tag">對等連接詞</span></dt>
+            <dd><span class="meaning">但是，連接對比的想法</span><span lang="en">The hotel is small, <strong>but</strong> the rooms are comfortable.</span><span>飯店不大，但是房間很舒適。</span></dd>
+          </div>
+          <div>
+            <dt><code>yet</code><span class="tag">對等連接詞</span></dt>
+            <dd><span class="meaning">然而，常帶出出乎意料的對比</span><span lang="en">The app looks simple, <strong>yet</strong> it can handle large orders.</span><span>這個 app 看起來簡單，卻能處理大量訂單。</span></dd>
+          </div>
+          <div>
+            <dt><code>although</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">雖然，引出讓步子句</span><span lang="en"><strong>Although</strong> the price went up, we renewed the contract.</span><span>雖然價格漲了，我們還是續約了。</span></dd>
+          </div>
+          <div>
+            <dt><code>though</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">雖然，口語也常見</span><span lang="en"><strong>Though</strong> I was tired, I finished the report.</span><span>雖然我累了，我還是完成了報告。</span></dd>
+          </div>
+          <div>
+            <dt><code>even though</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">即使實際情況如此，語氣更強</span><span lang="en"><strong>Even though</strong> the shop was closing, the clerk helped us.</span><span>即使店家快打烊了，店員還是幫了我們。</span></dd>
+          </div>
+          <div>
+            <dt><code>while</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">而、雖然，此處比較兩種情況</span><span lang="en"><strong>While</strong> our online sales rose, sales in stores fell.</span><span>我們的線上銷售上升，實體門市的銷售卻下滑。</span></dd>
+          </div>
+          <div>
+            <dt><code>whereas</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">然而，明確對比兩件事</span><span lang="en">The basic plan includes email support, <strong>whereas</strong> the premium plan includes phone support.</span><span>基本方案包含電子郵件客服，高級方案則包含電話客服。</span></dd>
+          </div>
+          <div>
+            <dt><code>despite</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">儘管，後接名詞或 V-ing</span><span lang="en"><strong>Despite</strong> the delay, we reached the station on time.</span><span>儘管有延誤，我們還是準時到達車站。</span></dd>
+          </div>
+          <div>
+            <dt><code>in spite of</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">儘管，後接名詞或 V-ing</span><span lang="en"><strong>In spite of</strong> feeling nervous, Maya gave a clear presentation.</span><span>儘管緊張，Maya 的簡報仍講得很清楚。</span></dd>
+          </div>
+          <div>
+            <dt><code>despite the fact that</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">儘管有這個事實，that 後可接子句</span><span lang="en"><strong>Despite the fact that</strong> the office was closed, the courier still came.</span><span>雖然辦公室沒開，快遞員還是來了。</span></dd>
+          </div>
+          <div>
+            <dt><code>notwithstanding</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">儘管，常見於正式書面語</span><span lang="en"><strong>Notwithstanding</strong> the delay, the client accepted the shipment.</span><span>儘管有延誤，客戶還是收下了這批貨。</span></dd>
+          </div>
+          <div>
+            <dt><code>however</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">然而，轉折</span><span lang="en">We expected a quiet afternoon. <strong>However</strong>, dozens of customers arrived.</span><span>我們原以為下午會很清閒，結果來了好幾十位顧客。</span></dd>
+          </div>
+          <div>
+            <dt><code>nevertheless</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">儘管如此，較正式</span><span lang="en">The proposal is expensive. <strong>Nevertheless</strong>, it may save us time in the long run.</span><span>這個方案成本高。儘管如此，長期來看可能會幫我們省時間。</span></dd>
+          </div>
+          <div>
+            <dt><code>nonetheless</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">即便如此，較正式</span><span lang="en">The route was longer than planned. <strong>Nonetheless</strong>, we arrived on time.</span><span>這條路線比原先規劃的長，但我們還是準時到了。</span></dd>
+          </div>
+          <div>
+            <dt><code>even so</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">即使如此</span><span lang="en">The room was cold. <strong>Even so</strong>, we stayed until the end.</span><span>房間很冷。即使如此，我們還是待到最後。</span></dd>
+          </div>
+          <div>
+            <dt><code>still</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">即便如此，口語也常見</span><span lang="en">The tickets were pricey. <strong>Still</strong>, it was a great show.</span><span>票價不便宜。不過，表演真的很棒。</span></dd>
+          </div>
+          <div>
+            <dt><code>though</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">不過，口語常放句尾</span><span lang="en">The trip was tiring. I had fun, <strong>though</strong>.</span><span>旅程很累，不過我玩得很開心。</span></dd>
+          </div>
+          <div>
+            <dt><code>on the other hand</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">另一方面，提出另一面</span><span lang="en">The downtown office is convenient. <strong>On the other hand</strong>, rent is higher there.</span><span>市中心的辦公室交通方便，但那裡的租金也比較高。</span></dd>
+          </div>
+          <div>
+            <dt><code>in contrast</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">相比之下</span><span lang="en">Orders were slow in May. <strong>In contrast</strong>, June was our busiest month.</span><span>五月訂單不多。相比之下，六月是最忙的月份。</span></dd>
+          </div>
+          <div>
+            <dt><code>by contrast</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">相較之下</span><span lang="en">The old printer jammed often. <strong>By contrast</strong>, the new one rarely has problems.</span><span>舊印表機常卡紙。相較之下，新印表機很少出問題。</span></dd>
+          </div>
+          <div>
+            <dt><code>on the contrary</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">正好相反，用來反駁前面的說法</span><span lang="en">The change did not slow us down. <strong>On the contrary</strong>, it made the process faster.</span><span>這個改變沒有拖慢我們。正好相反，它讓流程變快了。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-condition" tabindex="-1">
+        <h2>條件與預防</h2>
+        <p><code>if it rains</code> 設定「如果下雨」的條件。<code>in case it rains</code> 說明為什麼現在先做準備。<code>even if</code> 表示即使條件成立，結果也一樣。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>if</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">如果，提出條件</span><span lang="en"><strong>If</strong> you need a receipt, let me know.</span><span>如果你需要收據，跟我說一聲。</span></dd>
+          </div>
+          <div>
+            <dt><code>unless</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">除非、如果不</span><span lang="en">You can't enter <strong>unless</strong> you have a visitor badge.</span><span>除非有訪客證，否則不能進入。</span></dd>
+          </div>
+          <div>
+            <dt><code>as long as</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">只要</span><span lang="en">You can work from home <strong>as long as</strong> you attend the online meeting.</span><span>只要你有參加線上會議，就可以在家工作。</span></dd>
+          </div>
+          <div>
+            <dt><code>so long as</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">只要，和 as long as 意思相近</span><span lang="en">You can use my desk <strong>so long as</strong> you leave it tidy.</span><span>只要你用完把桌面收整齊，就可以用我的桌子。</span></dd>
+          </div>
+          <div>
+            <dt><code>provided that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">條件是，常見於書面條款，也可省略 that</span><span lang="en">We can offer a refund <strong>provided that</strong> you return the item within 30 days.</span><span>只要你在三十天內退回商品，我們就能退款。</span></dd>
+          </div>
+          <div>
+            <dt><code>providing that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">只要，口語中也可用，可省略 that</span><span lang="en">We'll go ahead <strong>providing that</strong> the weather improves.</span><span>只要天氣好轉，我們就會照原計畫進行。</span></dd>
+          </div>
+          <div>
+            <dt><code>assuming that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">假設某條件成立</span><span lang="en"><strong>Assuming that</strong> traffic is light, we'll get there by noon.</span><span>假如路上不塞車，我們中午前會到。</span></dd>
+          </div>
+          <div>
+            <dt><code>on condition that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">條件是，強調約定</span><span lang="en">I agreed to lend her the car <strong>on condition that</strong> she return it before six.</span><span>我同意借她車，條件是她六點前要還。</span></dd>
+          </div>
+          <div>
+            <dt><code>only if</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">只有在……的情況下才</span><span lang="en">You can claim a refund <strong>only if</strong> you keep the receipt.</span><span>只有保留收據，才能申請退款。</span></dd>
+          </div>
+          <div>
+            <dt><code>even if</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">即使某個情況發生，結果也一樣</span><span lang="en">I'll be there <strong>even if</strong> it rains.</span><span>即使下雨，我也會到。</span></dd>
+          </div>
+          <div>
+            <dt><code>in case</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">以防萬一，先採取預防措施</span><span lang="en">Take an umbrella <strong>in case</strong> it rains.</span><span>帶把傘，以防下雨。</span></dd>
+          </div>
+          <div>
+            <dt><code>in the event that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">如果發生某事，正式</span><span lang="en"><strong>In the event that</strong> your card stops working, call the service desk.</span><span>如果你的卡片無法使用，請打給服務台。</span></dd>
+          </div>
+          <div>
+            <dt><code>in case of</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">若發生，後接名詞</span><span lang="en"><strong>In case of</strong> fire, use the stairs.</span><span>發生火災時請走樓梯。</span></dd>
+          </div>
+          <div>
+            <dt><code>in the event of</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">萬一發生，正式，後接名詞</span><span lang="en"><strong>In the event of</strong> a power failure, the backup generator starts automatically.</span><span>停電時，備用發電機會自動啟動。</span></dd>
+          </div>
+          <div>
+            <dt><code>subject to</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">視條件而定，常見於公告</span><span lang="en">Late checkout is <strong>subject to</strong> room availability.</span><span>能否延後退房，視房間供應情況而定。</span></dd>
+          </div>
+          <div>
+            <dt><code>depending on</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">取決於，後接條件</span><span lang="en">Delivery can take two to five days, <strong>depending on</strong> your location.</span><span>視你所在的地點，送貨可能需要兩到五天。</span></dd>
+          </div>
+          <div>
+            <dt><code>regardless of</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">不論某項條件如何</span><span lang="en">The class is open to everyone, <strong>regardless of</strong> experience.</span><span>無論有沒有經驗，任何人都可以上這堂課。</span></dd>
+          </div>
+          <div>
+            <dt><code>without</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">缺少某項條件時</span><span lang="en"><strong>Without</strong> a receipt, you may need to show your bank statement.</span><span>如果沒有收據，可能需要出示銀行對帳單。</span></dd>
+          </div>
+          <div>
+            <dt><code>otherwise</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">否則，說明沒做到的後果</span><span lang="en">Pay by Friday. <strong>Otherwise</strong>, your reservation will be canceled.</span><span>請在星期五前付款，否則預訂會被取消。</span></dd>
+          </div>
+          <div>
+            <dt><code>or else</code><span class="tag">對等連接詞</span></dt>
+            <dd><span class="meaning">不然，常用來提醒後果</span><span lang="en">Save a copy now, <strong>or else</strong> you might lose your changes.</span><span>現在先存一份，不然你改的東西可能會不見。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-time" tabindex="-1">
+        <h2>時間</h2>
+        <p><code>while the meeting was in progress</code> 接子句。<code>during the meeting</code> 接名詞。也有省略的 <code>while waiting</code>，意思是「等候時」。<code>by</code> 標期限，<code>until</code> 標持續到何時。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>when</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">當……時</span><span lang="en">Call me <strong>when</strong> you get to the station.</span><span>你到車站時打給我。</span></dd>
+          </div>
+          <div>
+            <dt><code>whenever</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">每當、任何時候</span><span lang="en">You can stop by <strong>whenever</strong> you have time.</span><span>你有空時隨時可以過來。</span></dd>
+          </div>
+          <div>
+            <dt><code>while</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">在某件事進行期間</span><span lang="en">I checked my email <strong>while</strong> I was waiting for the bus.</span><span>我等公車時查看了電子郵件。</span></dd>
+          </div>
+          <div>
+            <dt><code>as</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">正當，常表示同時發生</span><span lang="en">The phone rang <strong>as</strong> I was leaving the office.</span><span>我正要離開辦公室時，電話響了。</span></dd>
+          </div>
+          <div>
+            <dt><code>before</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">在另一個動作之前</span><span lang="en">Please lock the door <strong>before</strong> you leave.</span><span>你離開前請把門鎖上。</span></dd>
+          </div>
+          <div>
+            <dt><code>after</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">在另一個動作之後</span><span lang="en">Let's talk <strong>after</strong> the meeting ends.</span><span>會議結束後我們再談。</span></dd>
+          </div>
+          <div>
+            <dt><code>until</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">持續到某件事發生</span><span lang="en">Wait here <strong>until</strong> the shuttle arrives.</span><span>請在這裡等到接駁車來。</span></dd>
+          </div>
+          <div>
+            <dt><code>till</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">until 的常見用法，口語多見</span><span lang="en">We stayed <strong>till</strong> the show ended.</span><span>我們待到表演結束。</span></dd>
+          </div>
+          <div>
+            <dt><code>since</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">從過去發生的事開始</span><span lang="en">I've worked here <strong>since</strong> I graduated.</span><span>我從畢業後就一直在這裡工作。</span></dd>
+          </div>
+          <div>
+            <dt><code>once</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">一旦、等到某事完成</span><span lang="en">We'll ship your order <strong>once</strong> we receive payment.</span><span>收到款項後，我們就會寄出你的訂單。</span></dd>
+          </div>
+          <div>
+            <dt><code>as soon as</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">一……就</span><span lang="en">I'll send you the file <strong>as soon as</strong> I get home.</span><span>我一到家就把檔案寄給你。</span></dd>
+          </div>
+          <div>
+            <dt><code>by the time</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">到了某個時間點時</span><span lang="en"><strong>By the time</strong> we reached the gate, boarding had already started.</span><span>我們到登機門時，已經開始登機了。</span></dd>
+          </div>
+          <div>
+            <dt><code>the moment</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">一……就，後接子句</span><span lang="en">I'll call you <strong>the moment</strong> the results come in.</span><span>結果一出來，我就打給你。</span></dd>
+          </div>
+          <div>
+            <dt><code>every time</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">每次……都</span><span lang="en">The printer jams <strong>every time</strong> we use thick paper.</span><span>每次用厚紙，印表機都會卡紙。</span></dd>
+          </div>
+          <div>
+            <dt><code>no sooner ... than</code><span class="tag">其他句型</span></dt>
+            <dd><span class="meaning">一……就，放句首時用倒裝，較正式</span><span lang="en"><strong>No sooner</strong> had we sat down <strong>than</strong> the fire alarm went off.</span><span>我們一坐下，火災警報就響了。</span></dd>
+          </div>
+          <div>
+            <dt><code>hardly ... when</code><span class="tag">其他句型</span></dt>
+            <dd><span class="meaning">才剛……就，放句首時用倒裝，較正式</span><span lang="en"><strong>Hardly</strong> had we opened the doors <strong>when</strong> customers began to arrive.</span><span>我們才剛開門，就有顧客陸續到了。</span></dd>
+          </div>
+          <div>
+            <dt><code>during</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">在某段期間，後接事件或時段</span><span lang="en">Please keep your phone silent <strong>during</strong> the presentation.</span><span>簡報期間請將手機設為靜音。</span></dd>
+          </div>
+          <div>
+            <dt><code>before</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">在某時間或事件前</span><span lang="en">Let's meet <strong>before</strong> lunch.</span><span>我們午餐前碰面吧。</span></dd>
+          </div>
+          <div>
+            <dt><code>after</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">在某時間或事件後</span><span lang="en">I called her <strong>after</strong> work.</span><span>我下班後打給她。</span></dd>
+          </div>
+          <div>
+            <dt><code>until</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">持續到某個時間點</span><span lang="en">The help desk is open <strong>until</strong> six.</span><span>客服櫃台開到六點。</span></dd>
+          </div>
+          <div>
+            <dt><code>till</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">持續到某時，口語常用</span><span lang="en">The shop stays open <strong>till</strong> nine on Fridays.</span><span>這家店每逢星期五營業到九點。</span></dd>
+          </div>
+          <div>
+            <dt><code>since</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">從過去的時間點起</span><span lang="en">This shop has been here <strong>since</strong> 2010.</span><span>這家店從 2010 年起就在這裡。</span></dd>
+          </div>
+          <div>
+            <dt><code>for</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">表示持續多久，後面接時長</span><span lang="en">We rented the room <strong>for</strong> two hours.</span><span>我們租了這個房間兩小時。</span></dd>
+          </div>
+          <div>
+            <dt><code>through</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">到某日為止並包含該日，常見於美式英文</span><span lang="en">The sale runs Monday <strong>through</strong> Friday.</span><span>特價活動從星期一辦到星期五，包含星期五。</span></dd>
+          </div>
+          <div>
+            <dt><code>by</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">最遲在某個時間點</span><span lang="en">Please submit the form <strong>by</strong> Friday.</span><span>請最遲在星期五交表。</span></dd>
+          </div>
+          <div>
+            <dt><code>within</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">在限定時間內</span><span lang="en">We'll reply <strong>within</strong> two business days.</span><span>我們會在兩個工作天內回覆。</span></dd>
+          </div>
+          <div>
+            <dt><code>throughout</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">貫穿整段期間</span><span lang="en">The clinic stays open <strong>throughout</strong> the summer.</span><span>診所整個夏天都照常開門。</span></dd>
+          </div>
+          <div>
+            <dt><code>on</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">一……就，這個用法可接 V-ing</span><span lang="en"><strong>On</strong> entering the hall, please show your ticket.</span><span>一進入大廳，請出示票券。</span></dd>
+          </div>
+          <div>
+            <dt><code>upon</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">一……就，常見於正式通知</span><span lang="en">You'll receive a receipt <strong>upon</strong> arrival.</span><span>抵達時你就會收到收據。</span></dd>
+          </div>
+          <div>
+            <dt><code>prior to</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">在……之前，較正式</span><span lang="en">Please check your booking <strong>prior to</strong> departure.</span><span>出發前請確認訂位。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-sequence" tabindex="-1">
+        <h2>順序與同時</h2>
+        <p><code>first</code>、<code>then</code>、<code>finally</code> 幫你排步驟。<code>meanwhile</code> 和 <code>in the meantime</code> 帶出同一段時間內的另一件事。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>first</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">首先，第一個步驟</span><span lang="en"><strong>First</strong>, turn off the machine.</span><span>首先，把機器關掉。</span></dd>
+          </div>
+          <div>
+            <dt><code>first of all</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">首先，口語也常見</span><span lang="en"><strong>First of all</strong>, let's check how much time we have.</span><span>首先，我們先確認還有多少時間。</span></dd>
+          </div>
+          <div>
+            <dt><code>to begin with</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">一開始，常引出第一點</span><span lang="en"><strong>To begin with</strong>, we'll review last month's sales.</span><span>首先，我們會回顧上個月的銷售情況。</span></dd>
+          </div>
+          <div>
+            <dt><code>then</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">然後，接下來</span><span lang="en">Enter your email address. <strong>Then</strong> click Continue.</span><span>輸入電子郵件地址，然後點選繼續。</span></dd>
+          </div>
+          <div>
+            <dt><code>next</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">接下來</span><span lang="en"><strong>Next</strong>, attach a copy of the receipt.</span><span>接下來，附上一份收據副本。</span></dd>
+          </div>
+          <div>
+            <dt><code>after that</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">那之後</span><span lang="en">We toured the factory. <strong>After that</strong>, we met the production team.</span><span>我們參觀了工廠，之後和生產團隊見面。</span></dd>
+          </div>
+          <div>
+            <dt><code>afterward</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">後來，這個拼法常見於美式英文</span><span lang="en">We had lunch and went back to the office <strong>afterward</strong>.</span><span>我們吃完午餐後回了辦公室。</span></dd>
+          </div>
+          <div>
+            <dt><code>afterwards</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">後來，這個拼法常見於英式英文</span><span lang="en">We saw a film and went for coffee <strong>afterwards</strong>.</span><span>我們看完電影後去喝了咖啡。</span></dd>
+          </div>
+          <div>
+            <dt><code>subsequently</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">之後，較正式</span><span lang="en">The company tested the system. <strong>Subsequently</strong>, it rolled it out to all branches.</span><span>公司先測試系統，之後把它導入所有分店。</span></dd>
+          </div>
+          <div>
+            <dt><code>meanwhile</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">同時，轉到另一件同時發生的事</span><span lang="en">I'll print the tickets. <strong>Meanwhile</strong>, you can call a taxi.</span><span>我來印票，你可以同時叫計程車。</span></dd>
+          </div>
+          <div>
+            <dt><code>in the meantime</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">在這段等待時間裡</span><span lang="en">Your room will be ready soon. <strong>In the meantime</strong>, feel free to leave your bags here.</span><span>你的房間很快就會準備好。這段時間可以先把行李放這裡。</span></dd>
+          </div>
+          <div>
+            <dt><code>finally</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">最後一步，也可表示等了很久終於發生</span><span lang="en"><strong>Finally</strong>, sign the form and submit it to HR.</span><span>最後，簽好表格並交給人資。</span></dd>
+          </div>
+          <div>
+            <dt><code>eventually</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">經過一段時間之後終於</span><span lang="en">We called three hotels and <strong>eventually</strong> found a room.</span><span>我們打了三間飯店，最後終於訂到房間。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-addition" tabindex="-1">
+        <h2>補充與並列</h2>
+        <p><code>in addition</code> 可以開新句，<code>in addition to</code> 接名詞或 <code>V-ing</code>。<code>too</code> 和 <code>as well</code> 常放在句尾。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>and</code><span class="tag">對等連接詞</span></dt>
+            <dd><span class="meaning">和、而且，可連接同類成分</span><span lang="en">We checked the stock, <strong>and</strong> we updated the price list.</span><span>我們查了庫存，也更新了價目表。</span></dd>
+          </div>
+          <div>
+            <dt><code>both ... and</code><span class="tag">成對連接詞</span></dt>
+            <dd><span class="meaning">兩者都</span><span lang="en"><strong>Both</strong> the manager <strong>and</strong> the assistant attended the meeting.</span><span>經理和助理兩人都出席了會議。</span></dd>
+          </div>
+          <div>
+            <dt><code>not only ... but also</code><span class="tag">成對連接詞</span></dt>
+            <dd><span class="meaning">不但……而且……</span><span lang="en">The price includes <strong>not only</strong> breakfast <strong>but also</strong> airport transfers.</span><span>費用不但包含早餐，也包含機場接送。</span></dd>
+          </div>
+          <div>
+            <dt><code>as well as</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">除了……也……，此處後接名詞</span><span lang="en">The fee covers materials <strong>as well as</strong> lunch.</span><span>費用包含教材，也包含午餐。</span></dd>
+          </div>
+          <div>
+            <dt><code>in addition to</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">除了……之外還，後接名詞或 V-ing</span><span lang="en"><strong>In addition to</strong> training new staff, Omar prepares the weekly schedule.</span><span>除了訓練新進員工，Omar 也負責排每週班表。</span></dd>
+          </div>
+          <div>
+            <dt><code>besides</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">除了……之外還，後接名詞或 V-ing</span><span lang="en"><strong>Besides</strong> Spanish, she speaks English and Japanese.</span><span>除了西班牙文，她還會說英文和日文。</span></dd>
+          </div>
+          <div>
+            <dt><code>also</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">也、此外，可放在句中</span><span lang="en">The new printer is faster. It <strong>also</strong> uses less ink.</span><span>新印表機速度更快，也更省墨水。</span></dd>
+          </div>
+          <div>
+            <dt><code>in addition</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">此外，後面可另起一個完整子句</span><span lang="en">The hotel has a gym. <strong>In addition</strong>, it offers free bicycle rentals.</span><span>飯店有健身房，此外也提供免費腳踏車租借。</span></dd>
+          </div>
+          <div>
+            <dt><code>moreover</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">此外，常用來加強同一論點</span><span lang="en">The service is reliable. <strong>Moreover</strong>, it costs less than our current plan.</span><span>這項服務很可靠，而且費用比目前的方案低。</span></dd>
+          </div>
+          <div>
+            <dt><code>furthermore</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">再者，較正式</span><span lang="en">The software is easy to learn. <strong>Furthermore</strong>, it works on older computers.</span><span>這套軟體容易上手，也能在較舊的電腦上運作。</span></dd>
+          </div>
+          <div>
+            <dt><code>besides</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">而且，口語常補另一個理由</span><span lang="en">Let's take the train. <strong>Besides</strong>, parking downtown is expensive.</span><span>我們搭火車吧。而且市中心停車很貴。</span></dd>
+          </div>
+          <div>
+            <dt><code>what's more</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">而且，口語也常見</span><span lang="en">We got a bigger room. <strong>What's more</strong>, breakfast was included.</span><span>我們換到比較大的房間，而且還含早餐。</span></dd>
+          </div>
+          <div>
+            <dt><code>on top of that</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">除此之外還，偏口語</span><span lang="en">The delivery was late. <strong>On top of that</strong>, two boxes were damaged.</span><span>送貨已經遲到了，另外還有兩個箱子破損。</span></dd>
+          </div>
+          <div>
+            <dt><code>plus</code><span class="tag">口語轉承語</span></dt>
+            <dd><span class="meaning">再說、而且，偏口語</span><span lang="en">Let's order online. <strong>Plus</strong>, delivery is free today.</span><span>我們在網路上訂吧，而且今天免運。</span></dd>
+          </div>
+          <div>
+            <dt><code>too</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">也，常放句尾</span><span lang="en">I brought a charger. I brought an adapter, <strong>too</strong>.</span><span>我帶了充電器，也帶了轉接頭。</span></dd>
+          </div>
+          <div>
+            <dt><code>as well</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">也，常放句尾</span><span lang="en">The store sells bags. It repairs them <strong>as well</strong>.</span><span>這家店賣包包，也提供維修。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-choice" tabindex="-1">
+        <h2>選擇與替代</h2>
+        <p>成對連接時，兩邊盡量用同類結構。例如 <code>either call or email</code> 的兩邊都是動詞。<code>instead of</code> 可接名詞或 <code>V-ing</code>。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>or</code><span class="tag">對等連接詞</span></dt>
+            <dd><span class="meaning">或，提出選項</span><span lang="en">You can pay online, <strong>or</strong> you can pay at the counter.</span><span>你可以在線上付款，也可以到櫃台付。</span></dd>
+          </div>
+          <div>
+            <dt><code>nor</code><span class="tag">對等連接詞</span></dt>
+            <dd><span class="meaning">也不，接第二個否定子句時常用倒裝</span><span lang="en">We didn't receive an email, <strong>nor</strong> did we receive a text.</span><span>我們沒有收到電子郵件，也沒有收到簡訊。</span></dd>
+          </div>
+          <div>
+            <dt><code>either ... or</code><span class="tag">成對連接詞</span></dt>
+            <dd><span class="meaning">兩個選一個</span><span lang="en">We can <strong>either</strong> ship it today <strong>or</strong> hold it for pickup.</span><span>我們可以今天出貨，也可以先保留，等你自取。</span></dd>
+          </div>
+          <div>
+            <dt><code>neither ... nor</code><span class="tag">成對連接詞</span></dt>
+            <dd><span class="meaning">兩個都不</span><span lang="en"><strong>Neither</strong> the printer <strong>nor</strong> the scanner was working.</span><span>印表機和掃描器都無法使用。</span></dd>
+          </div>
+          <div>
+            <dt><code>whether ... or ...</code><span class="tag">成對連接詞</span></dt>
+            <dd><span class="meaning">不論哪個選項，主句照樣成立</span><span lang="en"><strong>Whether</strong> you pay by card <strong>or</strong> in cash, the price is the same.</span><span>不論刷卡或付現，價格都一樣。</span></dd>
+          </div>
+          <div>
+            <dt><code>instead of</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">用另一個選項替代，後接名詞或 V-ing</span><span lang="en">We met online <strong>instead of</strong> booking a conference room.</span><span>我們開了線上會議，省去了預訂會議室。</span></dd>
+          </div>
+          <div>
+            <dt><code>rather than</code><span class="tag">其他句型</span></dt>
+            <dd><span class="meaning">而不是，常比較兩個同類選項</span><span lang="en">Let's repair the printer <strong>rather than</strong> replace it.</span><span>我們修印表機吧，先別換新的。</span></dd>
+          </div>
+          <div>
+            <dt><code>instead</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">改用另一個選項</span><span lang="en">The café was full. We went to the bakery <strong>instead</strong>.</span><span>咖啡廳客滿，所以我們改去麵包店。</span></dd>
+          </div>
+          <div>
+            <dt><code>alternatively</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">或者，也可以採用另一方案，較正式</span><span lang="en">You can email the form. <strong>Alternatively</strong>, you can drop it off at reception.</span><span>你可以用電郵寄表格，也可以把它送到接待處。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-exception" tabindex="-1">
+        <h2>例外與排除</h2>
+        <p><code>except for</code> 可接要排除的對象。<code>except that</code> 則用子句說明例外。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>except</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">除了，從範圍排除一項</span><span lang="en">The shop is open every day <strong>except</strong> Sunday.</span><span>除了星期日，這家店每天都營業。</span></dd>
+          </div>
+          <div>
+            <dt><code>except for</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">整體成立，指出個別例外</span><span lang="en">The office was empty <strong>except for</strong> one security guard.</span><span>辦公室裡除了一名保全，沒有其他人。</span></dd>
+          </div>
+          <div>
+            <dt><code>apart from</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">除了，依語境也可表示另外還有</span><span lang="en"><strong>Apart from</strong> a loose cable, the machine was in good condition.</span><span>除了有一條線鬆脫，機器狀況良好。</span></dd>
+          </div>
+          <div>
+            <dt><code>aside from</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">除去某一項，此處引出例外</span><span lang="en"><strong>Aside from</strong> one late delivery, everything went smoothly.</span><span>除了有一筆送貨延誤，其餘都很順利。</span></dd>
+          </div>
+          <div>
+            <dt><code>other than</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">除了，多用於說明範圍以外的項目</span><span lang="en">We don't accept payment methods <strong>other than</strong> cash or cards.</span><span>我們只收現金或卡片付款。</span></dd>
+          </div>
+          <div>
+            <dt><code>excluding</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">不計入，常見於費用或範圍說明</span><span lang="en">The rate is $80 per night, <strong>excluding</strong> tax.</span><span>房價每晚 80 美元，未含稅。</span></dd>
+          </div>
+          <div>
+            <dt><code>except that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">只不過，後接子句說明例外</span><span lang="en">The new plan is similar to the old one, <strong>except that</strong> it includes phone support.</span><span>新方案和舊方案差不多，只不過它也包含電話客服。</span></dd>
+          </div>
+          <div>
+            <dt><code>except when</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">除了在某種時候，後接子句</span><span lang="en">I usually take the bus, <strong>except when</strong> I have an early shift.</span><span>我通常搭公車，只有上早班時例外。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-comparison" tabindex="-1">
+        <h2>比較與方式</h2>
+        <p><code>like + 名詞</code> 可以說「像某物」。<code>as + 子句</code> 可說「照某人做的方式」。<code>like + 子句</code> 也常見於日常口語。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>as</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">按照、照……的方式</span><span lang="en">Please label each box <strong>as</strong> I showed you.</span><span>請照我示範的方式，在每個箱子上貼標籤。</span></dd>
+          </div>
+          <div>
+            <dt><code>as if</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">好像</span><span lang="en">He spoke <strong>as if</strong> he knew the client well.</span><span>他說話的樣子，好像很熟悉那位客戶。</span></dd>
+          </div>
+          <div>
+            <dt><code>as though</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">好像，意思接近 as if</span><span lang="en">It sounds <strong>as though</strong> the shipment will arrive early.</span><span>聽起來這批貨好像會提早到。</span></dd>
+          </div>
+          <div>
+            <dt><code>like</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">像……那樣，接子句的用法偏口語</span><span lang="en"><strong>Like</strong> I said, the shop closes at six.</span><span>就像我剛才說的，這家店六點關門。</span></dd>
+          </div>
+          <div>
+            <dt><code>like</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">像，後接名詞或代名詞</span><span lang="en">The new model looks <strong>like</strong> the old one.</span><span>新款看起來像舊款。</span></dd>
+          </div>
+          <div>
+            <dt><code>unlike</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">不像，後接名詞或代名詞</span><span lang="en"><strong>Unlike</strong> the old model, this one runs quietly.</span><span>這款跟舊款不同，運作起來很安靜。</span></dd>
+          </div>
+          <div>
+            <dt><code>as ... as</code><span class="tag">其他句型</span></dt>
+            <dd><span class="meaning">和……一樣，形容詞或副詞放在兩個 as 之間</span><span lang="en">This room is <strong>as</strong> bright <strong>as</strong> the one upstairs.</span><span>這間房和樓上那間一樣明亮。</span></dd>
+          </div>
+          <div>
+            <dt><code>than</code><span class="tag">其他句型</span></dt>
+            <dd><span class="meaning">比……，放在比較級後，這裡接子句</span><span lang="en">The delivery arrived sooner <strong>than</strong> we expected.</span><span>貨物比我們預期的更早送到。</span></dd>
+          </div>
+          <div>
+            <dt><code>similarly</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">同樣地</span><span lang="en">The Taipei team adopted the new system. <strong>Similarly</strong>, the Osaka team switched over last month.</span><span>台北團隊採用了新系統。大阪團隊也在上個月完成切換。</span></dd>
+          </div>
+          <div>
+            <dt><code>likewise</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">同樣地，書面也常見</span><span lang="en">The new phone uses less power. <strong>Likewise</strong>, the new tablet has better battery life.</span><span>新手機更省電，新平板的續航力也更好。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-example" tabindex="-1">
+        <h2>舉例、改述與依據</h2>
+        <p><code>such as</code> 可直接列出例子。<code>for example</code> 可以引出下一句的例子。<code>in other words</code> 是把同一個意思換個方式說。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>for example</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">例如，舉一個例子</span><span lang="en">Some repairs are inexpensive. <strong>For example</strong>, a new cable costs only five dollars.</span><span>有些維修花費不高。例如，換一條電纜只要五美元。</span></dd>
+          </div>
+          <div>
+            <dt><code>for instance</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">例如，意思和 for example 相近</span><span lang="en">Several teams work remotely. <strong>For instance</strong>, our support team works from home on Fridays.</span><span>好幾個團隊採遠端工作。例如，我們的客服團隊星期五在家工作。</span></dd>
+          </div>
+          <div>
+            <dt><code>such as</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">例如，直接接例子</span><span lang="en">Bring a photo ID <strong>such as</strong> a passport or a driver's license.</span><span>請帶有照片的身分證明，例如護照或駕照。</span></dd>
+          </div>
+          <div>
+            <dt><code>including</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">包括，舉出範圍中的項目</span><span lang="en">The fee covers all materials, <strong>including</strong> the workbook.</span><span>費用涵蓋所有教材，包括練習本。</span></dd>
+          </div>
+          <div>
+            <dt><code>namely</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">也就是，點出所指項目</span><span lang="en">We need to fix one thing, <strong>namely</strong> the payment form.</span><span>有一個地方需要修正，也就是付款表單。</span></dd>
+          </div>
+          <div>
+            <dt><code>that is (to say)</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">也就是說，把意思講得更明確</span><span lang="en">We need one more business day. <strong>That is to say</strong>, we'll finish on Tuesday.</span><span>我們還需要一個工作天。也就是說，我們會在星期二完成。</span></dd>
+          </div>
+          <div>
+            <dt><code>in other words</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">換句話說</span><span lang="en">The item is temporarily unavailable. <strong>In other words</strong>, it's out of stock right now.</span><span>這項商品目前無法供應。換句話說，現在缺貨。</span></dd>
+          </div>
+          <div>
+            <dt><code>specifically</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">具體來說</span><span lang="en">We need to cut costs. <strong>Specifically</strong>, we should review our shipping fees.</span><span>我們要降低成本。具體來說，應該先檢視運費。</span></dd>
+          </div>
+          <div>
+            <dt><code>in particular</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">尤其、特別是</span><span lang="en">Customers liked the update. <strong>In particular</strong>, they liked the new search tool.</span><span>顧客喜歡這次更新，尤其喜歡新的搜尋工具。</span></dd>
+          </div>
+          <div>
+            <dt><code>according to</code><span class="tag">介系詞／片語</span></dt>
+            <dd><span class="meaning">根據，後接資料或說法來源</span><span lang="en"><strong>According to</strong> the report, sales rose in April.</span><span>根據這份報告，四月的銷售額上升了。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-summary" tabindex="-1">
+        <h2>總結</h2>
+        <p>用來收尾或概括前面幾個重點。<code>in summary</code> 和 <code>in conclusion</code> 常見於正式書面語，<code>all in all</code> 比較口語。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>in short</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">簡而言之</span><span lang="en"><strong>In short</strong>, we need more time and a smaller budget.</span><span>簡單來說，我們需要更多時間，預算也得降低。</span></dd>
+          </div>
+          <div>
+            <dt><code>in summary</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">總結來說，書面常見</span><span lang="en"><strong>In summary</strong>, customer satisfaction improved this quarter.</span><span>總結來說，這一季的顧客滿意度提升了。</span></dd>
+          </div>
+          <div>
+            <dt><code>to sum up</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">總結一下，可用於口頭報告</span><span lang="en"><strong>To sum up</strong>, the pilot program met all three goals.</span><span>總結一下，這個試辦計畫達成了三項目標。</span></dd>
+          </div>
+          <div>
+            <dt><code>overall</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">整體來看</span><span lang="en"><strong>Overall</strong>, the event went smoothly.</span><span>整體來看，這場活動進行得很順利。</span></dd>
+          </div>
+          <div>
+            <dt><code>in conclusion</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">最後總結，較正式</span><span lang="en"><strong>In conclusion</strong>, we recommend renewing the contract.</span><span>最後總結，我們建議續約。</span></dd>
+          </div>
+          <div>
+            <dt><code>all in all</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">總的來說，較口語</span><span lang="en"><strong>All in all</strong>, it was a productive trip.</span><span>總的來說，這趟出差很有收穫。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-conversation" tabindex="-1">
+        <h2>口語轉場</h2>
+        <p>這些表達用來換話題、澄清或回到原本的話題。<code>by the way</code> 常用來補一件順帶想到的事，<code>anyway</code> 可以把話題拉回重點。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>by the way</code><span class="tag">口語轉承語</span></dt>
+            <dd><span class="meaning">對了，轉到另一個話題</span><span lang="en"><strong>By the way</strong>, did you get my message?</span><span>對了，你有收到我的訊息嗎？</span></dd>
+          </div>
+          <div>
+            <dt><code>speaking of</code><span class="tag">口語轉承語</span></dt>
+            <dd><span class="meaning">說到……，承接剛提過的話題</span><span lang="en"><strong>Speaking of</strong> the workshop, have you signed up yet?</span><span>說到那場工作坊，你報名了嗎？</span></dd>
+          </div>
+          <div>
+            <dt><code>anyway</code><span class="tag">口語轉承語</span></dt>
+            <dd><span class="meaning">總之、話說回來，回到重點</span><span lang="en"><strong>Anyway</strong>, let's get back to the schedule.</span><span>總之，我們回來談時程吧。</span></dd>
+          </div>
+          <div>
+            <dt><code>actually</code><span class="tag">口語轉承語</span></dt>
+            <dd><span class="meaning">其實，用來更正或補充</span><span lang="en"><strong>Actually</strong>, the meeting starts at two.</span><span>其實，會議兩點才開始。</span></dd>
+          </div>
+          <div>
+            <dt><code>I mean</code><span class="tag">口語轉承語</span></dt>
+            <dd><span class="meaning">我的意思是，用來澄清</span><span lang="en"><strong>I mean</strong>, we need to finish the draft today.</span><span>我的意思是，我們今天得把草稿寫完。</span></dd>
+          </div>
+          <div>
+            <dt><code>in fact</code><span class="tag">連接副詞／轉承語</span></dt>
+            <dd><span class="meaning">事實上，補充事實或加強前句</span><span lang="en">The venue is close. <strong>In fact</strong>, it's only a five-minute walk.</span><span>場地很近。事實上，走路只要五分鐘。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-content" tabindex="-1">
+        <h2>說明內容與間接問句</h2>
+        <p>有些連接詞負責引出「說了什麼」或「想知道什麼」。<code>if</code> 在 <code>check if</code> 裡表示「是否」，在條件句裡才表示「如果」。</p>
+        <dl class="examples connector-examples">
+          <div>
+            <dt><code>that</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">引出說明內容的子句</span><span lang="en">The supplier confirmed <strong>that</strong> the order had shipped.</span><span>供應商確認訂單已出貨。</span></dd>
+          </div>
+          <div>
+            <dt><code>if</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">是否，用在間接問句</span><span lang="en">Could you check <strong>if</strong> the store is open?</span><span>你可以查一下店家有沒有開嗎？</span></dd>
+          </div>
+          <div>
+            <dt><code>whether</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">是否，口語和書面都可用</span><span lang="en">We haven't decided <strong>whether</strong> we'll renew the contract.</span><span>我們還沒決定是否續約。</span></dd>
+          </div>
+          <div>
+            <dt><code>whether or not</code><span class="tag">從屬連接詞</span></dt>
+            <dd><span class="meaning">是否、無論是否，這裡引出需要確認的內容</span><span lang="en">Please confirm <strong>whether or not</strong> you can attend.</span><span>請確認你能不能出席。</span></dd>
+          </div>
+        </dl>
+        <p class="section-links"><a href="#linking-index">↑ 回語意索引</a></p>
+      </section>
+
+      <section class="panel" id="linking-quiz" tabindex="-1">
+        <h2>小測驗｜選詞前先看空格後面</h2>
+        <p>先判斷結構和語意，再點開答案。</p>
+        <details><summary><span lang="en">___ it was raining, we canceled the picnic.</span> （Because / Because of / Therefore）</summary><p><strong>Because</strong>。<code>it was raining</code> 是子句，這裡要引出取消野餐的原因。</p></details>
+        <details><summary><span lang="en">The flight was canceled ___ the fog.</span> （because / because of / therefore）</summary><p><strong>because of</strong>。<code>the fog</code> 是名詞片語，表示取消的原因。</p></details>
+        <details><summary><span lang="en">The client approved the design. ___, we can start production.</span> （Therefore / Because of / Despite）</summary><p><strong>Therefore</strong>。前句說明原因，後面另起完整句子，表示可以開始生產的結果。</p></details>
+        <details><summary><span lang="en">Please send us your order number ___ we can locate your package.</span> （so that / because of / as a result of）</summary><p><strong>so that</strong>。後面是 <code>we can locate your package</code> 這個子句，說明要訂單編號的目的。</p></details>
+        <details><summary><span lang="en">___ the heavy rain, the concert went ahead.</span> （Despite / Although / However）</summary><p><strong>Despite</strong>。<code>the heavy rain</code> 是名詞片語，演唱會在下大雨的情況下仍照常進行。</p></details>
+        <details><summary><span lang="en">The plan was costly. ___, we adopted it.</span> （However / Because of / Although）</summary><p><strong>However</strong>。成本高和仍採用是轉折，<code>however</code> 放在第二句開頭。</p></details>
+        <details><summary><span lang="en">Bring a spare charger ___ your phone runs out of battery.</span> （in case / in case of / because of）</summary><p><strong>in case</strong>。先帶充電器作為預防，後接 <code>your phone runs out of battery</code> 這個子句。</p></details>
+        <details><summary><span lang="en">Free parking is available ___ the conference.</span> （while / during / when）</summary><p><strong>during</strong>。<code>the conference</code> 是名詞片語，表示有免費停車的期間。</p></details>
+        <details><summary><span lang="en">Please submit the form ___ Friday.</span> （by / until / since）</summary><p><strong>by</strong>。交件要在期限前完成，<code>by Friday</code> 表最遲星期五。</p></details>
+        <details><summary><span lang="en">There was a strike. ___, several trains were canceled.</span> （As a result / As a result of / Despite）</summary><p><strong>As a result</strong>。後面是完整句子。若把原因放在介系詞後，可寫成 <code>as a result of the strike</code>。</p></details>
+        <details><summary><span lang="en">Please let us know ___ you can attend.</span> （whether / due to / despite）</summary><p><strong>whether</strong>。這裡要問「是否能出席」，後面有主詞 <code>you</code> 和動詞 <code>can attend</code>。</p></details>
+        <details><summary><span lang="en">The office has a quiet workspace. ___, it offers free coffee.</span> （In addition / In addition to / Instead of）</summary><p><strong>In addition</strong>。第二句在補充另一個優點。<code>in addition to</code> 可以接名詞或 <code>-ing</code>，例如 <code>in addition to a quiet workspace</code>。</p></details>
+      </section>
+
+      <section class="panel">
+        <h2>參考資料</h2>
+        <ul>
+          <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/conjunctions-subordinating">Cambridge English Grammar Today｜連接詞與轉承語</a></li>
+          <li><a href="https://dictionary.cambridge.org/uk/grammar/british-grammar/purpose">Cambridge｜原因、結果與目的</a></li>
+          <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/conditionals-other-">Cambridge｜條件用法</a></li>
+          <li><a href="https://owl.purdue.edu/owl/general_writing/punctuation/commas/commas_vs_semicolons.html">Purdue OWL｜逗號、分號和連接副詞</a></li>
+        </ul>
+      </section>
+      <a class="lesson-next" href="#causatives">← 上一篇　使役動詞</a>
     </article>
   </main>
 
