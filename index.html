@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f7f3">
-  <meta name="description" content="手機與 iPad 都能看的多益文法講義。查介系詞、看 to 的句型、做題目複習。">
+  <meta name="description" content="手機與 iPad 都能看的多益文法講義。查介系詞、學 to 的句型與及物和不及物動詞、做題目複習。">
   <meta name="apple-mobile-web-app-title" content="TOEIC 筆記">
   <title>TOEIC 筆記本｜多益文法複習</title>
   <style>
@@ -95,7 +95,7 @@
     .search input { width: 100%; min-width: 0; padding: .7rem 0; background: none; border: 0; font-size: 1rem; outline: none; }
     .search:focus-within { outline: 2px solid #7755cf; outline-offset: 2px; }
     .catalog-heading .search { width: min(100%, 340px); }
-    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     .lesson-card {
       display: flex;
       flex-direction: column;
@@ -114,6 +114,7 @@
     .card-bottom { margin-top: auto; }
     .card-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 15px; color: #412984; background: var(--lavender); font-size: 1.25rem; font-weight: 900; }
     .card-icon.green { background: var(--green); color: #215943; }
+    .card-icon.gold { background: #fff0bd; color: #634708; }
     .topic { color: var(--muted); font-size: .82rem; font-weight: 750; }
     .lesson-card h3 { font-size: clamp(1.18rem, 2.75vw, 1.54rem); line-height: 1.3; letter-spacing: -.04em; }
     .lesson-card p { color: var(--muted); font-size: .93rem; margin-top: .3rem; }
@@ -128,6 +129,7 @@
     .back { display: inline-flex; align-items: center; min-height: 44px; gap: .5rem; font-size: .93rem; font-weight: 770; text-decoration: none; margin-bottom: .6rem; }
     .lesson-hero { padding: clamp(20px, 4vw, 38px); border-radius: var(--radius); background: var(--lavender); }
     .lesson-hero.green { background: var(--green); }
+    .lesson-hero.gold { background: #fff2c8; }
     .lesson-hero h1 { margin: .35rem 0 .55rem; font-size: clamp(1.85rem, 5vw, 3.15rem); line-height: 1.2; letter-spacing: -.055em; }
     .lesson-hero p { font-size: 1rem; color: #494257; }
     .toc { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0; }
@@ -162,7 +164,11 @@
     .word-list > div { display: grid; grid-template-columns: minmax(110px, 1fr) minmax(0, 2.9fr); gap: 9px; padding: .64rem 0; border-top: 1px solid var(--line); }
     .word-list dt { color: #452d91; font-weight: 800; }
     .word-list dd { margin: 0; color: #494257; }
-    .word-list span { display: block; font-size: .88rem; margin-top: .15rem; color: #5c536e; }
+    .word-phrase { display: block; font-size: .88rem; margin-top: .15rem; color: #5c536e; }
+    .word-example { margin: .6rem 0 0; padding: .15rem 0 .15rem .7rem; border-left: 2px solid var(--violet); }
+    .word-example span { display: block; font-size: .91rem; }
+    .word-example span[lang="en"] { color: var(--ink); }
+    .word-example strong { color: var(--purple); }
     .lesson-next { display: inline-flex; margin-top: 1rem; padding: .6rem .8rem; font-weight: 750; text-underline-offset: 4px; }
     .site-footer { border-top: 1px solid #e8e4df; }
     .site-footer .wrap { min-height: 68px; display: flex; align-items: center; color: var(--muted); font-size: .83rem; }
@@ -174,6 +180,7 @@
       .wrap { width: calc(100% - 40px); }
       .hero { min-height: 290px; padding: 35px; gap: 20px; }
       .study-slip { padding: 10px 12px; min-height: 62px; }
+      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 620px) {
       .wrap { width: calc(100% - 28px); }
@@ -196,7 +203,7 @@
       .card-icon { width: 43px; height: 43px; border-radius: 12px; }
       .rule-grid, .rule-grid.two { grid-template-columns: 1fr; }
       .examples div { grid-template-columns: 1fr; gap: 2px; }
-      .word-list > div { grid-template-columns: minmax(82px, 1fr) minmax(0, 2fr); }
+      .word-list > div { grid-template-columns: minmax(0, 1fr); gap: 3px; padding-block: .8rem; }
     }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
@@ -243,24 +250,36 @@
             <div><h3>to 後面加原形還是 V-ing？</h3><p>找出 to 的功能，分清 want to、used to 和 look forward to。</p></div>
             <div class="card-bottom"><div class="tags"><span class="tag">不定詞</span><span class="tag">固定搭配</span></div><span class="arrow" aria-hidden="true">→</span></div>
           </a>
+          <a class="lesson-card" href="#verb-transitivity" data-keywords="及物 不及物 直接受詞 及物動詞 不及物動詞 transitive intransitive vt vi">
+            <div class="card-top"><span class="card-icon gold" aria-hidden="true">V</span><span class="topic">動詞句型</span></div>
+            <div><h3>及物與不及物動詞</h3><p>什麼是受詞？用 reach 和 arrive 練習判斷動詞後面能接什麼。</p></div>
+            <div class="card-bottom"><div class="tags"><span class="tag">直接受詞</span><span class="tag">多益搭配</span></div><span class="arrow" aria-hidden="true">→</span></div>
+          </a>
         </div>
-        <p class="empty" id="lesson-empty" hidden>找不到講義，試試「月份」、「地點」或「used to」。</p>
+        <p class="empty" id="lesson-empty" hidden>找不到講義，試試「月份」、「不定詞」或「及物動詞」。</p>
       </section>
       <nav class="quick" aria-label="快速複習">
         <strong>快速複習</strong><a href="#time">時間用法</a><a href="#place">地點用法</a><a href="#dictionary">介系詞查表</a><a href="#to-quiz">to 小測驗</a>
       </nav>
     </div>
 
+    <!-- 新增講義時，先用白話定義主題與關鍵文法名詞，各配一個簡單例句，再講用法和做題方法。 -->
     <article class="lesson" id="prepositions" data-page>
       <a class="back" href="#home">← 講義總覽</a>
       <header class="lesson-hero">
         <span class="eyebrow">介系詞</span>
         <h1 tabindex="-1">介系詞要怎麼記？</h1>
-        <p>月份用 <code>in May</code>，日期用 <code>on May 12</code>，時刻用 <code>at 9 a.m.</code>。遇到地點，先想你在描述哪種關係。</p>
+        <p>從介系詞的意思開始，再看月份、日期和地點前面要用哪個字。</p>
       </header>
       <nav class="toc" aria-label="介系詞講義目錄">
-        <a href="#time">時間</a><a href="#place">地點</a><a href="#movement">方向</a><a href="#differences">易混用法</a><a href="#collocations">多益搭配</a><a href="#dictionary">介系詞查表</a><a href="#prep-quiz">小測驗</a>
+        <a href="#preposition-definition">什麼是介系詞？</a><a href="#time">時間</a><a href="#place">地點</a><a href="#movement">方向</a><a href="#differences">易混用法</a><a href="#collocations">多益搭配</a><a href="#dictionary">介系詞查表</a><a href="#prep-quiz">小測驗</a>
       </nav>
+
+      <section class="panel" id="preposition-definition" tabindex="-1">
+        <h2>什麼是介系詞？</h2>
+        <p><strong>介系詞（preposition）是用來表示關係的詞。</strong> 它通常和後面的名詞、代名詞或動詞的 <code>-ing</code> 形式一起用，說明時間、地點、方向、方式等。</p>
+        <p><span lang="en">The new branch will open <strong>in</strong> May.</span> 新分店將在五月開幕。<code>in May</code> 回答「什麼時候開幕」，<code>in</code> 就是介系詞。</p>
+      </section>
 
       <section class="panel" id="time" tabindex="-1">
         <h2>時間｜時刻 at、哪天 on、大範圍 in</h2>
@@ -335,7 +354,7 @@
 
       <section class="panel" id="dictionary" tabindex="-1">
         <h2>介系詞查表</h2>
-        <p>英文的介系詞也包含許多多字片語，收錄範圍會隨文法分類而變。先用這份索引查常見詞和商務搭配。每一列都有記法與例子，同一個詞可能有多種用法。</p>
+        <p>英文的介系詞也包含許多多字片語，收錄範圍會隨文法分類而變。這裡收錄常見詞和商務搭配，每個詞條都有記法、常見片語和自編的中英對照例句。英文句子裡的粗體就是該詞條的介系詞。</p>
         <div class="lookup-controls js-only">
           <label class="search"><span class="search-icon" aria-hidden="true"></span><input id="word-search" type="search" aria-label="搜尋介系詞" placeholder="例如：by、期限、穿過"></label>
           <select id="word-category" aria-label="介系詞類別"><option value="">所有類別</option><option value="time">時間</option><option value="place">地點</option><option value="movement">方向</option><option value="relationship">其他關係</option><option value="phrase">多字片語</option></select>
@@ -343,128 +362,1000 @@
         <p id="word-count" class="dictionary-count js-only" role="status"></p>
         <p class="empty" id="word-empty" hidden>沒有符合的詞條。可以清除關鍵字或換個類別。</p>
         <dl class="word-list">
-          <div data-group="place movement"><dt lang="en">aboard</dt><dd>在船、飛機或其他交通工具上，想成已登車或登船<span lang="en">aboard the ferry</span></dd></div>
-          <div data-group="relationship"><dt lang="en">about</dt><dd>談主題時是「關於」，放在數字前也可表大約<span lang="en">a question about the invoice</span></dd></div>
-          <div data-group="place relationship"><dt lang="en">above</dt><dd>位置或數值高於一條線<span lang="en">above the entrance / above average</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">according to</dt><dd>根據某人、文件或資料來源<span lang="en">according to the report</span></dd></div>
-          <div data-group="place movement"><dt lang="en">across</dt><dd>從一邊到另一邊，也可指在對面<span lang="en">walk across the street</span></dd></div>
-          <div data-group="time place"><dt lang="en">after</dt><dd>排在時間或順序的後面<span lang="en">after lunch</span></dd></div>
-          <div data-group="place relationship"><dt lang="en">against</dt><dd>靠著表面，或站在反對的一方<span lang="en">against the wall / against the proposal</span></dd></div>
-          <div data-group="time place movement phrase"><dt lang="en">ahead of</dt><dd>在前面，也可指早於預定時間<span lang="en">ahead of schedule</span></dd></div>
-          <div data-group="place movement"><dt lang="en">along</dt><dd>跟著一條線或路徑<span lang="en">along the coast</span></dd></div>
-          <div data-group="place relationship"><dt lang="en">alongside</dt><dd>在旁邊，或和某人一起工作<span lang="en">work alongside the design team</span></dd></div>
-          <div data-group="place relationship"><dt lang="en">amid / amidst</dt><dd>置身於環境或一連串情況中<span lang="en">amid rising costs</span></dd></div>
-          <div data-group="place relationship"><dt lang="en">among / amongst</dt><dd>把對象想成一群，在其中或分配給群體<span lang="en">among the participants</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">apart from</dt><dd>可表示「除了……之外另有」或「扣除……」，依上下文判斷<span lang="en">apart from a small fee</span></dd></div>
-          <div data-group="time place movement"><dt lang="en">around / round</dt><dd>繞著、在附近，也可指大約時間<span lang="en">around the building / around noon</span></dd></div>
-          <div data-group="relationship"><dt lang="en">as</dt><dd>以某種身分或用途來看<span lang="en">work as a translator</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">as for</dt><dd>把話題轉到某件事上<span lang="en">as for the schedule</span></dd></div>
-          <div data-group="time phrase"><dt lang="en">as of</dt><dd>指定某個生效或統計的時間點<span lang="en">as of June 1</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">as per</dt><dd>依照某項要求或指示，常見於正式書面語<span lang="en">as per your request</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">as to</dt><dd>指出所談論的問題，常見於正式書面語<span lang="en">uncertainty as to the cause</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">as well as</dt><dd>在已有的一項之外再加一項<span lang="en">training as well as equipment</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">aside from</dt><dd>除某事之外，可依語境表排除或補充<span lang="en">aside from the setup fee</span></dd></div>
-          <div data-group="time place relationship"><dt lang="en">at</dt><dd>對準一個點，也可表目標或價格<span lang="en">at noon / at the entrance / at $50</span></dd></div>
-          <div data-group="place movement phrase"><dt lang="en">away from</dt><dd>與某處拉開距離<span lang="en">move away from the door</span></dd></div>
-          <div data-group="relationship"><dt lang="en">barring</dt><dd>除非出現所說的例外<span lang="en">barring delays</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">because of</dt><dd>把後面的名詞當成原因<span lang="en">because of heavy traffic</span></dd></div>
-          <div data-group="time place"><dt lang="en">before</dt><dd>在某時間點之前，也可指在某人面前<span lang="en">before noon / appear before the board</span></dd></div>
-          <div data-group="place relationship"><dt lang="en">behind</dt><dd>在後方，或進度落後<span lang="en">behind the building / behind schedule</span></dd></div>
-          <div data-group="place relationship"><dt lang="en">below</dt><dd>位置或數值低於一條線<span lang="en">below the window / below zero</span></dd></div>
-          <div data-group="place"><dt lang="en">beneath</dt><dd>在下方，語氣常較正式<span lang="en">beneath the floorboards</span></dd></div>
-          <div data-group="place"><dt lang="en">beside</dt><dd>就在旁邊<span lang="en">beside the window</span></dd></div>
-          <div data-group="relationship"><dt lang="en">besides</dt><dd>在已有的一項之外再加<span lang="en">besides the monthly fee</span></dd></div>
-          <div data-group="time place relationship"><dt lang="en">between</dt><dd>在可分辨的對象或界線之間<span lang="en">between the two terminals</span></dd></div>
-          <div data-group="time place relationship"><dt lang="en">beyond</dt><dd>超出某個範圍或界線<span lang="en">beyond our budget</span></dd></div>
-          <div data-group="relationship"><dt lang="en">but</dt><dd>在 everyone、nothing 等後可表示「除了」<span lang="en">everyone but Alex</span></dd></div>
-          <div data-group="time place relationship"><dt lang="en">by</dt><dd>緊靠、由誰執行、用哪種方式，或最遲時間<span lang="en">by the door / by train / by Friday</span></dd></div>
-          <div data-group="time"><dt lang="en">circa</dt><dd>用於大約年代，常見於歷史或正式書寫<span lang="en">circa 1900</span></dd></div>
-          <div data-group="relationship"><dt lang="en">concerning</dt><dd>把後面的名詞當作討論主題<span lang="en">a notice concerning the merger</span></dd></div>
-          <div data-group="relationship"><dt lang="en">considering</dt><dd>把某項因素納入判斷<span lang="en">considering the cost</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">contrary to</dt><dd>與某個說法或預期相反<span lang="en">contrary to expectations</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">depending on</dt><dd>結果跟著條件改變<span lang="en">depending on availability</span></dd></div>
-          <div data-group="relationship"><dt lang="en">despite</dt><dd>即使有某種阻礙，事情仍然發生<span lang="en">despite the delay</span></dd></div>
-          <div data-group="place movement"><dt lang="en">down</dt><dd>朝低處走，也可指沿著街道走<span lang="en">down the stairs / down the street</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">due to</dt><dd>把後面的名詞當成原因<span lang="en">a delay due to snow</span></dd></div>
-          <div data-group="time"><dt lang="en">during</dt><dd>指出事件發生的那段期間<span lang="en">during the conference</span></dd></div>
-          <div data-group="relationship"><dt lang="en">except</dt><dd>把某人或某物從範圍中排除<span lang="en">every day except Sunday</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">except for</dt><dd>整體描述成立，特別指出例外<span lang="en">empty except for one desk</span></dd></div>
-          <div data-group="relationship"><dt lang="en">excluding</dt><dd>計算或清單中排除某項<span lang="en">$80 excluding tax</span></dd></div>
-          <div data-group="time"><dt lang="en">following</dt><dd>接在某事件之後，常見於正式書面語<span lang="en">following the interview</span></dd></div>
-          <div data-group="time relationship"><dt lang="en">for</dt><dd>記成「持續多久」、「給誰」或「為了什麼」<span lang="en">for two weeks / for the client</span></dd></div>
-          <div data-group="time place movement relationship"><dt lang="en">from</dt><dd>記成來源或起點<span lang="en">from Taipei / from Monday to Friday</span></dd></div>
-          <div data-group="relationship"><dt lang="en">given</dt><dd>把事實或條件當成考量<span lang="en">given the current budget</span></dd></div>
-          <div data-group="time place relationship"><dt lang="en">in</dt><dd>放進時間、空間或狀態的範圍<span lang="en">in May / in the office / in stock</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in accordance with</dt><dd>按照規定或正式指示<span lang="en">in accordance with company policy</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in addition to</dt><dd>在原有項目上再加<span lang="en">in addition to shipping costs</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in case of</dt><dd>如果發生某種情況<span lang="en">in case of emergency</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in charge of</dt><dd>負責某事或管理某人<span lang="en">in charge of hiring</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in exchange for</dt><dd>用一項東西換另一項<span lang="en">in exchange for a discount</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in favor of</dt><dd>站在支持的一方<span lang="en">in favor of the proposal</span></dd></div>
-          <div data-group="place phrase"><dt lang="en">in front of</dt><dd>在某物的前方<span lang="en">in front of the hotel</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in light of</dt><dd>考量新資料或情況之後<span lang="en">in light of recent changes</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in lieu of</dt><dd>正式用語，表示拿一項代替另一項<span lang="en">in lieu of payment</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in place of</dt><dd>頂替某人或某物的位置<span lang="en">in place of the original speaker</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in response to</dt><dd>為了回應某項請求或事件<span lang="en">in response to your inquiry</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in spite of</dt><dd>即使有某種阻礙，事情仍然發生<span lang="en">in spite of the rain</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">in terms of</dt><dd>從某個面向來說<span lang="en">in terms of cost</span></dd></div>
-          <div data-group="relationship"><dt lang="en">including</dt><dd>把某項算進範圍<span lang="en">including delivery</span></dd></div>
-          <div data-group="place"><dt lang="en">inside / inside of</dt><dd>在邊界裡面，inside of 也可用於部分口語語境<span lang="en">inside the warehouse</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">instead of</dt><dd>選另一項來替代原來那項<span lang="en">instead of printing the report</span></dd></div>
-          <div data-group="place movement relationship"><dt lang="en">into</dt><dd>從外到內，也可表變成另一種狀態<span lang="en">walk into the room / turn into ice</span></dd></div>
-          <div data-group="relationship"><dt lang="en">like</dt><dd>和某人或某物相像<span lang="en">work like a professional</span></dd></div>
-          <div data-group="relationship"><dt lang="en">minus</dt><dd>從總數中減去某一項<span lang="en">the total minus the deposit</span></dd></div>
-          <div data-group="place"><dt lang="en">near / near to</dt><dd>距離近。near 可直接接地點<span lang="en">near the station</span></dd></div>
-          <div data-group="place phrase"><dt lang="en">next to</dt><dd>緊鄰某物<span lang="en">next to the elevator</span></dd></div>
-          <div data-group="relationship"><dt lang="en">notwithstanding</dt><dd>正式用語，表示儘管<span lang="en">notwithstanding the objections</span></dd></div>
-          <div data-group="relationship"><dt lang="en">of</dt><dd>把兩個名詞連起來，可表部分、所屬或內容<span lang="en">a copy of the invoice</span></dd></div>
-          <div data-group="place movement"><dt lang="en">off</dt><dd>離開表面或離開路線<span lang="en">get off the bus</span></dd></div>
-          <div data-group="time place relationship"><dt lang="en">on</dt><dd>日期是日曆的一格，地點常指表面或沿線<span lang="en">on Monday / on the wall / on Main Street</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">on account of</dt><dd>把後面的事情當成原因<span lang="en">on account of bad weather</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">on behalf of</dt><dd>代表某個人或團體<span lang="en">on behalf of our team</span></dd></div>
-          <div data-group="place relationship phrase"><dt lang="en">on top of</dt><dd>放在頂上，或再加一項<span lang="en">on top of the cabinet</span></dd></div>
-          <div data-group="place movement"><dt lang="en">onto</dt><dd>移動到某個表面上<span lang="en">step onto the platform</span></dd></div>
-          <div data-group="place"><dt lang="en">opposite</dt><dd>在正對面<span lang="en">opposite the library</span></dd></div>
-          <div data-group="movement"><dt lang="en">out</dt><dd>少數用法可直接接方向或出口，美式英文也常見 out the door<span lang="en">out the door</span></dd></div>
-          <div data-group="place movement relationship phrase"><dt lang="en">out of</dt><dd>從裡面出來，也可指用完或超出範圍<span lang="en">out of the office / out of stock</span></dd></div>
-          <div data-group="place relationship"><dt lang="en">outside / outside of</dt><dd>在邊界外，也可指範圍之外<span lang="en">outside the station</span></dd></div>
-          <div data-group="time place movement relationship"><dt lang="en">over</dt><dd>在上方、越過、超過數字，或跨一段時間<span lang="en">over the bridge / over $100 / over the weekend</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">owing to</dt><dd>表原因，常見於正式書面語<span lang="en">owing to staffing shortages</span></dd></div>
-          <div data-group="time place movement"><dt lang="en">past</dt><dd>從旁邊經過，或過了某個時刻<span lang="en">walk past the bank / past midnight</span></dd></div>
-          <div data-group="time relationship"><dt lang="en">pending</dt><dd>在等某事決定或完成的期間<span lang="en">pending approval</span></dd></div>
-          <div data-group="relationship"><dt lang="en">per</dt><dd>平均到每一單位，也可表依照<span lang="en">$20 per person</span></dd></div>
-          <div data-group="relationship"><dt lang="en">plus</dt><dd>在原有數量上再加一項<span lang="en">$80 plus tax</span></dd></div>
-          <div data-group="time phrase"><dt lang="en">prior to</dt><dd>在某事件以前，語氣比 before 正式<span lang="en">prior to departure</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">pursuant to</dt><dd>按照法律、合約或規定執行，常見於正式文件<span lang="en">pursuant to the agreement</span></dd></div>
-          <div data-group="relationship"><dt lang="en">regarding</dt><dd>後面就是這段話談的主題<span lang="en">an email regarding your order</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">regardless of</dt><dd>條件怎麼變都適用<span lang="en">regardless of age</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">save for</dt><dd>正式用語，表示把某項排除<span lang="en">empty save for one chair</span></dd></div>
-          <div data-group="time"><dt lang="en">since</dt><dd>從過去的某個起點延續<span lang="en">since May</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">subject to</dt><dd>受某個條件限制，常見於公告<span lang="en">subject to availability</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">such as</dt><dd>在一般類別後面列例子<span lang="en">office supplies such as pens</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">thanks to</dt><dd>指出原因，常有多虧某事的語氣<span lang="en">thanks to your help</span></dd></div>
-          <div data-group="relationship"><dt lang="en">than</dt><dd>放在比較級後面，引出比較的基準<span lang="en">larger than the old office</span></dd></div>
-          <div data-group="time place movement"><dt lang="en">through</dt><dd>穿過內部、藉由某方式。美式時間範圍也可含終點<span lang="en">through the tunnel / Monday through Friday</span></dd></div>
-          <div data-group="time place"><dt lang="en">throughout</dt><dd>遍及整段時間或整個區域<span lang="en">throughout the year</span></dd></div>
-          <div data-group="time"><dt lang="en">till</dt><dd>持續到某個時間點，意思和 until 相同<span lang="en">till noon</span></dd></div>
-          <div data-group="time movement relationship"><dt lang="en">to</dt><dd>朝目的地、交給接收者，也可標示範圍終點<span lang="en">to the airport / to Amy / from nine to five</span></dd></div>
-          <div data-group="place movement relationship"><dt lang="en">toward / towards</dt><dd>朝某方向，或表示對某事的態度<span lang="en">walk toward the exit</span></dd></div>
-          <div data-group="place relationship"><dt lang="en">under</dt><dd>在下方、低於數值、受管轄或處於某狀態<span lang="en">under the table / under $50 / under review</span></dd></div>
-          <div data-group="place"><dt lang="en">underneath</dt><dd>在正下方或被蓋住的下面<span lang="en">underneath the carpet</span></dd></div>
-          <div data-group="relationship"><dt lang="en">unlike</dt><dd>把後面的對象拿來對比差異<span lang="en">unlike the old system</span></dd></div>
-          <div data-group="time"><dt lang="en">until</dt><dd>動作或狀態一路持續到某時<span lang="en">open until 6 p.m.</span></dd></div>
-          <div data-group="place movement"><dt lang="en">up</dt><dd>向上，或沿著某條路前進<span lang="en">up the stairs / up the road</span></dd></div>
-          <div data-group="time movement relationship phrase"><dt lang="en">up to</dt><dd>最多到某上限，或由某人決定<span lang="en">up to ten guests / up to you</span></dd></div>
-          <div data-group="time place relationship"><dt lang="en">upon</dt><dd>較正式的 on；在 upon arrival 中指一抵達<span lang="en">upon arrival</span></dd></div>
-          <div data-group="relationship"><dt lang="en">versus</dt><dd>引出比較或對決的另一方<span lang="en">online sales versus in-store sales</span></dd></div>
-          <div data-group="movement relationship"><dt lang="en">via</dt><dd>透過某管道，或經由某個中途點<span lang="en">via email / via Singapore</span></dd></div>
-          <div data-group="relationship"><dt lang="en">with</dt><dd>一起、有某特徵，或使用某工具<span lang="en">with a colleague / with a pen</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">with a view to</dt><dd>以做某事為目標，接名詞或 V-ing<span lang="en">with a view to expanding</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">with regard to</dt><dd>指出所談論的事項<span lang="en">with regard to the new policy</span></dd></div>
-          <div data-group="relationship phrase"><dt lang="en">with respect to</dt><dd>就某事項而言，常見於正式書面語<span lang="en">with respect to payment</span></dd></div>
-          <div data-group="time place relationship"><dt lang="en">within</dt><dd>在界線、期限或限制內<span lang="en">within two days / within budget</span></dd></div>
-          <div data-group="relationship"><dt lang="en">without</dt><dd>缺少某物，或在沒做某動作的情況下<span lang="en">without a receipt / without signing</span></dd></div>
-          <div data-group="relationship"><dt lang="en">worth</dt><dd>用來指出價值，或表示某事值得做<span lang="en">worth $100 / worth reading</span></dd></div>
+          <div data-group="place movement">
+            <dt lang="en">aboard</dt>
+            <dd>
+              在船、飛機或其他交通工具上，想成已登車或登船
+              <span class="word-phrase" lang="en">aboard the ferry</span>
+              <p class="word-example"><span lang="en">All passengers must be <strong>aboard</strong> the ferry by 8 a.m.</span><span>所有乘客都必須在上午八點前登上渡輪。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">about</dt>
+            <dd>
+              談主題時是「關於」，放在數字前也可表大約
+              <span class="word-phrase" lang="en">a question about the invoice</span>
+              <p class="word-example"><span lang="en">I have a question <strong>about</strong> the delivery fee.</span><span>我有個關於運費的問題。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship">
+            <dt lang="en">above</dt>
+            <dd>
+              位置或數值高於一條線
+              <span class="word-phrase" lang="en">above the entrance / above average</span>
+              <p class="word-example"><span lang="en">A security camera is mounted <strong>above</strong> the entrance.</span><span>入口上方裝了一台監視器。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">according to</dt>
+            <dd>
+              根據某人、文件或資料來源
+              <span class="word-phrase" lang="en">according to the report</span>
+              <p class="word-example"><span lang="en"><strong>According to</strong> the latest report, online orders rose by 12 percent.</span><span>根據最新報告，線上訂單增加了百分之十二。</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement">
+            <dt lang="en">across</dt>
+            <dd>
+              從一邊到另一邊，也可指在對面
+              <span class="word-phrase" lang="en">walk across the street</span>
+              <p class="word-example"><span lang="en">We walked <strong>across</strong> the street to the new café.</span><span>我們穿過馬路，走到那間新開的咖啡廳。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place">
+            <dt lang="en">after</dt>
+            <dd>
+              排在時間或順序的後面
+              <span class="word-phrase" lang="en">after lunch</span>
+              <p class="word-example"><span lang="en">I'll call the supplier <strong>after</strong> lunch.</span><span>我午餐後會打電話給供應商。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship">
+            <dt lang="en">against</dt>
+            <dd>
+              靠著表面，或站在反對的一方
+              <span class="word-phrase" lang="en">against the wall / against the proposal</span>
+              <p class="word-example"><span lang="en">The ladder was leaning <strong>against</strong> the wall.</span><span>梯子斜靠在牆上。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place movement phrase">
+            <dt lang="en">ahead of</dt>
+            <dd>
+              在前面，也可指早於預定時間
+              <span class="word-phrase" lang="en">ahead of schedule</span>
+              <p class="word-example"><span lang="en">The maintenance team finished the repairs <strong>ahead of</strong> schedule.</span><span>維修團隊提前完成了修繕。</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement">
+            <dt lang="en">along</dt>
+            <dd>
+              跟著一條線或路徑
+              <span class="word-phrase" lang="en">along the coast</span>
+              <p class="word-example"><span lang="en">Several restaurants are located <strong>along</strong> the waterfront.</span><span>沿著水岸有好幾家餐廳。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship">
+            <dt lang="en">alongside</dt>
+            <dd>
+              在旁邊，或和某人一起工作
+              <span class="word-phrase" lang="en">work alongside the design team</span>
+              <p class="word-example"><span lang="en">Our engineers worked <strong>alongside</strong> the design team on the new model.</span><span>我們的工程師和設計團隊一起開發新機型。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship">
+            <dt lang="en">amid / amidst</dt>
+            <dd>
+              置身於環境或一連串情況中
+              <span class="word-phrase" lang="en">amid rising costs</span>
+              <p class="word-example"><span lang="en">The company froze hiring <strong>amid</strong> rising costs.</span><span>在成本攀升的情況下，公司暫停招募。</span></p>
+              <p class="word-example"><span lang="en">The new service launched <strong>amidst</strong> uncertainty about market demand.</span><span>在市場需求尚未明朗時，這項新服務上線了。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship">
+            <dt lang="en">among / amongst</dt>
+            <dd>
+              把對象想成一群，在其中或分配給群體
+              <span class="word-phrase" lang="en">among the participants</span>
+              <p class="word-example"><span lang="en">The organizers divided the remaining materials <strong>among</strong> the participants.</span><span>主辦方把剩下的資料分給參加者。</span></p>
+              <p class="word-example"><span lang="en">The survey found strong support <strong>amongst</strong> employees for flexible hours.</span><span>調查發現，員工普遍支持彈性工時。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">apart from</dt>
+            <dd>
+              可表示「除了……之外另有」或「扣除……」，依上下文判斷
+              <span class="word-phrase" lang="en">apart from a small fee</span>
+              <p class="word-example"><span lang="en"><strong>Apart from</strong> one minor typo, the brochure is ready to print.</span><span>除了一個小錯字，這份型錄已經可以付印。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place movement">
+            <dt lang="en">around / round</dt>
+            <dd>
+              繞著、在附近，也可指大約時間
+              <span class="word-phrase" lang="en">around the building / around noon</span>
+              <p class="word-example"><span lang="en">The courier usually arrives <strong>around</strong> noon.</span><span>快遞員通常在中午左右到。</span></p>
+              <p class="word-example"><span lang="en">We walked <strong>round</strong> the warehouse looking for the loading area.</span><span>我們繞著倉庫走，找裝卸區。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">as</dt>
+            <dd>
+              以某種身分或用途來看
+              <span class="word-phrase" lang="en">work as a translator</span>
+              <p class="word-example"><span lang="en">Maya joined the company <strong>as</strong> a sales assistant.</span><span>Maya 進公司擔任業務助理。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">as for</dt>
+            <dd>
+              把話題轉到某件事上
+              <span class="word-phrase" lang="en">as for the schedule</span>
+              <p class="word-example"><span lang="en"><strong>As for</strong> the venue, we've already booked the main hall.</span><span>至於場地，我們已經訂好主會場了。</span></p>
+            </dd>
+          </div>
+          <div data-group="time phrase">
+            <dt lang="en">as of</dt>
+            <dd>
+              指定某個生效或統計的時間點
+              <span class="word-phrase" lang="en">as of June 1</span>
+              <p class="word-example"><span lang="en"><strong>As of</strong> July 1, all visitors will need a badge.</span><span>從七月一日起，所有訪客都必須佩戴訪客證。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">as per</dt>
+            <dd>
+              依照某項要求或指示，常見於正式書面語
+              <span class="word-phrase" lang="en">as per your request</span>
+              <p class="word-example"><span lang="en"><strong>As per</strong> your instructions, we sent the samples to your Taipei office.</span><span>依照你的指示，我們已將樣品寄到你的台北辦公室。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">as to</dt>
+            <dd>
+              指出所談論的問題，常見於正式書面語
+              <span class="word-phrase" lang="en">uncertainty as to the cause</span>
+              <p class="word-example"><span lang="en">There was some confusion <strong>as to</strong> the exact start date.</span><span>大家對確切的開始日期還有些疑問。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">as well as</dt>
+            <dd>
+              在已有的一項之外再加一項
+              <span class="word-phrase" lang="en">training as well as equipment</span>
+              <p class="word-example"><span lang="en">The package includes technical support <strong>as well as</strong> training.</span><span>這套方案除了教育訓練，也包含技術支援。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">aside from</dt>
+            <dd>
+              除某事之外，可依語境表排除或補充
+              <span class="word-phrase" lang="en">aside from the setup fee</span>
+              <p class="word-example"><span lang="en"><strong>Aside from</strong> the setup fee, there are no extra charges.</span><span>除了設定費，沒有其他額外費用。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place relationship">
+            <dt lang="en">at</dt>
+            <dd>
+              對準一個點，也可表目標或價格
+              <span class="word-phrase" lang="en">at noon / at the entrance / at $50</span>
+              <p class="word-example"><span lang="en">The interview begins <strong>at</strong> 9 a.m.</span><span>面試上午九點開始。</span></p>
+              <p class="word-example"><span lang="en">I'll meet you <strong>at</strong> the main entrance.</span><span>我會在正門和你會合。</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement phrase">
+            <dt lang="en">away from</dt>
+            <dd>
+              與某處拉開距離
+              <span class="word-phrase" lang="en">move away from the door</span>
+              <p class="word-example"><span lang="en">Keep the boxes <strong>away from</strong> the emergency exit.</span><span>箱子請放在離緊急出口遠一點的地方。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">barring</dt>
+            <dd>
+              除非出現所說的例外
+              <span class="word-phrase" lang="en">barring delays</span>
+              <p class="word-example"><span lang="en"><strong>Barring</strong> any last-minute changes, the store will open on Monday.</span><span>除非臨時有變，這家店會在星期一開幕。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">because of</dt>
+            <dd>
+              把後面的名詞當成原因
+              <span class="word-phrase" lang="en">because of heavy traffic</span>
+              <p class="word-example"><span lang="en">The driver arrived late <strong>because of</strong> heavy traffic.</span><span>司機因為塞車而遲到。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place">
+            <dt lang="en">before</dt>
+            <dd>
+              在某時間點之前，也可指在某人面前
+              <span class="word-phrase" lang="en">before noon / appear before the board</span>
+              <p class="word-example"><span lang="en">Please confirm your order <strong>before</strong> noon tomorrow.</span><span>請在明天中午以前確認訂單。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship">
+            <dt lang="en">behind</dt>
+            <dd>
+              在後方，或進度落後
+              <span class="word-phrase" lang="en">behind the building / behind schedule</span>
+              <p class="word-example"><span lang="en">You'll find the delivery entrance <strong>behind</strong> the building.</span><span>你可以在大樓後方找到送貨入口。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship">
+            <dt lang="en">below</dt>
+            <dd>
+              位置或數值低於一條線
+              <span class="word-phrase" lang="en">below the window / below zero</span>
+              <p class="word-example"><span lang="en">Sales fell <strong>below</strong> our quarterly target.</span><span>銷售額低於這一季的目標。</span></p>
+            </dd>
+          </div>
+          <div data-group="place">
+            <dt lang="en">beneath</dt>
+            <dd>
+              在下方，語氣常較正式
+              <span class="word-phrase" lang="en">beneath the floorboards</span>
+              <p class="word-example"><span lang="en">The technician found a damaged cable <strong>beneath</strong> the floorboards.</span><span>技術人員在地板下面發現一條受損的電纜。</span></p>
+            </dd>
+          </div>
+          <div data-group="place">
+            <dt lang="en">beside</dt>
+            <dd>
+              就在旁邊
+              <span class="word-phrase" lang="en">beside the window</span>
+              <p class="word-example"><span lang="en">I left the signed form <strong>beside</strong> your laptop.</span><span>我把簽好的表格放在你的筆電旁邊。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">besides</dt>
+            <dd>
+              在已有的一項之外再加
+              <span class="word-phrase" lang="en">besides the monthly fee</span>
+              <p class="word-example"><span lang="en"><strong>Besides</strong> the monthly fee, there's a one-time setup charge.</span><span>除了月費，還要付一筆一次性的設定費。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place relationship">
+            <dt lang="en">between</dt>
+            <dd>
+              在可分辨的對象或界線之間
+              <span class="word-phrase" lang="en">between the two terminals</span>
+              <p class="word-example"><span lang="en">A shuttle runs <strong>between</strong> the two terminals every ten minutes.</span><span>兩個航廈之間每十分鐘有一班接駁車。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place relationship">
+            <dt lang="en">beyond</dt>
+            <dd>
+              超出某個範圍或界線
+              <span class="word-phrase" lang="en">beyond our budget</span>
+              <p class="word-example"><span lang="en">The revised quote is <strong>beyond</strong> our budget.</span><span>修改後的報價超出我們的預算。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">but</dt>
+            <dd>
+              在 everyone、nothing 等後可表示「除了」
+              <span class="word-phrase" lang="en">everyone but Alex</span>
+              <p class="word-example"><span lang="en">Everyone <strong>but</strong> Daniel attended the briefing.</span><span>除了 Daniel，大家都出席了簡報會議。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place relationship">
+            <dt lang="en">by</dt>
+            <dd>
+              緊靠、由誰執行、用哪種方式，或最遲時間
+              <span class="word-phrase" lang="en">by the door / by train / by Friday</span>
+              <p class="word-example"><span lang="en">Please send the signed contract <strong>by</strong> Friday.</span><span>請最遲在星期五寄出簽好的合約。</span></p>
+              <p class="word-example"><span lang="en">We went to the trade show <strong>by</strong> train.</span><span>我們搭火車去參加商展。</span></p>
+            </dd>
+          </div>
+          <div data-group="time">
+            <dt lang="en">circa</dt>
+            <dd>
+              用於大約年代，常見於歷史或正式書寫
+              <span class="word-phrase" lang="en">circa 1900</span>
+              <p class="word-example"><span lang="en">This photograph was taken <strong>circa</strong> 1910.</span><span>這張照片大約攝於 1910 年。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">concerning</dt>
+            <dd>
+              把後面的名詞當作討論主題
+              <span class="word-phrase" lang="en">a notice concerning the merger</span>
+              <p class="word-example"><span lang="en">We received a notice <strong>concerning</strong> the upcoming merger.</span><span>我們收到一份關於即將進行的合併案的通知。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">considering</dt>
+            <dd>
+              把某項因素納入判斷
+              <span class="word-phrase" lang="en">considering the cost</span>
+              <p class="word-example"><span lang="en"><strong>Considering</strong> the cost of repairs, we decided to replace the printer.</span><span>考量維修費用後，我們決定換一台印表機。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">contrary to</dt>
+            <dd>
+              與某個說法或預期相反
+              <span class="word-phrase" lang="en">contrary to expectations</span>
+              <p class="word-example"><span lang="en"><strong>Contrary to</strong> our expectations, demand stayed strong after the sale.</span><span>和我們預期的相反，促銷結束後需求仍然強勁。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">depending on</dt>
+            <dd>
+              結果跟著條件改變
+              <span class="word-phrase" lang="en">depending on availability</span>
+              <p class="word-example"><span lang="en">Delivery takes three to five days, <strong>depending on</strong> your location.</span><span>送貨需要三到五天，視你所在的地點而定。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">despite</dt>
+            <dd>
+              即使有某種阻礙，事情仍然發生
+              <span class="word-phrase" lang="en">despite the delay</span>
+              <p class="word-example"><span lang="en"><strong>Despite</strong> the shipping delay, the team met its installation deadline.</span><span>雖然出貨延誤，團隊仍在期限內完成安裝。</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement">
+            <dt lang="en">down</dt>
+            <dd>
+              朝低處走，也可指沿著街道走
+              <span class="word-phrase" lang="en">down the stairs / down the street</span>
+              <p class="word-example"><span lang="en">Go <strong>down</strong> the stairs and turn left at the bottom.</span><span>沿著樓梯往下走，走到底再左轉。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">due to</dt>
+            <dd>
+              把後面的名詞當成原因
+              <span class="word-phrase" lang="en">a delay due to snow</span>
+              <p class="word-example"><span lang="en">The evening flight was canceled <strong>due to</strong> heavy snow.</span><span>晚上的航班因大雪而取消。</span></p>
+            </dd>
+          </div>
+          <div data-group="time">
+            <dt lang="en">during</dt>
+            <dd>
+              指出事件發生的那段期間
+              <span class="word-phrase" lang="en">during the conference</span>
+              <p class="word-example"><span lang="en">Please keep your phone on silent <strong>during</strong> the presentation.</span><span>簡報期間請將手機設為靜音。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">except</dt>
+            <dd>
+              把某人或某物從範圍中排除
+              <span class="word-phrase" lang="en">every day except Sunday</span>
+              <p class="word-example"><span lang="en">The help desk is open every day <strong>except</strong> Sunday.</span><span>客服櫃台除了星期日，每天都開放。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">except for</dt>
+            <dd>
+              整體描述成立，特別指出例外
+              <span class="word-phrase" lang="en">empty except for one desk</span>
+              <p class="word-example"><span lang="en">The meeting room was empty <strong>except for</strong> a stack of brochures.</span><span>會議室裡只有一疊型錄，其他東西都沒有。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">excluding</dt>
+            <dd>
+              計算或清單中排除某項
+              <span class="word-phrase" lang="en">$80 excluding tax</span>
+              <p class="word-example"><span lang="en">The room costs $120 per night, <strong>excluding</strong> tax.</span><span>房費每晚 120 美元，未含稅。</span></p>
+            </dd>
+          </div>
+          <div data-group="time">
+            <dt lang="en">following</dt>
+            <dd>
+              接在某事件之後，常見於正式書面語
+              <span class="word-phrase" lang="en">following the interview</span>
+              <p class="word-example"><span lang="en"><strong>Following</strong> the interview, HR sent me a short survey.</span><span>面試後，人資寄了一份簡短的問卷給我。</span></p>
+            </dd>
+          </div>
+          <div data-group="time relationship">
+            <dt lang="en">for</dt>
+            <dd>
+              記成「持續多久」、「給誰」或「為了什麼」
+              <span class="word-phrase" lang="en">for two weeks / for the client</span>
+              <p class="word-example"><span lang="en">We've rented this office <strong>for</strong> five years.</span><span>我們租用這間辦公室已經五年了。</span></p>
+              <p class="word-example"><span lang="en">I ordered a vegetarian lunch <strong>for</strong> our guest.</span><span>我幫客人訂了一份素食午餐。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place movement relationship">
+            <dt lang="en">from</dt>
+            <dd>
+              記成來源或起點
+              <span class="word-phrase" lang="en">from Taipei / from Monday to Friday</span>
+              <p class="word-example"><span lang="en">The samples arrived <strong>from</strong> our Osaka office this morning.</span><span>樣品今天早上從大阪辦公室寄到了。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">given</dt>
+            <dd>
+              把事實或條件當成考量
+              <span class="word-phrase" lang="en">given the current budget</span>
+              <p class="word-example"><span lang="en"><strong>Given</strong> the short deadline, we'll need another designer.</span><span>考量到期限很緊，我們還需要一位設計師。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place relationship">
+            <dt lang="en">in</dt>
+            <dd>
+              放進時間、空間或狀態的範圍
+              <span class="word-phrase" lang="en">in May / in the office / in stock</span>
+              <p class="word-example"><span lang="en">The new branch will open <strong>in</strong> May.</span><span>新分店將在五月開幕。</span></p>
+              <p class="word-example"><span lang="en">Your visitors are waiting <strong>in</strong> the lobby.</span><span>你的訪客正在大廳裡等候。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in accordance with</dt>
+            <dd>
+              按照規定或正式指示
+              <span class="word-phrase" lang="en">in accordance with company policy</span>
+              <p class="word-example"><span lang="en">We store customer records <strong>in accordance with</strong> company policy.</span><span>我們依照公司規定保存客戶資料。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in addition to</dt>
+            <dd>
+              在原有項目上再加
+              <span class="word-phrase" lang="en">in addition to shipping costs</span>
+              <p class="word-example"><span lang="en"><strong>In addition to</strong> training new staff, Nina manages the weekly schedule.</span><span>除了訓練新進員工，Nina 也負責排定每週班表。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in case of</dt>
+            <dd>
+              如果發生某種情況
+              <span class="word-phrase" lang="en">in case of emergency</span>
+              <p class="word-example"><span lang="en"><strong>In case of</strong> a power outage, use the stairs.</span><span>如果停電，請走樓梯。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in charge of</dt>
+            <dd>
+              負責某事或管理某人
+              <span class="word-phrase" lang="en">in charge of hiring</span>
+              <p class="word-example"><span lang="en">Leo is <strong>in charge of</strong> ordering office supplies.</span><span>Leo 負責採購辦公用品。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in exchange for</dt>
+            <dd>
+              用一項東西換另一項
+              <span class="word-phrase" lang="en">in exchange for a discount</span>
+              <p class="word-example"><span lang="en">The supplier offered free delivery <strong>in exchange for</strong> a larger order.</span><span>供應商願意免運，條件是我們增加訂購量。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in favor of</dt>
+            <dd>
+              站在支持的一方
+              <span class="word-phrase" lang="en">in favor of the proposal</span>
+              <p class="word-example"><span lang="en">Most of the committee voted <strong>in favor of</strong> the new schedule.</span><span>委員會多數成員投票支持新時程。</span></p>
+            </dd>
+          </div>
+          <div data-group="place phrase">
+            <dt lang="en">in front of</dt>
+            <dd>
+              在某物的前方
+              <span class="word-phrase" lang="en">in front of the hotel</span>
+              <p class="word-example"><span lang="en">The airport shuttle stops <strong>in front of</strong> the hotel.</span><span>機場接駁車停在飯店前面。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in light of</dt>
+            <dd>
+              考量新資料或情況之後
+              <span class="word-phrase" lang="en">in light of recent changes</span>
+              <p class="word-example"><span lang="en"><strong>In light of</strong> recent feedback, we've simplified the registration form.</span><span>考量最近收到的意見，我們簡化了報名表。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in lieu of</dt>
+            <dd>
+              正式用語，表示拿一項代替另一項
+              <span class="word-phrase" lang="en">in lieu of payment</span>
+              <p class="word-example"><span lang="en">The hotel offered a voucher <strong>in lieu of</strong> a cash refund.</span><span>飯店提供折抵券來代替現金退款。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in place of</dt>
+            <dd>
+              頂替某人或某物的位置
+              <span class="word-phrase" lang="en">in place of the original speaker</span>
+              <p class="word-example"><span lang="en">Elena gave the presentation <strong>in place of</strong> her manager.</span><span>Elena 代替主管做簡報。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in response to</dt>
+            <dd>
+              為了回應某項請求或事件
+              <span class="word-phrase" lang="en">in response to your inquiry</span>
+              <p class="word-example"><span lang="en">We added a second session <strong>in response to</strong> high demand.</span><span>為了因應踴躍的報名需求，我們加開了一場。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in spite of</dt>
+            <dd>
+              即使有某種阻礙，事情仍然發生
+              <span class="word-phrase" lang="en">in spite of the rain</span>
+              <p class="word-example"><span lang="en">The outdoor event went ahead <strong>in spite of</strong> the rain.</span><span>儘管下雨，戶外活動仍照常舉行。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">in terms of</dt>
+            <dd>
+              從某個面向來說
+              <span class="word-phrase" lang="en">in terms of cost</span>
+              <p class="word-example"><span lang="en"><strong>In terms of</strong> cost, the second option is better for us.</span><span>就成本而言，第二個方案對我們比較有利。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">including</dt>
+            <dd>
+              把某項算進範圍
+              <span class="word-phrase" lang="en">including delivery</span>
+              <p class="word-example"><span lang="en">The rental costs $90 a day, <strong>including</strong> insurance.</span><span>租金一天 90 美元，包含保險。</span></p>
+            </dd>
+          </div>
+          <div data-group="place">
+            <dt lang="en">inside / inside of</dt>
+            <dd>
+              在邊界裡面，inside of 也可用於部分口語語境
+              <span class="word-phrase" lang="en">inside the warehouse</span>
+              <p class="word-example"><span lang="en">The spare monitors are <strong>inside</strong> the storage room.</span><span>備用螢幕放在儲藏室裡。</span></p>
+              <p class="word-example"><span lang="en">I left the signed form <strong>inside of</strong> the blue folder.</span><span>我把簽好的表格留在藍色資料夾裡。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">instead of</dt>
+            <dd>
+              選另一項來替代原來那項
+              <span class="word-phrase" lang="en">instead of printing the report</span>
+              <p class="word-example"><span lang="en">We emailed the agenda <strong>instead of</strong> printing it.</span><span>我們用電子郵件寄送議程，省去列印。</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement relationship">
+            <dt lang="en">into</dt>
+            <dd>
+              從外到內，也可表變成另一種狀態
+              <span class="word-phrase" lang="en">walk into the room / turn into ice</span>
+              <p class="word-example"><span lang="en">The staff moved the extra chairs <strong>into</strong> the conference room.</span><span>工作人員把多餘的椅子搬進會議室。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">like</dt>
+            <dd>
+              和某人或某物相像
+              <span class="word-phrase" lang="en">work like a professional</span>
+              <p class="word-example"><span lang="en">This material looks <strong>like</strong> leather.</span><span>這種材料看起來像皮革。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">minus</dt>
+            <dd>
+              從總數中減去某一項
+              <span class="word-phrase" lang="en">the total minus the deposit</span>
+              <p class="word-example"><span lang="en">The final payment is the total price <strong>minus</strong> your deposit.</span><span>最後應付的金額是總價扣掉訂金。</span></p>
+            </dd>
+          </div>
+          <div data-group="place">
+            <dt lang="en">near / near to</dt>
+            <dd>
+              距離近。near 可直接接地點
+              <span class="word-phrase" lang="en">near the station</span>
+              <p class="word-example"><span lang="en">There's a pharmacy <strong>near</strong> the station.</span><span>車站附近有一間藥局。</span></p>
+              <p class="word-example"><span lang="en">Our hotel is quite <strong>near to</strong> the airport.</span><span>我們的飯店離機場很近。</span></p>
+            </dd>
+          </div>
+          <div data-group="place phrase">
+            <dt lang="en">next to</dt>
+            <dd>
+              緊鄰某物
+              <span class="word-phrase" lang="en">next to the elevator</span>
+              <p class="word-example"><span lang="en">You'll find the sign-in sheet <strong>next to</strong> the coffee machine.</span><span>你可以在咖啡機旁邊找到簽到表。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">notwithstanding</dt>
+            <dd>
+              正式用語，表示儘管
+              <span class="word-phrase" lang="en">notwithstanding the objections</span>
+              <p class="word-example"><span lang="en"><strong>Notwithstanding</strong> the objections from several members, the board approved the plan.</span><span>儘管有幾位成員反對，董事會仍批准了這項計畫。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">of</dt>
+            <dd>
+              把兩個名詞連起來，可表部分、所屬或內容
+              <span class="word-phrase" lang="en">a copy of the invoice</span>
+              <p class="word-example"><span lang="en">Could you email me a copy <strong>of</strong> the invoice?</span><span>你可以寄一份發票副本給我嗎？</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement">
+            <dt lang="en">off</dt>
+            <dd>
+              離開表面或離開路線
+              <span class="word-phrase" lang="en">get off the bus</span>
+              <p class="word-example"><span lang="en">Please get <strong>off</strong> the bus at the next stop.</span><span>請在下一站下車。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place relationship">
+            <dt lang="en">on</dt>
+            <dd>
+              日期是日曆的一格，地點常指表面或沿線
+              <span class="word-phrase" lang="en">on Monday / on the wall / on Main Street</span>
+              <p class="word-example"><span lang="en">The training session is <strong>on</strong> Monday morning.</span><span>訓練課程在星期一上午。</span></p>
+              <p class="word-example"><span lang="en">The meeting room is <strong>on</strong> the second floor.</span><span>會議室在二樓。</span></p>
+              <p class="word-example"><span lang="en">There's a floor plan <strong>on</strong> the wall near the elevator.</span><span>電梯附近的牆上有一張樓層平面圖。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">on account of</dt>
+            <dd>
+              把後面的事情當成原因
+              <span class="word-phrase" lang="en">on account of bad weather</span>
+              <p class="word-example"><span lang="en">The concert was postponed <strong>on account of</strong> strong winds.</span><span>演唱會因強風而延期。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">on behalf of</dt>
+            <dd>
+              代表某個人或團體
+              <span class="word-phrase" lang="en">on behalf of our team</span>
+              <p class="word-example"><span lang="en"><strong>On behalf of</strong> the entire team, I'd like to thank you for your help.</span><span>我謹代表整個團隊感謝你的協助。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship phrase">
+            <dt lang="en">on top of</dt>
+            <dd>
+              放在頂上，或再加一項
+              <span class="word-phrase" lang="en">on top of the cabinet</span>
+              <p class="word-example"><span lang="en">The spare keys are <strong>on top of</strong> the filing cabinet.</span><span>備用鑰匙放在文件櫃頂上。</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement">
+            <dt lang="en">onto</dt>
+            <dd>
+              移動到某個表面上
+              <span class="word-phrase" lang="en">step onto the platform</span>
+              <p class="word-example"><span lang="en">The workers loaded the pallets <strong>onto</strong> the truck.</span><span>工人把棧板裝上卡車。</span></p>
+            </dd>
+          </div>
+          <div data-group="place">
+            <dt lang="en">opposite</dt>
+            <dd>
+              在正對面
+              <span class="word-phrase" lang="en">opposite the library</span>
+              <p class="word-example"><span lang="en">The new branch is <strong>opposite</strong> the public library.</span><span>新分店在公共圖書館正對面。</span></p>
+            </dd>
+          </div>
+          <div data-group="movement">
+            <dt lang="en">out</dt>
+            <dd>
+              少數用法可直接接方向或出口，美式英文也常見 out the door
+              <span class="word-phrase" lang="en">out the door</span>
+              <p class="word-example"><span lang="en">The courier hurried <strong>out</strong> the side door.</span><span>快遞員匆匆從側門出去。</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement relationship phrase">
+            <dt lang="en">out of</dt>
+            <dd>
+              從裡面出來，也可指用完或超出範圍
+              <span class="word-phrase" lang="en">out of the office / out of stock</span>
+              <p class="word-example"><span lang="en">That model is currently <strong>out of</strong> stock.</span><span>那個型號目前缺貨。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship">
+            <dt lang="en">outside / outside of</dt>
+            <dd>
+              在邊界外，也可指範圍之外
+              <span class="word-phrase" lang="en">outside the station</span>
+              <p class="word-example"><span lang="en">A taxi is waiting <strong>outside</strong> the hotel.</span><span>有輛計程車在飯店外等候。</span></p>
+              <p class="word-example"><span lang="en">The building is locked <strong>outside of</strong> business hours.</span><span>辦公時間以外，大樓會上鎖。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place movement relationship">
+            <dt lang="en">over</dt>
+            <dd>
+              在上方、越過、超過數字，或跨一段時間
+              <span class="word-phrase" lang="en">over the bridge / over $100 / over the weekend</span>
+              <p class="word-example"><span lang="en">The shuttle crossed <strong>over</strong> the bridge just before sunset.</span><span>接駁車在日落前不久開過那座橋。</span></p>
+              <p class="word-example"><span lang="en">We received <strong>over</strong> 200 applications this week.</span><span>我們這週收到了超過兩百份申請。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">owing to</dt>
+            <dd>
+              表原因，常見於正式書面語
+              <span class="word-phrase" lang="en">owing to staffing shortages</span>
+              <p class="word-example"><span lang="en">The library will close early <strong>owing to</strong> a staffing shortage.</span><span>圖書館因人手不足而提早關門。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place movement">
+            <dt lang="en">past</dt>
+            <dd>
+              從旁邊經過，或過了某個時刻
+              <span class="word-phrase" lang="en">walk past the bank / past midnight</span>
+              <p class="word-example"><span lang="en">Walk <strong>past</strong> the bank and turn right at the next corner.</span><span>經過銀行後，在下一個轉角右轉。</span></p>
+            </dd>
+          </div>
+          <div data-group="time relationship">
+            <dt lang="en">pending</dt>
+            <dd>
+              在等某事決定或完成的期間
+              <span class="word-phrase" lang="en">pending approval</span>
+              <p class="word-example"><span lang="en">The purchase is on hold <strong>pending</strong> budget approval.</span><span>採購案暫緩，等預算核准後再處理。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">per</dt>
+            <dd>
+              平均到每一單位，也可表依照
+              <span class="word-phrase" lang="en">$20 per person</span>
+              <p class="word-example"><span lang="en">The workshop costs $35 <strong>per</strong> person.</span><span>工作坊每人收費 35 美元。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">plus</dt>
+            <dd>
+              在原有數量上再加一項
+              <span class="word-phrase" lang="en">$80 plus tax</span>
+              <p class="word-example"><span lang="en">The replacement part costs $40 <strong>plus</strong> shipping.</span><span>替換零件要 40 美元，運費另計。</span></p>
+            </dd>
+          </div>
+          <div data-group="time phrase">
+            <dt lang="en">prior to</dt>
+            <dd>
+              在某事件以前，語氣比 before 正式
+              <span class="word-phrase" lang="en">prior to departure</span>
+              <p class="word-example"><span lang="en">Check your passport's expiration date <strong>prior to</strong> departure.</span><span>出發前請確認護照的有效期限。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">pursuant to</dt>
+            <dd>
+              按照法律、合約或規定執行，常見於正式文件
+              <span class="word-phrase" lang="en">pursuant to the agreement</span>
+              <p class="word-example"><span lang="en"><strong>Pursuant to</strong> the contract, the supplier must replace defective units within 30 days.</span><span>根據合約，供應商必須在三十天內更換瑕疵品。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">regarding</dt>
+            <dd>
+              後面就是這段話談的主題
+              <span class="word-phrase" lang="en">an email regarding your order</span>
+              <p class="word-example"><span lang="en">I received an email <strong>regarding</strong> my refund request.</span><span>我收到一封關於退款申請的電子郵件。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">regardless of</dt>
+            <dd>
+              條件怎麼變都適用
+              <span class="word-phrase" lang="en">regardless of age</span>
+              <p class="word-example"><span lang="en">All employees can join the course <strong>regardless of</strong> experience.</span><span>無論有沒有相關經驗，所有員工都可以參加這堂課。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">save for</dt>
+            <dd>
+              正式用語，表示把某項排除
+              <span class="word-phrase" lang="en">empty save for one chair</span>
+              <p class="word-example"><span lang="en">The parking lot was empty <strong>save for</strong> one delivery van.</span><span>停車場裡除了一輛送貨廂型車，沒有其他車輛。</span></p>
+            </dd>
+          </div>
+          <div data-group="time">
+            <dt lang="en">since</dt>
+            <dd>
+              從過去的某個起點延續
+              <span class="word-phrase" lang="en">since May</span>
+              <p class="word-example"><span lang="en">We've used the same supplier <strong>since</strong> May.</span><span>我們從五月起就一直跟同一家供應商合作。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">subject to</dt>
+            <dd>
+              受某個條件限制，常見於公告
+              <span class="word-phrase" lang="en">subject to availability</span>
+              <p class="word-example"><span lang="en">Late checkout is <strong>subject to</strong> room availability.</span><span>能否延後退房視房間供應情況而定。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">such as</dt>
+            <dd>
+              在一般類別後面列例子
+              <span class="word-phrase" lang="en">office supplies such as pens</span>
+              <p class="word-example"><span lang="en">You can buy basic office supplies <strong>such as</strong> pens and folders here.</span><span>你可以在這裡買到筆和資料夾等基本辦公用品。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">thanks to</dt>
+            <dd>
+              指出原因，常有多虧某事的語氣
+              <span class="word-phrase" lang="en">thanks to your help</span>
+              <p class="word-example"><span lang="en">We finished the move early <strong>thanks to</strong> the volunteers.</span><span>多虧志工幫忙，我們提早完成搬遷。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">than</dt>
+            <dd>
+              放在比較級後面，引出比較的基準
+              <span class="word-phrase" lang="en">larger than the old office</span>
+              <p class="word-example"><span lang="en">The new conference room is larger <strong>than</strong> the old one.</span><span>新的會議室比舊的大。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place movement">
+            <dt lang="en">through</dt>
+            <dd>
+              穿過內部、藉由某方式。美式時間範圍也可含終點
+              <span class="word-phrase" lang="en">through the tunnel / Monday through Friday</span>
+              <p class="word-example"><span lang="en">The delivery truck drove <strong>through</strong> the tunnel.</span><span>送貨卡車開過了隧道。</span></p>
+              <p class="word-example"><span lang="en">The help desk is open Monday <strong>through</strong> Friday.</span><span>客服櫃台從星期一到星期五都開放。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place">
+            <dt lang="en">throughout</dt>
+            <dd>
+              遍及整段時間或整個區域
+              <span class="word-phrase" lang="en">throughout the year</span>
+              <p class="word-example"><span lang="en">Free Wi-Fi is available <strong>throughout</strong> the hotel.</span><span>整間飯店都有免費 Wi-Fi。</span></p>
+            </dd>
+          </div>
+          <div data-group="time">
+            <dt lang="en">till</dt>
+            <dd>
+              持續到某個時間點，意思和 until 相同
+              <span class="word-phrase" lang="en">till noon</span>
+              <p class="word-example"><span lang="en">The café is open <strong>till</strong> six.</span><span>咖啡廳營業到六點。</span></p>
+            </dd>
+          </div>
+          <div data-group="time movement relationship">
+            <dt lang="en">to</dt>
+            <dd>
+              朝目的地、交給接收者，也可標示範圍終點
+              <span class="word-phrase" lang="en">to the airport / to Amy / from nine to five</span>
+              <p class="word-example"><span lang="en">Please send the invoice <strong>to</strong> our accounting department.</span><span>請把發票寄給我們的會計部門。</span></p>
+              <p class="word-example"><span lang="en">We took a shuttle <strong>to</strong> the exhibition center.</span><span>我們搭接駁車去展覽中心。</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement relationship">
+            <dt lang="en">toward / towards</dt>
+            <dd>
+              朝某方向，或表示對某事的態度
+              <span class="word-phrase" lang="en">walk toward the exit</span>
+              <p class="word-example"><span lang="en">Follow the signs <strong>toward</strong> the main exit.</span><span>沿著指標朝主要出口走。</span></p>
+              <p class="word-example"><span lang="en">The delivery driver walked <strong>towards</strong> the loading dock.</span><span>送貨司機朝卸貨區走去。</span></p>
+            </dd>
+          </div>
+          <div data-group="place relationship">
+            <dt lang="en">under</dt>
+            <dd>
+              在下方、低於數值、受管轄或處於某狀態
+              <span class="word-phrase" lang="en">under the table / under $50 / under review</span>
+              <p class="word-example"><span lang="en">A spare box of cables is <strong>under</strong> the desk.</span><span>桌子底下有一箱備用電線。</span></p>
+              <p class="word-example"><span lang="en">The application is still <strong>under</strong> review.</span><span>申請仍在審查中。</span></p>
+            </dd>
+          </div>
+          <div data-group="place">
+            <dt lang="en">underneath</dt>
+            <dd>
+              在正下方或被蓋住的下面
+              <span class="word-phrase" lang="en">underneath the carpet</span>
+              <p class="word-example"><span lang="en">The cleaner found a room key <strong>underneath</strong> the rug.</span><span>清潔人員在地毯下面找到一把房間鑰匙。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">unlike</dt>
+            <dd>
+              把後面的對象拿來對比差異
+              <span class="word-phrase" lang="en">unlike the old system</span>
+              <p class="word-example"><span lang="en"><strong>Unlike</strong> the old printer, this one can scan both sides of a page.</span><span>這台和舊印表機不同，可以掃描紙張的兩面。</span></p>
+            </dd>
+          </div>
+          <div data-group="time">
+            <dt lang="en">until</dt>
+            <dd>
+              動作或狀態一路持續到某時
+              <span class="word-phrase" lang="en">open until 6 p.m.</span>
+              <p class="word-example"><span lang="en">The reception desk will stay open <strong>until</strong> 8 p.m.</span><span>接待櫃台會開放到晚上八點。</span></p>
+            </dd>
+          </div>
+          <div data-group="place movement">
+            <dt lang="en">up</dt>
+            <dd>
+              向上，或沿著某條路前進
+              <span class="word-phrase" lang="en">up the stairs / up the road</span>
+              <p class="word-example"><span lang="en">We walked <strong>up</strong> the hill to the training center.</span><span>我們走上山坡，到達訓練中心。</span></p>
+            </dd>
+          </div>
+          <div data-group="time movement relationship phrase">
+            <dt lang="en">up to</dt>
+            <dd>
+              最多到某上限，或由某人決定
+              <span class="word-phrase" lang="en">up to ten guests / up to you</span>
+              <p class="word-example"><span lang="en">Each reservation can include <strong>up to</strong> six guests.</span><span>每筆預訂最多可包含六位客人。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place relationship">
+            <dt lang="en">upon</dt>
+            <dd>
+              較正式的 on；在 upon arrival 中指一抵達
+              <span class="word-phrase" lang="en">upon arrival</span>
+              <p class="word-example"><span lang="en"><strong>Upon</strong> arrival, please check in at the front desk.</span><span>抵達後，請到櫃台辦理報到。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">versus</dt>
+            <dd>
+              引出比較或對決的另一方
+              <span class="word-phrase" lang="en">online sales versus in-store sales</span>
+              <p class="word-example"><span lang="en">The report compares the cost of rail <strong>versus</strong> air travel.</span><span>這份報告比較搭火車和搭飛機的費用。</span></p>
+            </dd>
+          </div>
+          <div data-group="movement relationship">
+            <dt lang="en">via</dt>
+            <dd>
+              透過某管道，或經由某個中途點
+              <span class="word-phrase" lang="en">via email / via Singapore</span>
+              <p class="word-example"><span lang="en">We'll send your confirmation <strong>via</strong> email.</span><span>我們會以電子郵件寄送確認通知。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">with</dt>
+            <dd>
+              一起、有某特徵，或使用某工具
+              <span class="word-phrase" lang="en">with a colleague / with a pen</span>
+              <p class="word-example"><span lang="en">Please sign the form <strong>with</strong> a black pen.</span><span>請用黑筆簽署這份表格。</span></p>
+              <p class="word-example"><span lang="en">I reviewed the proposal <strong>with</strong> my manager.</span><span>我和主管一起審閱了這份提案。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">with a view to</dt>
+            <dd>
+              以做某事為目標，接名詞或 V-ing
+              <span class="word-phrase" lang="en">with a view to expanding</span>
+              <p class="word-example"><span lang="en">The company rented a second warehouse <strong>with a view to</strong> expanding its operations.</span><span>公司為了擴大營運，租了第二座倉庫。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">with regard to</dt>
+            <dd>
+              指出所談論的事項
+              <span class="word-phrase" lang="en">with regard to the new policy</span>
+              <p class="word-example"><span lang="en"><strong>With regard to</strong> your order, the blue model is back in stock.</span><span>關於你的訂單，藍色款已經補貨了。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship phrase">
+            <dt lang="en">with respect to</dt>
+            <dd>
+              就某事項而言，常見於正式書面語
+              <span class="word-phrase" lang="en">with respect to payment</span>
+              <p class="word-example"><span lang="en"><strong>With respect to</strong> payment, the full amount is due by the end of the month.</span><span>付款方面，款項須於月底前全數付清。</span></p>
+            </dd>
+          </div>
+          <div data-group="time place relationship">
+            <dt lang="en">within</dt>
+            <dd>
+              在界線、期限或限制內
+              <span class="word-phrase" lang="en">within two days / within budget</span>
+              <p class="word-example"><span lang="en">We'll respond <strong>within</strong> two business days.</span><span>我們會在兩個工作天內回覆。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">without</dt>
+            <dd>
+              缺少某物，或在沒做某動作的情況下
+              <span class="word-phrase" lang="en">without a receipt / without signing</span>
+              <p class="word-example"><span lang="en">You can't enter the warehouse <strong>without</strong> a visitor badge.</span><span>進入倉庫必須佩戴訪客證。</span></p>
+            </dd>
+          </div>
+          <div data-group="relationship">
+            <dt lang="en">worth</dt>
+            <dd>
+              用來指出價值，或表示某事值得做
+              <span class="word-phrase" lang="en">worth $100 / worth reading</span>
+              <p class="word-example"><span lang="en">This training guide is <strong>worth</strong> reading before your first shift.</span><span>這份訓練指南值得在第一次上班前讀一讀。</span></p>
+            </dd>
+          </div>
         </dl>
       </section>
 
@@ -497,11 +1388,25 @@
       <header class="lesson-hero green">
         <span class="eyebrow">動詞句型</span>
         <h1 tabindex="-1">to 後面加原形還是 V-ing？</h1>
-        <p>不定詞的 <code>to</code> 接原形動詞。介系詞的 <code>to</code> 可以接名詞，接動作時用 <code>V-ing</code>。</p>
+        <p>先認識「不定詞」和「介系詞」，再看兩種 <code>to</code> 後面各接什麼。</p>
       </header>
       <nav class="toc" aria-label="to 講義目錄">
-        <a href="#to-rule">快速判斷</a><a href="#to-base">to + 原形</a><a href="#to-ing">to + V-ing</a><a href="#to-traps">易錯句型</a><a href="#to-quiz">小測驗</a>
+        <a href="#infinitive">什麼是不定詞？</a><a href="#to-rule">快速判斷</a><a href="#to-base">to + 原形</a><a href="#to-ing">to + V-ing</a><a href="#to-traps">易錯句型</a><a href="#to-quiz">小測驗</a>
       </nav>
+
+      <section class="panel" id="infinitive" tabindex="-1">
+        <h2>什麼是不定詞？</h2>
+        <p><strong>不定詞（infinitive）是一種動詞形式，本身不隨主詞或時態變化。</strong> 有 <code>to</code> 的不定詞是 <code>to + 動詞原形</code>，例如 <code>to learn</code>。動詞原形就是字典裡的基本形式，例如 <code>learn</code>、<code>work</code>、<code>be</code>。</p>
+        <ul>
+          <li><span lang="en">I <strong>want</strong> to learn English.</span> 我想學英文。</li>
+          <li><span lang="en">She <strong>wants</strong> to learn English.</span> 她想學英文。</li>
+          <li><span lang="en">She <strong>wanted</strong> to learn English.</span> 她那時想學英文。</li>
+        </ul>
+        <p class="note">主詞或時間變了，主要動詞變成 <code>want</code>、<code>wants</code> 或 <code>wanted</code>。<code>to learn</code> 保持同樣的形式，在這三句裡都回答「想做什麼？」</p>
+        <p>不定詞也有不帶 <code>to</code> 的形式。例如 <span lang="en">I can <strong>help</strong>.</span>（我能幫忙），<code>can</code> 後面直接接原形 <code>help</code>。</p>
+        <h3>什麼是介系詞的 to？</h3>
+        <p>介系詞用來連接後面的對象。例如 <code>send it to Amy</code> 裡，<code>to Amy</code> 指寄送的對象。<code>look forward to</code> 裡，<code>to</code> 引出期待的事，像 <code>the visit</code>（這次拜訪）或 <code>visiting your office</code>（拜訪你的辦公室）。<code>V-ing</code> 就是像 <code>visiting</code>、<code>working</code> 這樣的動詞形式，在這裡把動作當成一件事來說。</p>
+      </section>
 
       <section class="panel" id="to-rule" tabindex="-1">
         <h2>快速判斷｜先找 to 前面的搭配</h2>
@@ -571,12 +1476,90 @@
       <section class="panel">
         <h2>參考資料</h2>
         <ul>
+          <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/infinitives-with-and-without-to">Cambridge English Grammar Today｜有 to 和沒有 to 的不定詞</a></li>
           <li><a href="https://dictionary.cambridge.org/us/grammar/british-grammar/infinitive-or-verb-ing">Cambridge English Grammar Today｜不定詞與 V-ing 的動詞句型</a></li>
           <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/look-forward-to">Cambridge｜look forward to</a></li>
           <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/used-to">Cambridge｜used to</a></li>
         </ul>
       </section>
       <a class="lesson-next" href="#prepositions">← 上一篇　介系詞要怎麼記？</a>
+      <a class="lesson-next" href="#verb-transitivity">下一篇　及物與不及物動詞 →</a>
+    </article>
+
+    <article class="lesson" id="verb-transitivity" data-page>
+      <a class="back" href="#home">← 講義總覽</a>
+      <header class="lesson-hero gold">
+        <span class="eyebrow">動詞句型</span>
+        <h1 tabindex="-1">及物與不及物動詞</h1>
+        <p>先認識「直接受詞」，再看動詞後面要直接接對象，還是用介系詞帶出對象。</p>
+      </header>
+      <nav class="toc" aria-label="及物與不及物動詞講義目錄">
+        <a href="#object-definition">什麼是直接受詞？</a><a href="#verb-compare">常見搭配</a><a href="#verb-both">兩種用法</a><a href="#verb-tips">解題方法</a><a href="#verb-quiz">小測驗</a>
+      </nav>
+
+      <section class="panel" id="object-definition" tabindex="-1">
+        <h2>什麼是直接受詞？</h2>
+        <p><strong>直接受詞（direct object）是動詞直接接的對象。</strong> 在 <span lang="en">Mia checked <strong>the invoice</strong>.</span> 裡，<code>Mia</code> 是主詞，<code>checked</code> 是動詞。問「Mia 檢查了什麼？」答案 <code>the invoice</code> 就是直接受詞。</p>
+        <div class="rule-grid two">
+          <div class="rule"><strong>及物用法｜動詞 + 直接受詞</strong><p><span lang="en">The driver reached <strong>the airport</strong>.</span> 司機抵達了機場。<code>reach</code> 在這裡直接接地點 <code>the airport</code>。</p></div>
+          <div class="rule"><strong>不及物用法｜動詞本身沒有直接受詞</strong><p><span lang="en">The driver arrived <strong>at</strong> the airport.</span> 司機抵達了機場。<code>at the airport</code> 整組說明抵達的地點，<code>the airport</code> 接在介系詞 <code>at</code> 後面。</p></div>
+        </div>
+        <p class="note">「及物」的「物」可以是人、事或物。例如 <code>contact Mia</code>（聯絡 Mia）裡的受詞就是人。字典常用 <code>[T]</code> 標示及物、<code>[I]</code> 標示不及物。有些動詞會標示兩種。</p>
+      </section>
+
+      <section class="panel" id="verb-compare" tabindex="-1">
+        <h2>常見搭配｜把動詞和後面的結構一起背</h2>
+        <dl class="examples">
+          <div><dt>抵達</dt><dd><code>reach the airport</code> ／ <code>arrive at the airport</code>。城市或國家用 <code>arrive in Taipei</code>、<code>arrive in Taiwan</code>。</dd></div>
+          <div><dt>討論</dt><dd><code>discuss the plan</code> ／ <code>talk about the plan</code>。</dd></div>
+          <div><dt>進入</dt><dd><code>enter the meeting room</code> ／ <code>go into the meeting room</code>。</dd></div>
+          <div><dt>參加</dt><dd><code>attend the workshop</code> 出席工作坊，<code>participate in the workshop</code> 參與工作坊。</dd></div>
+          <div><dt>聯絡</dt><dd><code>contact the supplier</code> ／ <code>get in touch with the supplier</code>。</dd></div>
+          <div><dt>回覆</dt><dd><code>answer the email</code> ／ <code>reply to the email</code>。</dd></div>
+        </dl>
+        <p class="note">不及物動詞也可以單獨出現。<span lang="en">The guests arrived.</span> 是完整句子。要補充時間可以寫 <code>arrived at noon</code>，要補充地點則寫 <code>arrived at the hotel</code>。</p>
+      </section>
+
+      <section class="panel" id="verb-both" tabindex="-1">
+        <h2>同一個動詞可以有兩種用法</h2>
+        <dl class="examples">
+          <div><dt><code>increase</code></dt><dd><span lang="en">The store increased <strong>its prices</strong>.</span> 店家調高了價格，<code>its prices</code> 是受詞。<br><span lang="en">Prices increased last month.</span> 價格上個月上漲了，<code>last month</code> 說明時間。</dd></div>
+          <div><dt><code>open</code></dt><dd><span lang="en">Mia opened <strong>the door</strong>.</span> Mia 打開了門。<br><span lang="en">The door opened slowly.</span> 門慢慢打開了。</dd></div>
+          <div><dt><code>start</code></dt><dd><span lang="en">The host started <strong>the meeting</strong> at noon.</span> 主持人在中午讓會議開始。<br><span lang="en">The meeting started at noon.</span> 會議在中午開始。</dd></div>
+        </dl>
+        <p class="note">另有兩個常考的「上升／提高」。<code>Sales rose.</code> 是銷售額上升。<code>They raised prices.</code> 是他們提高了價格。背成 <code>rise</code> 自己上升、<code>raise + 對象</code> 把某物提高。</p>
+      </section>
+
+      <section class="panel" id="verb-tips" tabindex="-1">
+        <h2>解題方法｜先找動詞，再看後面的字</h2>
+        <ol>
+          <li><strong>找對象。</strong> <code>She explained the rule to us.</code> 裡，解釋的內容 <code>the rule</code> 是直接受詞，<code>to us</code> 補充說給誰聽。及物句也可以同時有介系詞片語。</li>
+          <li><strong>分辨時間、地點和描述。</strong> <code>She left last night.</code> 的 <code>last night</code> 說明何時離開。<code>She became a manager.</code> 的 <code>a manager</code> 描述主詞的新身分，文法上叫「主詞補語」。兩處的名詞片語都各有自己的功能。</li>
+          <li><strong>用常見被動句型交叉檢查。</strong> 把直接受詞放到句首，寫成 <code>The supplier shipped the order.</code> → <code>The order was shipped.</code>。<code>The order arrived.</code> 裡，<code>the order</code> 本來就是主詞，直接用 <code>arrived</code>。</li>
+        </ol>
+      </section>
+
+      <section class="panel" id="verb-quiz" tabindex="-1">
+        <h2>小測驗｜動詞後面接什麼？</h2>
+        <p>先找出直接受詞或介系詞片語，再展開解析。</p>
+        <details><summary><span lang="en">The delivery truck ___ the warehouse at noon.</span> （arrived / reached）</summary><p><strong>reached</strong>。地點直接接在動詞後。另一個說法是 <code>arrived at the warehouse</code>。</p></details>
+        <details><summary><span lang="en">We ___ the proposal during the meeting.</span> （discussed / talked）</summary><p><strong>discussed</strong>。<code>discuss the proposal</code> 直接接提案。若用 <code>talked</code>，搭配是 <code>talked about the proposal</code>。</p></details>
+        <details><summary><span lang="en">Rita ___ in a workshop yesterday.</span> （attended / participated）</summary><p><strong>participated</strong>。記 <code>participate in a workshop</code> 和 <code>attend a workshop</code>。</p></details>
+        <details><summary><span lang="en">We sent a reminder to the supplier.</span> 哪個是直接受詞？</summary><p><strong>a reminder</strong>。問「寄了什麼？」答案是提醒通知。<code>to the supplier</code> 說明收件人。</p></details>
+        <details><summary><span lang="en">Prices increased last month.</span> 這裡的 increased 是及物還是不及物？</summary><p><strong>不及物</strong>。<code>last month</code> 說明時間。寫成 <code>The store increased its prices.</code> 時，<code>its prices</code> 才是直接受詞。</p></details>
+        <details><summary><span lang="en">Please ___ to the customer's email by noon.</span> （answer / reply）</summary><p><strong>reply</strong>。<code>reply to the email</code> 有介系詞 <code>to</code>，<code>answer the email</code> 則直接接對象。</p></details>
+        <details><summary><span lang="en">The company ___ prices by 5 percent.</span> （rose / raised）</summary><p><strong>raised</strong>。<code>prices</code> 是被提高的對象。也可以說 <code>Prices rose by 5 percent.</code>，此時價格是主詞。</p></details>
+        <details><summary><span lang="en">The shipment ___ yesterday.</span> （arrived / was arrived）</summary><p><strong>arrived</strong>。<code>arrive</code> 是不及物用法，表示貨物到了。若要表達「貨物被寄出」，可寫 <code>The shipment was sent.</code>。</p></details>
+      </section>
+
+      <section class="panel">
+        <h2>參考資料</h2>
+        <ul>
+          <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/verb-patterns-with-and-without-objects">Cambridge English Grammar Today｜有受詞和無受詞的動詞用法</a></li>
+          <li><a href="https://dictionary.cambridge.org/us/grammar/british-grammar/objects">Cambridge｜受詞</a></li>
+        </ul>
+      </section>
+      <a class="lesson-next" href="#to-forms">← 上一篇　to 後面加原形還是 V-ing？</a>
     </article>
   </main>
 
