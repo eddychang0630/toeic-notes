@@ -202,12 +202,63 @@
     .rule p { font-size: .9rem; }
     .note { margin: .95rem 0 0; padding: .75rem .95rem; background: #fff7db; border-left: 3px solid #d9a82a; border-radius: 0 10px 10px 0; }
     .examples { margin: .55rem 0 0; padding: 0; }
-    .examples div { display: grid; grid-template-columns: minmax(130px, .9fr) minmax(0, 2fr); gap: 10px; padding: .62rem 0; border-bottom: 1px solid var(--line); }
+    .examples > div { display: grid; grid-template-columns: minmax(130px, .9fr) minmax(0, 2fr); gap: 10px; padding: .62rem 0; border-bottom: 1px solid var(--line); }
     .examples dt { font-weight: 780; }
     .examples dd { margin: 0; color: #494257; }
     .verb-examples dd span { display: block; }
     .verb-examples dd span[lang="en"] { color: var(--ink); }
     .verb-examples dd strong { color: var(--purple); }
+    .tense-examples > div { padding-block: 1.15rem; }
+    .tense-examples dt span { font-size: .84rem; font-weight: 600; color: #605871; }
+    .tense-example { margin-top: .7rem; }
+    .tense-timeline {
+      margin: .85rem 0;
+      padding: .75rem .8rem;
+      border: 1px solid #ddd7ea;
+      border-radius: 12px;
+      background: #f8f6fb;
+    }
+    .timeline-track { position: relative; height: 48px; margin-inline: 4px; }
+    .timeline-track::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 37px;
+      border-top: 2px solid #9a90ab;
+    }
+    .timeline-track::after {
+      content: ""; position: absolute; right: 0; top: 34px; width: 8px; height: 8px;
+      border: solid #9a90ab; border-width: 2px 2px 0 0; transform: rotate(45deg);
+    }
+    .timeline-reference {
+      position: absolute; z-index: 2; left: var(--at); top: 20px; height: 25px;
+      border-left: 2px solid #5a37a0;
+    }
+    .timeline-reference > span {
+      position: absolute; left: -1px; bottom: 100%; transform: translateX(-50%);
+      width: max-content; font-size: .74rem; font-weight: 750; color: #563394;
+    }
+    .timeline-event, .timeline-bar, .timeline-lookback { position: absolute; top: 38px; }
+    .timeline-event { z-index: 3; width: 10px; height: 10px; border-radius: 50%; background: #285a4a; transform: translate(-50%, -50%); }
+    .timeline-bar { z-index: 1; height: 8px; border-radius: 5px; background: #347660; transform: translateY(-50%); }
+    .timeline-lookback { border-top: 3px dashed #6e5396; transform: translateY(-50%); }
+    .timeline-axis {
+      position: relative; display: flex; justify-content: space-between; margin-inline: 4px;
+      font-size: .75rem; color: #5a5069;
+    }
+    .timeline-axis span:nth-child(2) { position: absolute; left: 50%; transform: translateX(-50%); }
+    .timeline-axis span:nth-child(2)::before {
+      content: ""; position: absolute; bottom: 100%; left: 50%; height: 14px;
+      border-left: 1px dotted #716782;
+    }
+    .tense-timeline figcaption { margin-top: .6rem; font-size: .88rem; }
+    .timeline-legend { display: flex; flex-wrap: wrap; gap: .35rem 1rem; margin-top: .65rem; font-size: .88rem; }
+    .timeline-key { display: inline-flex; align-items: center; gap: .35rem; }
+    .timeline-key::before { content: ""; display: inline-block; flex: none; }
+    .timeline-key.event::before { width: 9px; height: 9px; border-radius: 50%; background: #285a4a; }
+    .timeline-key.duration::before { width: 17px; height: 6px; border-radius: 3px; background: #347660; }
+    .timeline-key.reference::before { height: 13px; border-left: 2px solid #5a37a0; }
+    .timeline-key.lookback::before { width: 17px; border-top: 2px dashed #6e5396; }
+    .tense-correction { margin-top: .65rem; padding: .65rem .75rem; border-left: 3px solid #b57b6b; background: #fbf5f1; }
+    .tense-correction p + p { margin-top: .3rem; }
+    .tense-correction b { display: inline-block; margin-right: .3rem; color: #783a30; }
     .connector-examples dt .tag { display: table; margin-top: .3rem; }
     .connector-examples dd span { display: block; }
     .connector-examples dd span[lang="en"] { margin-top: .2rem; color: var(--ink); }
@@ -271,7 +322,7 @@
       .lesson-card { min-height: 200px; padding: 17px; gap: 9px; border-radius: 19px; }
       .card-icon { width: 43px; height: 43px; border-radius: 12px; }
       .rule-grid, .rule-grid.two { grid-template-columns: 1fr; }
-      .examples div { grid-template-columns: 1fr; gap: 2px; }
+      .examples > div { grid-template-columns: 1fr; gap: 2px; }
       .word-list > div { grid-template-columns: minmax(0, 1fr); gap: 3px; padding-block: .8rem; }
     }
     @media (max-width: 365px) {
@@ -360,8 +411,8 @@
           </a>
           <a class="lesson-card" href="#tenses" data-keywords="時態 現在式 過去式 未來式 現在完成式 完成進行式 動詞變化 tense present perfect since for">
             <div class="card-top"><span class="card-icon green" aria-hidden="true">V</span><span class="topic">多益 Part 5</span></div>
-            <div><h3>時態</h3><p>先找時間，再看動作是習慣、正在進行、已達結果，還是持續了一段時間。</p></div>
-            <div class="card-bottom"><div class="tags"><span class="tag">12 種句型</span><span class="tag">12 題練習</span></div><span class="arrow" aria-hidden="true">→</span></div>
+            <div><h3>時態</h3><p>看時間軸理解 12 種時態句型，再用中英例句和錯句對照練習。</p></div>
+            <div class="card-bottom"><div class="tags"><span class="tag">12 張時間軸</span><span class="tag">12 題練習</span></div><span class="arrow" aria-hidden="true">→</span></div>
           </a>
         </div>
         <p class="empty" id="lesson-empty" hidden>找不到講義，試試「月份」、「不定詞」或「及物動詞」。</p>
@@ -3009,10 +3060,10 @@
       <header class="lesson-hero green">
         <span class="eyebrow">多益 Part 5</span>
         <h1 tabindex="-1">時態</h1>
-        <p>從同一件事的不同說法開始，練習看時間、選動詞形式。12 種常見句型都有中英例句。</p>
+        <p>用 12 張時間軸看動作發生在哪裡，再讀中英例句、比較錯句和改法。</p>
       </header>
       <nav class="toc" aria-label="時態講義目錄">
-        <a href="#tense-definition">時態是什麼？</a><a href="#tense-forms">12 種句型</a><a href="#tense-compare">常考對照</a><a href="#tense-future-choices">怎麼說未來？</a><a href="#tense-clues">解題順序</a><a href="#tense-quiz">小測驗</a>
+        <a href="#tense-definition">時態是什麼？</a><a href="#tense-forms">12 種時間軸</a><a href="#tense-compare">常考對照</a><a href="#tense-errors">常見錯句</a><a href="#tense-future-choices">怎麼說未來？</a><a href="#tense-clues">解題順序</a><a href="#tense-quiz">小測驗</a>
       </nav>
 
       <section class="panel" id="tense-definition" tabindex="-1">
@@ -3028,31 +3079,389 @@
       </section>
 
       <section class="panel" id="tense-forms" tabindex="-1">
-        <h2>12 種常見時態句型</h2>
-        <p>課本常把「現在、過去、未來」各配四種動作表達一起學。下面的「未來式」名稱是方便查找的教學用語，說未來也常用 <code>be going to</code> 等其他形式。</p>
+        <h2>12 種時態句型與時間軸</h2>
+        <p>每張圖都由左往右讀，正中央的「現在」是說話當下。先找紫色直線，再看事件的點或活動的線在它前面、跨過它，還是一路延伸到它。</p>
+        <div class="timeline-legend" aria-label="時間軸圖例">
+          <span class="timeline-key event">事件</span>
+          <span class="timeline-key duration">動作持續</span>
+          <span class="timeline-key reference">參照點</span>
+          <span class="timeline-key lookback">從參照點往前回看</span>
+        </div>
+        <p class="note">圖上的位置和長度對應各自的例句。遇到其他情境時，動作可以更早開始、晚一點結束，也可能持續到參照點之後。下方沿用課本常見的「未來式」名稱，表達未來也常用 <code>be going to</code> 等形式。</p>
         <nav class="toc" aria-label="時態句型分類"><a href="#tense-present">現在</a><a href="#tense-past">過去</a><a href="#tense-future">未來</a></nav>
         <h3 id="tense-present" tabindex="-1">現在時態</h3>
-        <dl class="examples verb-examples">
-          <div><dt>現在簡單式<br><span lang="en">present simple</span></dt><dd><span><code>原形／第三人稱單數加 -s 或 -es</code>。習慣、事實、長期狀態。be 的形式是 am、is、are。</span><span lang="en">The store <strong>opens</strong> at nine every weekday.</span><span>這家店每個平日上午九點開門。</span></dd></div>
-          <div><dt>現在進行式<br><span lang="en">present continuous</span></dt><dd><span><code>am / is / are + V-ing</code>。正在進行的動作，或現階段暫時的安排。</span><span lang="en">We <strong>are testing</strong> the new booking system this week.</span><span>這週我們正在測試新的預約系統。</span></dd></div>
-          <div><dt>現在完成式<br><span lang="en">present perfect</span></dt><dd><span><code>have / has + 過去分詞</code>。從過去看到現在，可說經驗、截至目前的結果，或持續至今的狀態。</span><span lang="en">We <strong>have received</strong> 30 applications so far.</span><span>到目前為止，我們已收到 30 份申請。</span></dd></div>
-          <div><dt>現在完成進行式<br><span lang="en">present perfect continuous</span></dt><dd><span><code>have / has been + V-ing</code>。強調持續多久或近期反覆進行的過程，也可描述剛停止且留下跡象的活動。</span><span lang="en">We <strong>have been waiting</strong> for the technician since nine.</span><span>我們從九點起就一直在等技術人員。</span></dd></div>
+        <dl class="examples verb-examples tense-examples">
+          <div>
+            <dt>現在簡單式<br><span lang="en">present simple</span></dt>
+            <dd>
+              <p><code>原形／第三人稱單數加 -s 或 -es</code></p>
+              <p>用來說固定習慣、一般事實或現在成立的狀態。<code>be</code> 用 <code>am / is / are</code>。第三人稱單數例如 <code>the store</code>，其他動詞通常加 <code>-s</code> 或 <code>-es</code>。</p>
+              <p class="tense-example"><span lang="en">The store <strong>opens</strong> at nine every weekday.</span><span>這家店每個平日上午九點開門。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:50%"><span>現在</span></span>
+                    <i class="timeline-event" style="left:16%"></i><i class="timeline-event" style="left:31%"></i><i class="timeline-event" style="left:66%"></i><i class="timeline-event" style="left:82%"></i>
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>點分散在現在的前後，代表平日反覆開門的習慣。現在這一刻可能還沒開門，也可能已經營業。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">Mia <strong>checks</strong> orders before lunch.</span><span>Mia 每天午餐前核對訂單。</span></li>
+                <li><span lang="en">This card <strong>belongs</strong> to me.</span><span>這張卡是我的。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">The store open at nine every weekday.</code></p>
+                <p><b>改</b> <code lang="en">The store <strong>opens</strong> at nine every weekday.</code></p>
+                <p>主詞 <code>the store</code> 是第三人稱單數，肯定句用 <code>opens</code>。</p>
+              </div>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">Does Mia checks orders every morning?</code></p>
+                <p><b>改</b> <code lang="en">Does Mia <strong>check</strong> orders every morning?</code></p>
+                <p><code>does</code> 已經配合主詞，後面的主要動詞用原形。</p>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>現在進行式<br><span lang="en">present continuous</span></dt>
+            <dd>
+              <p><code>am / is / are + V-ing</code></p>
+              <p>用來說眼前正在發生的事，或這段期間正在進行的暫時活動。<code>now</code>、<code>right now</code> 和 <code>this week</code> 都可能是線索。</p>
+              <p class="tense-example"><span lang="en">We <strong>are testing</strong> the new booking system this week.</span><span>這週我們正在測試新的預約系統。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:50%"><span>現在</span></span>
+                    <i class="timeline-bar" style="left:32%;width:36%"></i>
+                    
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>有色線段跨過現在，表示現在處在測試期間。句子可以描述這週的工作，即使說話那一秒正在休息。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">Please wait. I <strong>am printing</strong> your receipt.</span><span>請稍等，我正在印你的收據。</span></li>
+                <li><span lang="en">Nina usually works on site, but she <strong>is working</strong> from home this week.</span><span>Nina 平常到公司上班，這週暫時在家工作。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">We testing the new system right now.</code></p>
+                <p><b>改</b> <code lang="en">We <strong>are testing</strong> the new system right now.</code></p>
+                <p>進行式要有 <code>be</code>，主詞 <code>we</code> 搭配 <code>are</code>。</p>
+              </div>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">I am knowing the answer.</code></p>
+                <p><b>改</b> <code lang="en">I <strong>know</strong> the answer.</code></p>
+                <p><code>know</code> 在這裡表示已知的狀態，通常用簡單式。</p>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>現在完成式<br><span lang="en">present perfect</span></dt>
+            <dd>
+              <p><code>have / has + 過去分詞</code></p>
+              <p>從現在回看，常用來說截至目前的結果、經驗，或從過去延續至今的狀態。單數主詞如 <code>she</code> 用 <code>has</code>。</p>
+              <p class="tense-example"><span lang="en">We <strong>have received</strong> 30 applications so far.</span><span>到目前為止，我們已收到 30 份申請。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:50%"><span>現在</span></span>
+                    <i class="timeline-lookback" style="left:16%;width:34%"></i>
+                    <i class="timeline-event" style="left:16%"></i><i class="timeline-event" style="left:25%"></i><i class="timeline-event" style="left:38%"></i>
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>過去區域的點代表已收到的申請，虛線連到現在，表示從說話當下回頭計算累積數量。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">I <strong>have already sent</strong> the quote, so you can review it now.</span><span>我已經寄出報價單了，你現在可以查看。</span></li>
+                <li><span lang="en">I <strong>have known</strong> Mia since 2020.</span><span>我從 2020 年起就認識 Mia。這個狀態現在仍成立。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">We have sent the invoice yesterday.</code></p>
+                <p><b>改</b> <code lang="en">We <strong>sent</strong> the invoice yesterday.</code></p>
+                <p><code>yesterday</code> 指已結束的過去時間，寄發票這件事用過去簡單式。</p>
+              </div>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">She has wrote the report.</code></p>
+                <p><b>改</b> <code lang="en">She <strong>has written</strong> the report.</code></p>
+                <p><code>has</code> 後面用過去分詞 <code>written</code>。<code>wrote</code> 是過去式。</p>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>現在完成進行式<br><span lang="en">present perfect continuous</span></dt>
+            <dd>
+              <p><code>have / has been + V-ing</code></p>
+              <p>強調從較早時候到現在的過程、時長或反覆活動。活動有時剛停下，但此刻還看得到影響。</p>
+              <p class="tense-example"><span lang="en">We <strong>have been waiting</strong> for the technician since nine.</span><span>我們從九點起就一直在等技術人員。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:50%"><span>現在</span></span>
+                    <i class="timeline-bar" style="left:15%;width:35%"></i>
+                    
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>線段從過去的九點畫到現在，表示已經等了一段時間。這句通常讓人理解為還在等。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">It <strong>has been raining</strong> all morning, and the walkways are wet.</span><span>整個早上都在下雨，走道現在是濕的。</span></li>
+                <li><span lang="en">I <strong>have been trying</strong> to reach the supplier for two hours.</span><span>我這兩個小時一直在試著聯絡供應商。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">We have waiting for the technician since nine.</code></p>
+                <p><b>改</b> <code lang="en">We <strong>have been waiting</strong> for the technician since nine.</code></p>
+                <p>完成進行式需要 <code>have been</code>，再接 <code>waiting</code>。</p>
+              </div>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">I have been knowing Mia since 2020.</code></p>
+                <p><b>改</b> <code lang="en">I <strong>have known</strong> Mia since 2020.</code></p>
+                <p><code>know</code> 表持續成立的狀態，通常用現在完成式。</p>
+              </div>
+            </dd>
+          </div>
         </dl>
 
         <h3 id="tense-past" tabindex="-1">過去時態</h3>
-        <dl class="examples verb-examples">
-          <div><dt>過去簡單式<br><span lang="en">past simple</span></dt><dd><span><code>動詞過去式（V2）</code>。在已經結束的過去時間發生的事。be 用 was 或 were。</span><span lang="en">We <strong>sent</strong> the invoice yesterday.</span><span>我們昨天寄出了發票。</span></dd></div>
-          <div><dt>過去進行式<br><span lang="en">past continuous</span></dt><dd><span><code>was / were + V-ing</code>。在過去某個時間點或事件發生時，另一個動作正在進行。</span><span lang="en">We <strong>were discussing</strong> the budget when the power went out.</span><span>停電時，我們正在討論預算。</span></dd></div>
-          <div><dt>過去完成式<br><span lang="en">past perfect</span></dt><dd><span><code>had + 過去分詞</code>。站在某個過去時間往前看，交代更早的動作或狀態。</span><span lang="en">By the time the guests arrived, the staff <strong>had already set</strong> the tables.</span><span>客人到達時，工作人員早已把餐桌布置好了。</span></dd></div>
-          <div><dt>過去完成進行式<br><span lang="en">past perfect continuous</span></dt><dd><span><code>had been + V-ing</code>。說明一個活動在過去某個時間以前已持續多久。</span><span lang="en">Nina <strong>had been preparing</strong> for the presentation for two weeks when the client postponed it.</span><span>客戶延後簡報時，Nina 已經準備了兩週。</span></dd></div>
+        <dl class="examples verb-examples tense-examples">
+          <div>
+            <dt>過去簡單式<br><span lang="en">past simple</span></dt>
+            <dd>
+              <p><code>動詞過去式（V2）</code></p>
+              <p>把事情放在已結束的過去時段。也能描述過去的習慣或維持了一段時間的狀態。<code>be</code> 的過去式是 <code>was / were</code>。</p>
+              <p class="tense-example"><span lang="en">We <strong>sent</strong> the invoice yesterday.</span><span>我們昨天寄出了發票。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:25%"><span>過去某刻</span></span>
+                    <i class="timeline-event" style="left:25%"></i>
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>寄出發票的事件在現在左邊。圖上的點只代表這一次寄出，過去簡單式也可以描述一段時間。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">The shop <strong>closed</strong> an hour ago.</span><span>這家店一小時前關門了。</span></li>
+                <li><span lang="en">I <strong>worked</strong> at the hotel for three years before I changed jobs.</span><span>我換工作前在那間飯店工作了三年。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">Did you sent the reminder?</code></p>
+                <p><b>改</b> <code lang="en">Did you <strong>send</strong> the reminder?</code></p>
+                <p><code>did</code> 已經表示過去，後面接 <code>send</code> 原形。</p>
+              </div>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">The shipment didn't arrived yesterday.</code></p>
+                <p><b>改</b> <code lang="en">The shipment didn't <strong>arrive</strong> yesterday.</code></p>
+                <p><code>didn't</code> 後面也接動詞原形。</p>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>過去進行式<br><span lang="en">past continuous</span></dt>
+            <dd>
+              <p><code>was / were + V-ing</code></p>
+              <p>讓讀者看到過去某一刻正在做什麼。敘述一件突發事件時，常用過去進行式交代背景，再用過去簡單式寫發生的事。</p>
+              <p class="tense-example"><span lang="en">We <strong>were discussing</strong> the budget when the power went out.</span><span>停電時，我們正在討論預算。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:25%"><span>過去某刻</span></span>
+                    <i class="timeline-bar" style="left:14%;width:24%"></i>
+                    
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>線段跨過過去的參照點。停電發生時，討論正在進行。線段右端只示意過程，句子沒有交代討論何時結束。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">At 3 p.m. yesterday, I <strong>was speaking</strong> with a client.</span><span>昨天下午三點，我正在和客戶通話。</span></li>
+                <li><span lang="en">While we <strong>were loading</strong> the truck, the driver checked the paperwork.</span><span>我們正在裝車時，司機核對了文件。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">We were discuss the budget when the power went out.</code></p>
+                <p><b>改</b> <code lang="en">We <strong>were discussing</strong> the budget when the power went out.</code></p>
+                <p><code>were</code> 後接 <code>discussing</code>，組成過去進行式。</p>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>過去完成式<br><span lang="en">past perfect</span></dt>
+            <dd>
+              <p><code>had + 過去分詞</code></p>
+              <p>先找過去的觀察點，再交代在那之前已發生的事或已持續的狀態。<code>had</code> 適用於所有人稱。</p>
+              <p class="tense-example"><span lang="en">By the time the guests arrived, the staff <strong>had already set</strong> the tables.</span><span>客人到達時，工作人員早已把餐桌布置好了。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:25%"><span>過去某刻</span></span>
+                    <i class="timeline-lookback" style="left:11%;width:14%"></i>
+                    <i class="timeline-event" style="left:11%"></i>
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>實心點是布置完成。虛線連到客人抵達的時間，兩個時間都在說話當下以前。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">When the manager arrived, the meeting <strong>had already started</strong>.</span><span>主管到了時，會議早已開始。</span></li>
+                <li><span lang="en">By 2021, we <strong>had owned</strong> the building for five years.</span><span>到 2021 年時，我們已擁有那棟樓五年。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">The technician had went home before I called.</code></p>
+                <p><b>改</b> <code lang="en">The technician <strong>had gone</strong> home before I called.</code></p>
+                <p><code>had</code> 要接 <code>gone</code>。<code>went</code> 可單獨當過去式。</p>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>過去完成進行式<br><span lang="en">past perfect continuous</span></dt>
+            <dd>
+              <p><code>had been + V-ing</code></p>
+              <p>站在過去某一刻往前看，重點是此前已持續一段時間的活動。有時這個活動也解釋了當時的情況。</p>
+              <p class="tense-example"><span lang="en">Nina <strong>had been preparing</strong> for the presentation for two weeks when the client postponed it.</span><span>客戶延後簡報時，Nina 已經準備了兩週。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:25%"><span>過去某刻</span></span>
+                    <i class="timeline-bar" style="left:5%;width:20%"></i>
+                    
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>線段從更早的過去畫到客戶延期那一刻，代表當時已累積的兩週。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">They <strong>had been waiting</strong> for an hour when the shuttle finally arrived.</span><span>接駁車終於到時，他們已經等了一小時。</span></li>
+                <li><span lang="en">The road was wet because it <strong>had been raining</strong> all night.</span><span>路面是濕的，因為之前下了一整晚的雨。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">They had been wait for an hour when the shuttle arrived.</code></p>
+                <p><b>改</b> <code lang="en">They <strong>had been waiting</strong> for an hour when the shuttle arrived.</code></p>
+                <p><code>had been</code> 後面用 <code>V-ing</code>。</p>
+              </div>
+            </dd>
+          </div>
         </dl>
 
         <h3 id="tense-future" tabindex="-1">未來時間的四種常用句型</h3>
-        <dl class="examples verb-examples">
-          <div><dt>未來簡單式<br><span lang="en">future simple</span></dt><dd><span><code>will + 原形</code>。常用於預測、承諾、通知或當下做的決定。</span><span lang="en">I <strong>will send</strong> you the updated schedule this afternoon.</span><span>我今天下午會把更新後的時程寄給你。</span></dd></div>
-          <div><dt>未來進行式<br><span lang="en">future continuous</span></dt><dd><span><code>will be + V-ing</code>。想像到了未來某一刻，動作正進行到一半。</span><span lang="en">This time tomorrow, I <strong>will be flying</strong> to Osaka.</span><span>明天這個時候，我會正在飛往大阪的途中。</span></dd></div>
-          <div><dt>未來完成式<br><span lang="en">future perfect</span></dt><dd><span><code>will have + 過去分詞</code>。站在未來的參照點回頭看，到那時已完成或已累積的事情。</span><span lang="en">By the time you arrive, we <strong>will have printed</strong> all the tickets.</span><span>等你抵達時，我們會已經印好所有票券。</span></dd></div>
-          <div><dt>未來完成進行式<br><span lang="en">future perfect continuous</span></dt><dd><span><code>will have been + V-ing</code>。強調活動持續到未來某一點的時長。</span><span lang="en">By next Friday, we <strong>will have been testing</strong> the system for three weeks.</span><span>到下星期五，我們就已經持續測試這套系統三週了。</span></dd></div>
+        <dl class="examples verb-examples tense-examples">
+          <div>
+            <dt>未來簡單式<br><span lang="en">future simple</span></dt>
+            <dd>
+              <p><code>will + 原形</code></p>
+              <p>常用於預測、通知、承諾和當下做的決定。所有主詞的 <code>will</code> 後都接原形。</p>
+              <p class="tense-example"><span lang="en">I <strong>will send</strong> you the updated schedule this afternoon.</span><span>我今天下午會把更新後的時程寄給你。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:77%"><span>未來某刻</span></span>
+                    <i class="timeline-event" style="left:77%"></i>
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>實心點放在現在右側，表示寄送預計在今天下午發生。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">The help desk <strong>will reopen</strong> on Monday.</span><span>服務台將在星期一重新開放。</span></li>
+                <li><span lang="en">I <strong>will call</strong> you as soon as the courier arrives.</span><span>快遞一到，我就會打給你。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">The assistant will sends the schedule this afternoon.</code></p>
+                <p><b>改</b> <code lang="en">The assistant will <strong>send</strong> the schedule this afternoon.</code></p>
+                <p><code>will</code> 後接原形，即使主詞是單數也用 <code>send</code>。</p>
+              </div>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">I'll call you as soon as the courier will arrive.</code></p>
+                <p><b>改</b> <code lang="en">I'll call you as soon as the courier <strong>arrives</strong>.</code></p>
+                <p>這裡 <code>as soon as</code> 說明何時打電話，時間子句通常用現在式表未來。</p>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>未來進行式<br><span lang="en">future continuous</span></dt>
+            <dd>
+              <p><code>will be + V-ing</code></p>
+              <p>站在未來某個時間看，動作到那時會正在進行。常以 <code>this time tomorrow</code> 或明確的未來時刻設定參照點。</p>
+              <p class="tense-example"><span lang="en">This time tomorrow, I <strong>will be flying</strong> to Osaka.</span><span>明天這個時候，我會在飛往大阪的途中。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:77%"><span>未來某刻</span></span>
+                    <i class="timeline-bar" style="left:65%;width:26%"></i>
+                    
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>未來區域的線段跨過明天這個時刻。那一刻人在飛機上，飛行正在進行。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">At 10 tomorrow, we <strong>will be interviewing</strong> candidates.</span><span>明天十點，我們會正在面試應徵者。</span></li>
+                <li><span lang="en">Don't call at noon. I <strong>will be presenting</strong> the results then.</span><span>中午先別打給我，那時我會正在報告結果。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">At 10 tomorrow, we will be interview candidates.</code></p>
+                <p><b>改</b> <code lang="en">At 10 tomorrow, we <strong>will be interviewing</strong> candidates.</code></p>
+                <p><code>will be</code> 接動詞的 <code>-ing</code> 形式，表示那時正在進行。</p>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>未來完成式<br><span lang="en">future perfect</span></dt>
+            <dd>
+              <p><code>will have + 過去分詞</code></p>
+              <p>把觀察點移到未來，說到那個時間已完成的事或已累積的結果。常見線索是 <code>by then</code>、<code>by next Friday</code> 或 <code>by the time</code>。</p>
+              <p class="tense-example"><span lang="en">By the time you arrive, we <strong>will have printed</strong> all the tickets.</span><span>你抵達時，我們就已經印好所有票券了。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:77%"><span>未來某刻</span></span>
+                    <i class="timeline-lookback" style="left:63%;width:14%"></i>
+                    <i class="timeline-event" style="left:63%"></i>
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>完成的點在抵達的參照點左邊。現在先預想未來的抵達，再回頭看那時已完成的事。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">By noon tomorrow, the team <strong>will have checked</strong> all 200 orders.</span><span>到明天中午，團隊就會核對完全部 200 筆訂單。</span></li>
+                <li><span lang="en">By next May, I <strong>will have worked</strong> here for ten years.</span><span>到明年五月，我就已經在這裡工作滿十年。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">By noon tomorrow, we will have print all the tickets.</code></p>
+                <p><b>改</b> <code lang="en">By noon tomorrow, we <strong>will have printed</strong> all the tickets.</code></p>
+                <p><code>will have</code> 後接過去分詞 <code>printed</code>。</p>
+              </div>
+            </dd>
+          </div>
+          <div>
+            <dt>未來完成進行式<br><span lang="en">future perfect continuous</span></dt>
+            <dd>
+              <p><code>will have been + V-ing</code></p>
+              <p>站在未來某一刻看一個已持續多久的活動。活動可以從現在以前就開始，也可以之後才開始。</p>
+              <p class="tense-example"><span lang="en">By next Friday, we <strong>will have been testing</strong> the system for three weeks.</span><span>到下星期五，我們就已經持續測試這套系統三週了。</span></p>
+              <figure class="tense-timeline">
+                <div class="timeline-diagram" aria-hidden="true">
+                  <div class="timeline-track">
+                    <span class="timeline-reference" style="--at:77%"><span>未來某刻</span></span>
+                    <i class="timeline-bar" style="left:34%;width:43%"></i>
+                    
+                  </div>
+                  <div class="timeline-axis"><span>過去</span><span>現在</span><span>未來</span></div>
+                </div>
+                <figcaption>線段從較早的開始時間畫到下星期五，重點是屆時累積三週。圖上的終點是計算時長的時間。</figcaption>
+              </figure>
+              <ul class="tense-more" aria-label="更多例句">
+                <li><span lang="en">By July, she <strong>will have been managing</strong> this branch for a year.</span><span>到七月，她就已經管理這家分店滿一年了。</span></li>
+                <li><span lang="en">When the shift ends, we <strong>will have been answering</strong> customer calls for eight hours.</span><span>這個班次結束時，我們就已經連續接聽客戶電話八小時了。</span></li>
+              </ul>
+              <div class="tense-correction">
+                <p><b>錯</b> <code lang="en">By Friday, we will have been test the system for three weeks.</code></p>
+                <p><b>改</b> <code lang="en">By Friday, we <strong>will have been testing</strong> the system for three weeks.</code></p>
+                <p><code>will have been</code> 後面接 <code>testing</code>。<code>for three weeks</code> 交代持續多久。</p>
+              </div>
+            </dd>
+          </div>
         </dl>
       </section>
 
@@ -3063,6 +3472,69 @@
           <div><dt>過去簡單式 vs. 現在完成式</dt><dd><span lang="en">We <strong>opened</strong> the shop in 2022. We <strong>have owned</strong> the shop since 2022.</span><span>我們在 2022 年開店。我們從 2022 年起就一直是這家店的店主。<code>in 2022</code> 說開店的時間，<code>since 2022</code> 是延續至今的起點。</span></dd></div>
           <div><dt>現在完成式 vs. 現在完成進行式</dt><dd><span lang="en">I <strong>have written</strong> three reports today. I <strong>have been writing</strong> reports all morning.</span><span>我今天已寫完三份報告。我整個早上都在寫報告。前句強調完成了幾份，後句強調持續在做。有些動詞兩種形式都自然，如 <code>have lived here for years</code> 和 <code>have been living here for years</code>。</span></dd></div>
           <div><dt>兩個過去事件</dt><dd><span lang="en">When the manager <strong>arrived</strong>, the meeting <strong>had already started</strong>.</span><span>主管到的時候，會議早已開始。<code>arrived</code> 設定過去參照點，<code>had started</code> 表示更早的事。若 <code>before</code> 或 <code>after</code> 已交代順序，視語境也常見兩個簡單過去式。</span></dd></div>
+        </dl>
+      </section>
+
+      <section class="panel" id="tense-errors" tabindex="-1">
+        <h2>常見錯句與改法</h2>
+        <p>這些錯誤常牽涉時間詞、助動詞或動詞的形式。先讀錯句，想想要改哪一部分，再看下方的改法和理由。</p>
+        <dl class="examples">
+          <div>
+            <dt>since 或 for</dt>
+            <dd class="tense-correction">
+              <p><b>錯</b> <code lang="en">We have waited since two hours.</code></p>
+              <p><b>改</b> <code lang="en">We have waited <strong>for</strong> two hours.</code></p>
+              <p><code>two hours</code> 是時長，用 <code>for</code>。<code>since</code> 後接起點，例如 <code>since 9 a.m.</code>。</p>
+            </dd>
+          </div>
+          <div>
+            <dt>已過去的時間</dt>
+            <dd class="tense-correction">
+              <p><b>錯</b> <code lang="en">I have spoken to the client last Friday.</code></p>
+              <p><b>改</b> <code lang="en">I <strong>spoke</strong> to the client last Friday.</code></p>
+              <p>這裡把通話明確放在已經過去的上星期五。用過去簡單式；若重點是目前已聯絡過，可以說 <code>I've already spoken to the client.</code>。</p>
+            </dd>
+          </div>
+          <div>
+            <dt>要表達三份都已完成</dt>
+            <dd class="tense-correction">
+              <p><b>原句</b> <code lang="en">I have been writing all three reports, so they're ready to send.</code></p>
+              <p><b>改</b> <code lang="en">I <strong>have written</strong> all three reports, so they're ready to send.</code></p>
+              <p>報告都可以寄了，重點是三份都寫完。若想強調一直在寫，能用 <code>I've been writing reports all morning.</code>。</p>
+            </dd>
+          </div>
+          <div>
+            <dt>主詞與 have／has</dt>
+            <dd class="tense-correction">
+              <p><b>錯</b> <code lang="en">The list of applicants have changed.</code></p>
+              <p><b>改</b> <code lang="en">The list of applicants <strong>has changed</strong>.</code></p>
+              <p>主詞的核心是單數 <code>the list</code>。<code>of applicants</code> 只說明是什麼清單。</p>
+            </dd>
+          </div>
+          <div>
+            <dt>when 時間子句</dt>
+            <dd class="tense-correction">
+              <p><b>錯</b> <code lang="en">I'll email you when the meeting will end.</code></p>
+              <p><b>改</b> <code lang="en">I'll email you when the meeting <strong>ends</strong>.</code></p>
+              <p>這裡 <code>when</code> 交代寄信的時間。若是問會議的結束時間，可以說 <code>Do you know when the meeting will end?</code>。</p>
+            </dd>
+          </div>
+          <div>
+            <dt>by 或 until</dt>
+            <dd class="tense-correction">
+              <p><b>錯</b> <code lang="en">Please submit the form until Friday.</code></p>
+              <p><b>改</b> <code lang="en">Please submit the form <strong>by</strong> Friday.</code></p>
+              <p>如果意思是「最晚週五交」，用 <code>by Friday</code>。<code>until</code> 說明某個狀態持續到何時，如 <code>The office will remain open until Friday.</code>。</p>
+            </dd>
+          </div>
+          <div>
+            <dt>看清楚被動句</dt>
+            <dd class="tense-correction">
+              <p><b>錯</b> <code lang="en">The application has approved.</code></p>
+              <p><b>改</b> <code lang="en">The application <strong>has been approved</strong>.</code></p>
+              <p>申請是被核准的對象。現在完成式的被動是 <code>has / have been + 過去分詞</code>。若以做決定的人當主詞，可以寫 <code>The manager has approved the application.</code>。</p>
+            </dd>
+          </div>
         </dl>
       </section>
 
